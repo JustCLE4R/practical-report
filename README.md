@@ -11,5 +11,5 @@ Adalah sebuah web app untuk mempermudah pekerjaan seenggok asisten lab
 [![GIT](https://img.shields.io/badge/Git-black?style=for-the-badge&logo=git)](https://github.com/JustCLE4R/practical-report)
 
 ### Main Contributor
-[Dimas Yudistira](https://github.com/JustCLE4R/)
-[Alvin Alvito](https://github.com/AlvinAlvito)
+- [Dimas Yudistira](https://github.com/JustCLE4R/)
+- [Alvin Alvito](https://github.com/AlvinAlvito)
