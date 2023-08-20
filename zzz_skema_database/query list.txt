@@ -16,3 +16,16 @@ INNER JOIN laboran ON mk.id_laboran = laboran.id
 INNER JOIN aslab ON mk.id_aslab = aslab.id
 WHERE mhs.nim = 0701256123
 ORDER BY semester DESC;
+
+==============================10:20 PM 20/08/2023==============================
+SELECT * FROM (
+	SELECT id, 'aslab' AS role, nama, username, password
+	FROM aslab 
+	UNION
+	SELECT id, 'laboran', nama, username, password
+	FROM laboran
+	UNION
+	SELECT id, 'dosen', nama, username, password
+	FROM dosen
+) user
+WHERE user.username = 'sabirin'
