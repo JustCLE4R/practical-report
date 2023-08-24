@@ -29,3 +29,18 @@ SELECT * FROM (
 	FROM dosen
 ) user
 WHERE user.username = 'sabirin'
+
+==============================4:17 PM 24/08/2023==============================
+ SELECT * FROM (
+	SELECT 'Mahasiswa' role, COUNT(nim) jumlah
+	FROM mahasiswa
+	UNION
+	SELECT 'Aslab', COUNT(id)
+	FROM aslab
+	UNION
+	SELECT 'Laboran', COUNT(id)
+	FROM laboran
+	UNION
+	SELECT 'Dosen', COUNT(id)
+	FROM dosen
+) jumlah

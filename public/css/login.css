@@ -21,7 +21,7 @@ body{
   background: #dde1e7;
   border-radius: 10px;
   box-shadow: -3px -3px 7px #ffffff73,
-               2px 2px 5px rgba(94,104,121,0.288);
+              2px 2px 5px rgba(94,104,121,0.288);
 }
 .content .text{
   font-size: 33px;
@@ -98,12 +98,12 @@ button{
   cursor: pointer;
   color: #595959;
   box-shadow: 2px 2px 5px #BABECC,
-             -5px -5px 10px #ffffff73;
+              -5px -5px 10px #ffffff73;
 }
 button:focus{
   color: #3498db;
   box-shadow: inset 2px 2px 5px #BABECC,
-             inset -5px -5px 10px #ffffff73;
+              inset -5px -5px 10px #ffffff73;
 }
 .sign-up{
   margin: 10px 0;

@@ -1,0 +1,18 @@
+{
+  "name": "practical-report",
+  "version": "1.0.0",
+  "description": "Adalah sebuah web app untuk mempermudah pekerjaan seenggok asisten lab",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0"
+  }
+}
