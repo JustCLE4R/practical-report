@@ -1,169 +1,179 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Dashboard Aslab</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <div class="logo_item">
-        <i class="bx bx-menu" id="sidebarOpen">
-        </i>
-        <p>Dashboard</p>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../../public/css/style.css">
+     
+    <!-- Fontawasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-      <div class="search_bar">
-        <input type="text" placeholder="Search" />
-      </div>
-
-      <div class="navbar_content">
-        <i class="bi bi-grid"></i>
-        <i class='bx bx-sun' id="darkLight"></i>
-        <i class='bx bx-bell' ></i>
-        <img src="images/profile.jpg" alt="" class="profile" />
-      </div>
-    </nav>
-
-    <!-- sidebar -->
-    <nav class="sidebar">
-      <div class="menu_content">
-        <ul class="menu_items">
-          <div class="menu_title menu_dahsboard"></div>
-          
-          <li class="item">
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-                <i class="bx bx-home-alt"></i>
-              </span>
-              <span class="navlink">Home</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
+    <title>Admin Dashboard Panel</title> 
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../../public/images/logo.jpeg" alt="">
             </div>
 
-            <ul class="menu_items submenu">
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-            </ul>
-          </li>
-          
-          <li class="item">
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-                <i class="bx bx-grid-alt"></i>
-              </span>
-              <span class="navlink">Overview</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
-
-            <ul class="menu_items submenu">
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-            </ul>
-          </li>
-       
-        </ul>
-
-        <ul class="menu_items">
-          <div class="menu_title menu_editor"></div>
-          
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bxs-magic-wand"></i>
-              </span>
-              <span class="navlink">Mendiang</span>
-            </a>
-          </li>
-
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-loader-circle"></i>
-              </span>
-              <span class="navlink">Riytzo</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-filter"></i>
-              </span>
-              <span class="navlink">Simpanse</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-cloud-upload"></i>
-              </span>
-              <span class="navlink">Cool</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="menu_items">
-          <div class="menu_title menu_setting"></div>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-flag"></i>
-              </span>
-              <span class="navlink">Beban</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-medal"></i>
-              </span>
-              <span class="navlink">Awkward</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-cog"></i>
-              </span>
-              <span class="navlink">Villager</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-layer"></i>
-              </span>
-              <span class="navlink">Minecraft</span>
-            </a>
-          </li>
-        </ul>
-
-        <!-- Sidebar Open / Close -->
-        <div class="bottom_content">
-          <div class="bottom expand_sidebar">
-            <span> Expand</span>
-            <i class='bx bx-log-in' ></i>
-          </div>
-          <div class="bottom collapse_sidebar">
-            <span>Keluar</span>
-            <i class='bx bx-log-out'></i>
-          </div>
+            <span class="logo_name">Dashboard</span>
         </div>
-      </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dahsboard</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Content</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Analytics</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-thumbs-up"></i>
+                    <span class="link-name">Like</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-comments"></i>
+                    <span class="link-name">Comment</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-share"></i>
+                    <span class="link-name">Share</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
     </nav>
-    
-    <article>
-        <h1>Tes ini konten</h1>
-    </article>
-    
-    
-    <script src="script.js"></script>
-  </body>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <img src="../../public/images/profile.jpg" alt="">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="text">Mahasiswa</span>
+                        <span class="number">50,120</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <span class="text">Aslab</span>
+                        <span class="number">12</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="text">Laboran</span>
+                        <span class="number">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Member</span>
+                </div>
+
+                <div class="activity-data">
+                    <div class="data names">
+                        <span class="data-title">Name</span>
+                        <span class="data-list">Paris Alvito</span>
+                        <span class="data-list">Dimas Yudistira</span>
+                        <span class="data-list">Ishlahiyah Nurizky</span>
+                        <span class="data-list">The KTB</span>
+                        <span class="data-list">Faturahman</span>
+                        <span class="data-list">Bintang Hutagalung</span>
+                        <span class="data-list">Sultan bin sabirin</span>
+                    </div>
+                    <div class="data email">
+                        <span class="data-title">NIM</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                        <span class="data-list">0701212165</span>
+                    </div>
+                    <div class="data joined">
+                        <span class="data-title">Stambuk</span>
+                        <span class="data-list">2021</span>
+                        <span class="data-list">2021</span>
+                        <span class="data-list">2021</span>
+                        <span class="data-list">2020</span>
+                        <span class="data-list">2021</span>
+                        <span class="data-list">2021</span>
+                        <span class="data-list">2021</span>
+                    </div>
+                    <div class="data type">
+                        <span class="data-title">Role</span>
+                        <span class="data-list">Assasin</span>
+                        <span class="data-list">Tank</span>
+                        <span class="data-list">Mage</span>
+                        <span class="data-list">Fighter</span>
+                        <span class="data-list">Assasin</span>
+                        <span class="data-list">Support</span>
+                        <span class="data-list">Beban</span>
+                    </div>
+                    <div class="data status">
+                        <span class="data-title">Status</span>
+                        <span class="data-list">Aktif</span>
+                        <span class="data-list">Aktif</span>
+                        <span class="data-list">Aktif</span>
+                        <span class="data-list">AFK</span>
+                        <span class="data-list">Aktif</span>
+                        <span class="data-list">Non Aktif</span>
+                        <span class="data-list">Beban</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../public/js/script.js"></script>
+</body>
 </html>
