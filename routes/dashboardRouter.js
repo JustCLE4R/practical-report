@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const dashboard = require('../controllers/dashboardController');
+const passport = require('passport');
 
 router
   .route('/')
-  .get(dashboard.getDashboard)
+  .get(passport.checkAuthentication, dashboard.getDashboard)
+
+router
+  .route('/logout')
+  .get(passport.checkAuthentication, dashboard.logout)
 
 
 module.exports = router; 

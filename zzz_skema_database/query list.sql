@@ -15,6 +15,7 @@ INNER JOIN dosen ON mk.id_dosen = dosen.id
 INNER JOIN laboran ON mk.id_laboran = laboran.id
 INNER JOIN aslab ON mk.id_aslab = aslab.id
 WHERE mhs.nim = 0701256123
+AND laboran.id = 1
 ORDER BY semester DESC;
 
 ==============================10:20 PM 20/08/2023==============================
@@ -28,7 +29,7 @@ SELECT * FROM (
 	SELECT id, 'dosen', nama, username, password
 	FROM dosen
 ) user
-WHERE user.username = 'sabirin'
+WHERE user.username = 'sabirin';
 
 ==============================4:17 PM 24/08/2023==============================
  SELECT * FROM (
@@ -43,4 +44,12 @@ WHERE user.username = 'sabirin'
 	UNION
 	SELECT 'Dosen', COUNT(id)
 	FROM dosen
-) jumlah
+) jumlah;
+
+==============================12:48 AM 25/08/2023==============================
+ALTER TABLE aslab AUTO_INCREMENT=1;
+ALTER TABLE laboran AUTO_INCREMENT=101;
+ALTER TABLE dosen AUTO_INCREMENT=501;
+ALTER TABLE mahasiswa AUTO_INCREMENT=1;
+ALTER TABLE mata_kuliah AUTO_INCREMENT=1;
+ALTER TABLE mhs_mk_stts AUTO_INCREMENT=1;
