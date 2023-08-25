@@ -1,36 +1,63 @@
 <!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/practical-report/public/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>Login</title>
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Register</h1>
+			<br>
+			<input type="text" placeholder="Nama" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>Atau daftar dengan</span>
+			<br>
+			<button>Sign Up</button>
+			
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Login</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<a href="#">Lupa Password Anda?</a>
+			<button id="button"><a href="#">Login</a></button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+			    <h1>Hallo Selamat Datang Lagi</h1>
+				<p>Maaf, Untuk registrasi aslab sudah ditutup, sihlakan coba lagi tahun depan </p>
+				<button class="ghost" id="signIn">Login</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hallo, Selamat Datang di Website Aslab </h1>
+				<p>Sihlakan login untuk bisa kerja lembur namun digaji sedikit</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
 
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <!-- Css -->
-    <link rel="stylesheet" href="../../public/css/login.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  </head>
-  <body>
-    <div class="content">
-      <div class="text">Login Form</div>
-      <form action="#">
-        <div class="field">
-          <input type="text" required />
-          <span class="fas fa-user"></span>
-          <label>Email or Phone</label>
-        </div>
-        <div class="field">
-          <input type="password" required />
-          <span class="fas fa-lock"></span>
-          <label>Password</label>
-        </div>
-        <div class="forgot-pass">
-          <a href="#">Forgot Password?</a>
-        </div>
-        <button>Sign in</button>
-        <div class="sign-up">
-          Not a member?
-          <a href="#">signup now</a>
-        </div>
-      </form>
-    </div>
-  </body>
+
+<script src="/practical-report/public/js/login.js"></script>
+</body>
 </html>
