@@ -6,6 +6,7 @@ const passport = require('passport');
 router
   .route('/')
   .get(passport.checkAuthentication, dashboard.getDashboard)
+  // .get(dashboard.getDashboard)
 
 router
   .route('/logout')

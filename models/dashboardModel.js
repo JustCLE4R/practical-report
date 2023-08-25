@@ -31,13 +31,13 @@ var dashboardModel = {
   getAllAdmin: (result) => {
     con.query(`
     SELECT * FROM (
-      SELECT id, 'aslab' role, nama, username
+      SELECT id, 'Asisten Laboratorium' role, nama, username
       FROM aslab 
       UNION
-      SELECT id, 'laboran', nama, username
+      SELECT id, 'Laboran', nama, username
       FROM laboran
       UNION
-      SELECT id, 'dosen', nama, username
+      SELECT id, 'Dosen', nama, username
       FROM dosen
     ) admin
     `, (err, rows) => {
