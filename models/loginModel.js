@@ -14,16 +14,16 @@ var loginModel = {
         FROM dosen
       ) user
       WHERE user.username = ?
-    `, [username], (err, res) => {
+    `, [username], (err, rows) => {
       if(err){
         return result(err)
       }
 
-      if(res.length <= 0){
+      if(rows.length <= 0){
         return result(err)
       }
       else{
-        return result(res)
+        return result(rows)
       }
     })
   }

@@ -47,8 +47,8 @@ WHERE user.username = 'sabirin';
 ) jumlah;
 
 ==============================12:48 AM 25/08/2023==============================
-ALTER TABLE aslab AUTO_INCREMENT=1;
-ALTER TABLE laboran AUTO_INCREMENT=101;
+ALTER TABLE laboran AUTO_INCREMENT=1;
+ALTER TABLE aslab AUTO_INCREMENT=101;
 ALTER TABLE dosen AUTO_INCREMENT=501;
 ALTER TABLE mahasiswa AUTO_INCREMENT=1;
 ALTER TABLE mata_kuliah AUTO_INCREMENT=1;

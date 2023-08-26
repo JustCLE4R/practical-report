@@ -10,7 +10,7 @@ const dashboardController = {
   },
 
   getDashboard: (req, res) => {
-    var amounts
+    let amounts
     dashboardModel.getAmount((err, result) => {
       if(err){
         req.flash('error','Ada masalah saat mengambil data dari database (getAmount)')
@@ -27,6 +27,22 @@ const dashboardController = {
       }
       else{
         res.render('dashboard', {amount: amounts, admin: result})
+      }
+    })
+  },
+
+  getDataMhs: (req, res) => {
+    let nim = req.body.nim,
+        role = req.user.role,
+        id = req.user.id
+
+    dashboardModel.getMhsByNimRole(nim, role, id, (err, result) => {
+      if(err || result == null){
+        req.flash('error','Mahasiswa Tidak Ada (Tidak dikelas Kamu atau memang tidak ada di database')
+        res.redirect('/dashboard')
+      }
+      else{
+        res.send(result)
       }
     })
   },

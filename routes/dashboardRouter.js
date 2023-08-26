@@ -1,16 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const dashboard = require('../controllers/dashboardController');
+const dashboardController = require('../controllers/dashboardController');
 const passport = require('passport');
 
 router
   .route('/')
-  .get(passport.checkAuthentication, dashboard.getDashboard)
-  // .get(dashboard.getDashboard)
+  .get(passport.checkAuthentication, dashboardController.getDashboard)
+  // .get(dashboardController.getDashboard)
+
+router
+  .route('/results')
+  .get()
+  .post(dashboardController.getDataMhs)
 
 router
   .route('/logout')
-  .get(passport.checkAuthentication, dashboard.logout)
+  .get(passport.checkAuthentication, dashboardController.logout)
 
 
 module.exports = router; 

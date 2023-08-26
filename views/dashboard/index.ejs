@@ -94,12 +94,12 @@
     <section class="dashboard">
       <div class="top">
         <i class="uil uil-bars sidebar-toggle"></i>
-
         <div class="search-box">
-          <i class="uil uil-search"></i>
-          <input type="text" placeholder="Search here..." />
+          <form action="dashboard/results" method="post">
+            <i class="uil uil-search"></i>
+            <input type="text" name="nim" placeholder="Search here..." />
+          </form>
         </div>
-
         <img src="images/profile.jpg" alt="" />
       </div>
 
@@ -160,7 +160,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- <% admin.forEach(as => {%>
+                <% admin.forEach(as => {%>
                   <tr>
                     <td><%= as.nama %></td>
                     <td><%= as.role %></td>
@@ -168,7 +168,7 @@
                     <td><button>Lihat</button></td>
                     <td>Aktif</td>
                   </tr>
-                <% }) %> -->
+                <% }) %>
                 <tr>
                   <td>Fahri Suhada</td>
                   <td>Aslab</td>
