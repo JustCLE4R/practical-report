@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="css/dashboard.css"/> 
+    <link rel="stylesheet" href="/public/css/dashboard.css"/> 
 
     <!-- Fontawasome -->
     <link
@@ -24,7 +24,7 @@
     <nav>
       <div class="logo-name">
         <div class="logo-image">
-          <img src="images/logo.jpeg" alt="" />
+          <img src="/public/images/logo.jpeg" alt="" />
         </div>
         <span class="logo_name">Dashboard</span>
       </div>
@@ -100,7 +100,7 @@
             <input type="text" name="nim" placeholder="Search here..." />
           </form>
         </div>
-        <img src="images/profile.jpg" alt="" />
+        <img src="/public/images/profile.jpg" alt="" />
       </div>
 
       <div class="dash-content">
@@ -115,7 +115,7 @@
               <span class="text">Mahasiswa</span>
               <span class="number">12.464</span>
             </div>
-            <div class="box box3">
+            <div class="box box2">
               <i class="fa-solid fa-computer"></i>
                 <span class="text">Kelas</span>
                 <span class="number">22</span>
@@ -125,17 +125,17 @@
               <span class="text">Tenggat Laporan Praktikum</span>
               <span class="number" id="countdown">?</span>
             </div>
-            <div class="box box3">
+            <div class="box box4">
               <i class="fa-solid fa-chalkboard-user"></i>
               <span class="text">Dosen Praktikum</span>
               <span class="number">12</span>
             </div>
-            <div class="box box3">
+            <div class="box box5">
               <i class="fa-solid fa-user-gear"></i>
               <span class="text">Laboran</span>
               <span class="number">2</span>
             </div>
-            <div class="box box2">
+            <div class="box box6">
               <i class="fa-solid fa-users-gear"></i>
               <span class="text">Asisten Laboratorium</span>
               <span class="number">12</span>
@@ -160,7 +160,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% admin.forEach(as => {%>
+                <!-- <% admin.forEach(as => {%> -->
                   <tr>
                     <td><%= as.nama %></td>
                     <td><%= as.role %></td>
@@ -168,7 +168,7 @@
                     <td><button>Lihat</button></td>
                     <td>Aktif</td>
                   </tr>
-                <% }) %>
+                <!-- <% }) %> -->
                 <tr>
                   <td>Fahri Suhada</td>
                   <td>Aslab</td>
@@ -232,6 +232,6 @@
       </div>
     </section>
 
-    <script src="js/script.js"></script>
+    <script src="/public/js/script.js"></script>
   </body>
 </html>
