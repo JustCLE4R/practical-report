@@ -33,11 +33,18 @@ app.use(passport.authenticate('session')); //ya passport
 //include router
 const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
+const profileRouter = require('./routes/profileRouter');
 
 
 //routing
 app.use('/dashboard', dashboardRouter);
 app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
+
+//404 route
+app.use((req, res) => {
+  res.status(404).render('error/404');
+})
 
 
 app.listen(3000, () => {

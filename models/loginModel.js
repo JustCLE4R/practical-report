@@ -1,6 +1,6 @@
 const con = require('../config/db');
 
-var loginModel = {
+const loginModel = {
   getByUsername: (username, result) => {
     con.query(`
       SELECT * FROM (
@@ -12,8 +12,8 @@ var loginModel = {
         UNION
         SELECT id, 'dosen', nama, username, password
         FROM dosen
-      ) user
-      WHERE user.username = ?
+      ) u
+      WHERE u.username = ?
     `, [username], (err, rows) => {
       if(err){
         return result(err)

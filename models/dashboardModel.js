@@ -1,6 +1,6 @@
 const con = require('../config/db');
 
-var dashboardModel = {
+const dashboardModel = {
   //mengambil seluruh jumlah mahasiswa, aslab, laboran, dosen
   getAmount: (result) => {
     con.query(`

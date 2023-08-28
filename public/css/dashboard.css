@@ -538,7 +538,7 @@ h1 span.stop-blinking::before {
 .boxes .box6 i, .boxes .box6 .text, .boxes .box6 .number{
   color: var(--text-box-color);
 }
-.boxes .box.box1,{
+.boxes .box.box1{
   background-color: var(--box1-color);
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.349);
 }

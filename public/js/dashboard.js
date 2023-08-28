@@ -50,12 +50,17 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+  // adding 0 to the front of all the value if they will less than 10
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
   //kalo hari lebih dari 10 tampilin hari saja
   if (days >= 10) {
     document.getElementById("countdown").innerHTML = days + " Hari";
   }
   else{
-    document.getElementById("countdown").innerHTML = days + "d " + hours + ":" + minutes + ":" + seconds;
+    document.getElementById("countdown").innerHTML = days + "D " + hours + ":" + minutes + ":" + seconds;
   }
 
   //kalo dah lewat dari tenggat ya TUTUP!
@@ -209,8 +214,8 @@ const autoPlay = () => {
     // Autoplay the carousel after every 2500 ms
     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
 }
-autoPlay();
 
+autoPlay();
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);

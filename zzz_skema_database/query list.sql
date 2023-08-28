@@ -1,4 +1,5 @@
 ==============================12:50 AM 9/08/2023==============================
+-- mengambil semua data dari database (untuk menampilkan status modul)
 SELECT mahasiswa.*, nama_mk, semester, kelas, dosen.nama AS nama_dosen, laboran.nama AS nama_laboran, aslab.nama AS nama_aslab, modul_1, modul_2, modul_3, modul_4, modul_5, modul_6, modul_7, modul_8
 FROM mahasiswa, mata_kuliah, dosen, laboran, aslab, mhs_mk_stts 
 WHERE (mhs_mk_stts.nim = mahasiswa.nim) 
@@ -18,7 +19,9 @@ WHERE mhs.nim = 0701256123
 AND laboran.id = 1
 ORDER BY semester DESC;
 
+
 ==============================10:20 PM 20/08/2023==============================
+-- untuk login dan session
 SELECT * FROM (
 	SELECT id, 'aslab' AS role, nama, username, password
 	FROM aslab 
@@ -31,7 +34,9 @@ SELECT * FROM (
 ) user
 WHERE user.username = 'sabirin';
 
+
 ==============================4:17 PM 24/08/2023==============================
+-- mengambil jumlah dari mahasiswa, dan admin
  SELECT * FROM (
 	SELECT 'Mahasiswa' role, COUNT(nim) jumlah
 	FROM mahasiswa
@@ -46,10 +51,29 @@ WHERE user.username = 'sabirin';
 	FROM dosen
 ) jumlah;
 
+
 ==============================12:48 AM 25/08/2023==============================
+-- reset auto increment
 ALTER TABLE laboran AUTO_INCREMENT=1;
 ALTER TABLE aslab AUTO_INCREMENT=101;
 ALTER TABLE dosen AUTO_INCREMENT=501;
 ALTER TABLE mahasiswa AUTO_INCREMENT=1;
 ALTER TABLE mata_kuliah AUTO_INCREMENT=1;
 ALTER TABLE mhs_mk_stts AUTO_INCREMENT=1;
+
+
+==============================10:24 PM 28/08/2023==============================
+-- mengambil profile admin
+SELECT * FROM (
+	SELECT id, 'aslab' role, nama, nim nim, notel, motto, instagram, facebook
+	FROM aslab 
+	UNION
+	SELECT id, 'laboran', nama, nim, notel, motto, instagram, facebook
+	FROM laboran
+	UNION
+	SELECT id, 'dosen', nama, nip, notel, motto, instagram, facebook
+	FROM dosen
+) u
+WHERE u.role = 'aslab'
+AND u.id = 1;
+

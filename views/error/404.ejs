@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/404.css" />
+    <title>404</title>
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+      <h1>Error <span class="errorcode">404</span><br>Page Not Found!</h1>
+      <p class="output">
+        <% if (messages.error) { %>
+          <strong>Error!</strong>
+          <%- messages.error %>
+        <% }else {%>
+          The page you are looking for might have been removed, had its name changed or is temporarily unavailable.
+        <% } %>
+      </p>
+      <p class="output">
+        Please try to
+        <a class="cursor" onclick="history.go(-1)">go back</a> or
+        <a href="/">return to the landingpage</a>.
+      </p>
+      <p class="output">Good luck.</p>
+    </div>
+  </body>
+</html>

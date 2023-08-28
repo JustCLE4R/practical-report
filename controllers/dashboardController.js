@@ -13,7 +13,7 @@ const dashboardController = {
     let amounts
     dashboardModel.getAmount((err, result) => {
       if(err){
-        req.flash('error','Ada masalah saat mengambil data dari database (getAmount)')
+        req.flash('error','Ada masalah saat mengambil data dari database (getAmount) ' + err)
         res.render('dashboard')
       }
       else{
@@ -22,7 +22,7 @@ const dashboardController = {
     })
     dashboardModel.getAllAdmin((err, result) =>{
       if(err){
-        req.flash('error','Ada masalah saat mengambil data dari database (getAllAdmin)')
+        req.flash('error','Ada masalah saat mengambil data dari database (getAllAdmin) ' + err)
         res.render('dashboard')
       }
       else{
@@ -38,11 +38,11 @@ const dashboardController = {
 
     dashboardModel.getMhsByNimRole(nim, role, id, (err, result) => {
       if(err || result == null){
-        req.flash('error','Mahasiswa Tidak Ada (Tidak dikelas Kamu atau memang tidak ada di database')
+        req.flash('error','Mahasiswa Tidak Ada (Tidak dikelas Kamu atau memang tidak ada di database ' + err)
         res.redirect('/dashboard')
       }
       else{
-        res.send(result)
+        res.send({datas: result})
       }
     })
   },

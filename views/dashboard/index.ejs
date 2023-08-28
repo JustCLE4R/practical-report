@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!----======== CSS ======== -->
+    <!-- <link rel="stylesheet" href="/public/css/dashboard.css"/>  -->
+    <link rel="stylesheet" href="css/dashboard.css"/> 
+
+    <!-- Fontawasome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+    <!----===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+
+    <title>Admin Dashboard Panel</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <!-- <img src="/public/images/logo.jpeg" alt="" /> -->
+          <img src="images/logo.jpeg" alt="" />
+        </div>
+        <span class="logo_name">Dashboard</span>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dahsboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Mahasiswa</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-thumbs-up"></i>
+              <span class="link-name">Gallery</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Comment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-share"></i>
+              <span class="link-name">Share</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="logout-mode">
+          <li>
+            <a href="dashboard/logout">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Logout</span>
+            </a>
+          </li>
+
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+        <div class="search-box">
+          <form action="dashboard/results" method="post">
+            <i class="uil uil-search"></i>
+            <input type="text" name="nim" placeholder="Search here..." />
+          </form>
+        </div>
+        <!-- <img src="/public/images/profile.jpg" alt="" /> -->
+        <img src="images/profile.jpg" alt="" />
+      </div>
+
+      <div class="dash-content">
+        <div class="overview">
+          <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Dashboard</span>
+          </div>
+          <div class="dash-boxes">
+            <div class="dash dash-box1">
+              <h1><span></span></h1>
+            </div>
+            <div class="dash dash-box2">
+              <div id="section">
+                <div class="container">
+                  <div class="icons">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                  </div>
+                  <div class="time">
+                    <div class="time-colon">
+                      <div class="time-text">
+                        <span class="num hour_num">?</span>
+                        <span class="text">Hours</span>
+                      </div>
+                      <span class="colon">:</span>
+                    </div>
+                    <div class="time-colon">
+                      <div class="time-text">
+                        <span class="num min_num">?</span>
+                        <span class="text">Minutes</span>
+                      </div>
+                      <span class="colon">:</span>
+                    </div>
+                    <div class="time-colon">
+                      <div class="time-text">
+                        <span class="num sec_num">?</span>
+                        <span class="text">Seconds</span>
+                      </div>
+                      <span class="am_pm">AM</span>
+                    </div>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview">
+          <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Data</span>
+          </div>
+          <div class="boxes">
+            <div class="box box1">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span class="text">Mahasiswa</span>
+              <span class="number">12.464</span>
+            </div>
+            <div class="box box2">
+              <i class="fa-solid fa-computer"></i>
+                <span class="text">Kelas</span>
+                <span class="number">22</span>
+            </div>
+            <div class="box box3">
+              <i class="fa-solid fa-stopwatch"></i>
+              <span class="text">Deadline</span>
+              <span class="number" id="countdown">?</span>
+            </div>
+            <div class="box box4">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <span class="text">Dosen Praktikum</span>
+              <span class="number">12</span>
+            </div>
+            <div class="box box5">
+              <i class="fa-solid fa-user-gear"></i>
+              <span class="text">Laboran</span>
+              <span class="number">2</span>
+            </div>
+            <div class="box box6">
+              <i class="fa-solid fa-users-gear"></i>
+              <span class="text">Asisten Laboratorium</span>
+              <span class="number">12</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity">
+          <div class="title">
+            <i class="uil uil-clock-three"></i>
+            <span class="text">Member</span>
+          </div>
+
+          <div class="activity-data">
+            <table cellspacing='0'>
+              <thead>
+                <tr>
+                  <th>Nama</th>
+                  <th>Role</th>
+                  <th>Kelas</th>
+                  <th>Profile</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% admin.forEach(as => {%>
+                  <tr>
+                    <td><%= as.nama %></td>
+                    <td><%= as.role %></td>
+                    <td><button>Lihat</button></td>
+                    <td><button>Lihat</button></td>
+                    <td>Aktif</td>
+                  </tr>
+                <% }) %>
+                <!-- <tr>
+                  <td>Fahri Suhada</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Paris Alvito</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Dimas Yudistira</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Ishlahiyah Nur Rizky</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>The KTB</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Faturahman</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Bintang Hutagalung</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr>
+                <tr>
+                  <td>Sultan bin sabirin</td>
+                  <td>Aslab</td>
+                  <td><button>Lihat</button></td>
+                  <td><button>Lihat</button></td>
+                  <td>Aktif</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-area">
+          <div class="title">
+            <i class="uil uil-clock-three"></i>
+            <span class="text">Card</span>
+          </div>
+          <div class="card-container">
+            <div class="card1">
+              <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left"></i>
+                <ul class="carousel">
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/profile.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/profile.jpg" alt="img" draggable="false"></div>
+                    <h2>Paris Alvito</h2>
+                    <span>Web Developer</span>
+                  </li>
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/dimas.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/dimas.jpg" alt="img" draggable="false"></div>
+                    <h2>Dimas Yudistira</h2>
+                    <span>Web Developer</span>
+                  </li>
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/lala.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/lala.jpg" alt="img" draggable="false"></div>
+                    <h2>Ishlahiyah Nurizky</h2>
+                    <span>Kpoper</span>
+                  </li>
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/ktb.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/ktb.jpg" alt="img" draggable="false"></div>
+                    <h2>Rizki Pratama</h2>
+                    <span>KTB</span>
+                  </li>
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/fatur.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/fatur.jpg" alt="img" draggable="false"></div>
+                    <h2>Faturahman</h2>
+                    <span>Full Stack</span>
+                  </li>
+                  <li class="card">
+                    <!-- <div class="img"><img src="/public/images/sabirin.jpg" alt="img" draggable="false"></div> -->
+                    <div class="img"><img src="images/sabirin.jpg" alt="img" draggable="false"></div>
+                    <h2>Ananda Sabirin</h2>
+                    <span>Villager</span>
+                  </li>
+                </ul>
+                <i id="right" class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+
+            <div class="card-2">
+              <div class="wrapper2">
+                <div class="outer">
+                  <div class="card2" style="--delay:-1;">
+                    <div class="content">
+                      <!-- <div class="img"><img src="/public/images/bintang.jpg" alt=""></div> -->
+                      <div class="img"><img src="images/bintang.jpg" alt=""></div>
+                      <div class="details">
+                        <span class="name">Bintang Hutagalung</span>
+                        <p>Biber</p>
+                      </div>
+                    </div>
+                    <a href="#">View Profile</a>
+                  </div>
+                  <div class="card2" style="--delay:0;">
+                    <div class="content">
+                      <!-- <div class="img"><img src="/public/images/sultan.jpg" alt=""></div> -->
+                      <div class="img"><img src="images/sultan.jpg" alt=""></div>
+                      <div class="details">
+                        <span class="name">Sultan Azka</span>
+                        <p>Gamer</p>
+                      </div>
+                    </div>
+                    <a href="#">View Profile</a>
+                  </div>
+                  <div class="card2" style="--delay:1;">
+                    <div class="content">
+                      <!-- <div class="img"><img src="/public/images/lutfhi.jpg" alt=""></div> -->
+                      <div class="img"><img src="images/lutfhi.jpg" alt=""></div>
+                      <div class="details">
+                        <span class="name">Lutfhi Faturahman</span>
+                        <p>Laboran</p>
+                      </div>
+                    </div>
+                    <a href="#">View Profile</a>
+                  </div>
+                  <div class="card2" style="--delay:2;">
+                    <div class="content">
+                      <!-- <div class="img"><img src="/public/images/fahri.jpg" alt=""></div> -->
+                      <div class="img"><img src="images/fahri.jpg" alt=""></div>
+                      <div class="details">
+                        <span class="name">Fahri Syuhada</span>
+                        <p>Pro Player</p>
+                      </div>
+                    </div>
+                    <a href="#">View Profile</a>
+                  </div>
+                  <div class="card2" style="--delay:2;">
+                    <div class="content">
+                      <!-- <div class="img"><img src="/public/images/profile.jpg" alt=""></div> -->
+                      <div class="img"><img src="images/profile.jpg" alt=""></div>
+                      <div class="details">
+                        <span class="name">Paris Alvito</span>
+                        <p>Front end Developer</p>
+                      </div>
+                    </div>
+                    <a href="#">View Profile</a>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- <script src="/public/js/dashboard.js"></script> -->
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
