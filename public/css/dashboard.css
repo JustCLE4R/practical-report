@@ -28,6 +28,7 @@
   --title-icon-color: #fff;
   --text-table-color: #666;
   --hover-table-color: rgb(223, 223, 223);
+  --card-color:linear-gradient(to bottom, #bea2e7 0%, #86b7e7  100%);
 
   /* ====== Transition ====== */
   --tran-05: all 0.5s ease;
@@ -59,6 +60,7 @@ body.dark {
   --title-icon-color: #ccc;
   --text-table-color: #ccc;
   --hover-table-color: rgb(73, 73, 73);
+  --card-color: #3a3b3c;
 }
 /* === Custom Scroll Bar CSS === */
 ::-webkit-scrollbar {
@@ -322,7 +324,7 @@ nav.close ~ .dashboard .top {
   flex-wrap: wrap;
   gap: 1vh;
   background-color: var(--panel-color);
-  box-shadow: 0.6px 0.6px 10px rgb(53, 53, 53);
+  box-shadow: 0.6px 0.6px 7px rgb(53, 53, 53);
   border-radius: 2%;
   padding: 2vh;
   
@@ -343,12 +345,12 @@ nav.close ~ .dashboard .top {
 }
 
 h1 {
-  color: #fff;
+  color: var(--text-box-color);
   font-size: 2.5rem;
   font-weight: 600;
 }
 h1 span {
-  color: var(--text-box1-color);
+  color: var(--text-color);
   position: relative;
 }
 h1 span::before {
@@ -745,4 +747,229 @@ table tr:hover td {
 
 }
 
+/* card */
+.card-container{
+  width: 100%;
+  background-color: var(--panel-color);
+  box-shadow: 1px 1px 8px rgb(46, 45, 45);
+  
+}
 
+.card-area .card-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1vh;
+  background: var(--card-color);
+  box-shadow: 0.6px 0.6px 7px rgb(53, 53, 53);
+  border-radius: 2%;
+  padding: 2vh;
+}
+.card-area .card-container .card1{
+  width: calc(145% / 3 - 15px);
+  padding: 2vh;
+}
+.card-area .card-container .card-2{
+  width: calc(160% / 3 - 15px);
+
+}
+
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.wrapper {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+ 
+}
+.wrapper i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active{
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper i:first-child{
+  left: -22px;
+}
+.wrapper i:last-child{
+  right: -22px;
+}
+.wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((140% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 9px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 270px;
+  list-style: none;
+  background: #fff;
+  cursor: pointer;
+  padding-bottom: 15px;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.carousel .card .img {
+  background: #8B53FF;
+  height: 138px;
+  width: 138px;
+  border-radius: 50%;
+}
+.card .img img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 30px 0 5px;
+}
+.carousel .card span {
+  color: #6A6D78;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+/* card2 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.wrapper2 .outer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper2 .card2{
+  background: #fff;
+  width: 430px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  justify-content: space-between;
+  border-radius: 100px 20px 20px 100px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  animation: animate 15s linear infinite;
+  animation-delay: calc(3s * var(--delay));
+}
+.outer:hover .card2{
+  animation-play-state: paused;
+}
+.wrapper2 .card2:last-child{
+  animation-delay: calc(-3s * var(--delay));
+}
+@keyframes animate {
+  0%{
+    opacity: 0;
+    transform: translateY(100%) scale(0.5);
+  }
+  5%, 20%{
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+  }
+  25%, 40%{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0%) scale(1);
+  }
+  45%, 60%{
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.7);
+  }
+  65%, 100%{
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5);
+  }
+}
+.card2 .content{
+  display: flex;
+  align-items: center;
+}
+.wrapper2 .card2 .img{
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  left: -5px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+}
+.card2 .img img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card2 .details{
+  margin-left: 80px;
+}
+.details span{
+  font-weight: 600;
+  font-size: 18px;
+}
+.card2 a{
+  text-decoration: none;
+  padding: 7px 18px;
+  border-radius: 25px;
+  color: #fff;
+  background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+  transition: all 0.3s ease;
+}
+.card2 a:hover{
+  transform: scale(0.94);
+}
