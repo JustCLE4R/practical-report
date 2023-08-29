@@ -12,13 +12,13 @@ const profileController = {
     if (!isNaN(role) || isNaN(id)) {
       return (
         req.flash('error', 'Invalid role and/or id'), 
-        res.render('error/404')
+        res.status(404).render('error/404')
       )
     }
 
     profileModel.getProfile(role, id, (err, result) => {
       if (err || result === null) {
-        req.flash('error', 'Data tidak ditemukan ' + err)
+        req.flash('error', role + '/' + id + ' return ' + err)
         res.status(404).render('error/404')
       }
       else{

@@ -9,13 +9,15 @@ router
   // .get(dashboardController.getDashboard)
 
 router
-  .route('/results')
-  .get()
-  .post(dashboardController.getDataMhs)
-
-router
   .route('/logout')
   .get(passport.checkAuthentication, dashboardController.logout)
+
+router
+  .route('/results')
+  .post(passport.checkAuthentication, dashboardController.getDataMhs)
+  .patch(passport.checkAuthentication, dashboardController.editMhsSts)
+
+
 
 
 module.exports = router; 

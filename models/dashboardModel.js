@@ -53,7 +53,7 @@ const dashboardModel = {
   //mengambil data mahasiswa berdasarkan role admin
   getMhsByNimRole: (nim, role, id, result) => {
     con.query(`
-      SELECT mhs.*, mk.nama nama_matkul, semester, kelas, dosen.nama nama_dosen, laboran.nama nama_laboran, aslab.nama nama_aslab, modul_1, modul_2, modul_3, modul_4, modul_5, modul_6, modul_7, modul_8
+      SELECT mhs.*, mk.nama nama_matkul, semester, kelas, dosen.nama nama_dosen, laboran.nama nama_laboran, aslab.nama nama_aslab, sts.id id_status, modul_1, modul_2, modul_3, modul_4, modul_5, modul_6, modul_7, modul_8
       FROM mahasiswa mhs 
       INNER JOIN mhs_mk_stts sts ON mhs.nim = sts.nim
       INNER JOIN mata_kuliah mk ON sts.id_mk = mk.id
@@ -77,7 +77,24 @@ const dashboardModel = {
     })
   },
 
+  //mengedit status modul mahasiswa
+  updateMhsSts: (id_sts, updatedStatus, result) => {
+    con.query(`
+      UPDATE mhs_mk_stts
+      SET ?
+      WHERE id = ?
+    `, [updatedStatus, id_sts], (err, rows) => {
+      if(err){
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
+
+
+
 
 }
-
 module.exports = dashboardModel;

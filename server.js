@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const passport = require('passport');
+const methodOverride = require('method-override');
 const flash = require('express-flash');
 const session = require('express-session');
 
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 //memakai apa yang harus dipakai
 app.use(express.static('public')); //membuat views dapat mengakses folder public
 app.use(express.urlencoded({ extended: true })); //untuk mengakses form
+app.use(methodOverride("_method")); //override method (yang tadi cuma get & post ini jadi banyak dek)
 app.use(express.json()); //parse JSON response
 app.use(flash()); //notify flash
 app.use(
