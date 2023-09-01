@@ -494,7 +494,7 @@ h1 span.stop-blinking::before {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 3vh;
+  gap: 2vh;
 }
 .dash-content .boxes .box {
   display: flex;
@@ -502,22 +502,22 @@ h1 span.stop-blinking::before {
   align-items: center;
   text-align: center;
   border-radius: 12px;
-  width: calc(100% / 3 - 15px);
-  padding: 25px 20px;
+  width: calc(90% / 3 - 15px);
+  padding: 23px 20px;
   background-color: var(--box1-color);
   transition: var(--tran-05);
 }
 .boxes .box i {
-  font-size: 35px;
+  font-size: 45px;
   color: var(--text-color);
 }
 .boxes .box .text {
   white-space: nowrap;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 500;
 }
 .boxes .box .number {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 500;
 }
 .boxes .box1 i, .boxes .box1 .text, .boxes .box1 .number{
@@ -758,7 +758,7 @@ table tr:hover td {
 .card-area .card-container{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1vh;
   background: var(--card-color);
@@ -766,122 +766,14 @@ table tr:hover td {
   border-radius: 2%;
   padding: 2vh;
 }
-.card-area .card-container .card1{
-  width: calc(145% / 3 - 15px);
-  padding: 2vh;
-}
+
 .card-area .card-container .card-2{
   width: calc(160% / 3 - 15px);
-
+  height: 20vh;
+  margin-top: 15vh
 }
 
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-.wrapper {
-  max-width: 1100px;
-  width: 100%;
-  position: relative;
- 
-}
-.wrapper i {
-  top: 50%;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  font-size: 1.25rem;
-  position: absolute;
-  text-align: center;
-  line-height: 50px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-  transform: translateY(-50%);
-  transition: transform 0.1s linear;
-}
-.wrapper i:active{
-  transform: translateY(-50%) scale(0.85);
-}
-.wrapper i:first-child{
-  left: -22px;
-}
-.wrapper i:last-child{
-  right: -22px;
-}
-.wrapper .carousel{
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((140% / 3) - 12px);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  border-radius: 9px;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-.carousel.no-transition {
-  scroll-behavior: auto;
-}
-.carousel.dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
-.carousel.dragging .card {
-  cursor: grab;
-  user-select: none;
-}
-.carousel :where(.card, .img) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.carousel .card {
-  scroll-snap-align: start;
-  height: 270px;
-  list-style: none;
-  background: #fff;
-  cursor: pointer;
-  padding-bottom: 15px;
-  flex-direction: column;
-  border-radius: 8px;
-}
-.carousel .card .img {
-  background: #8B53FF;
-  height: 138px;
-  width: 138px;
-  border-radius: 50%;
-}
-.card .img img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #fff;
-}
-.carousel .card h2 {
-  font-weight: 500;
-  font-size: 1.1rem;
-  margin: 30px 0 5px;
-}
-.carousel .card span {
-  color: #6A6D78;
-  font-size: 1.1rem;
-}
-
-@media screen and (max-width: 900px) {
-  .wrapper .carousel {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .wrapper .carousel {
-    grid-auto-columns: 100%;
-  }
-}
 
 /* card2 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -893,10 +785,10 @@ table tr:hover td {
 }
 .wrapper2 .card2{
   background: #fff;
-  width: 430px;
+  width: 630px;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -940,10 +832,10 @@ table tr:hover td {
   align-items: center;
 }
 .wrapper2 .card2 .img{
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
   position: absolute;
-  left: -5px;
+  left: -8px;
   background: #fff;
   border-radius: 50%;
   padding: 5px;
@@ -960,7 +852,7 @@ table tr:hover td {
 }
 .details span{
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
 }
 .card2 a{
   text-decoration: none;
