@@ -16,9 +16,13 @@ const dashboardModel = {
         UNION
         SELECT 'Dosen', COUNT(id)
         FROM dosen
+        UNION
+        SELECT 'Mata Kuliah', COUNT(id)
+        FROM mata_kuliah
       ) jumlah
     `, (err, rows) => {
       if (err){ 
+        console.log(err)
         return result(err, null)
       }
       else {
@@ -32,7 +36,7 @@ const dashboardModel = {
     con.query(`
       SELECT * FROM (
         SELECT id, 'Asisten Laboratorium' role, nama, username
-        FROM aslab 
+        FROM aslab
         UNION
         SELECT id, 'Laboran', nama, username
         FROM laboran
@@ -40,8 +44,10 @@ const dashboardModel = {
         SELECT id, 'Dosen', nama, username
         FROM dosen
       ) admin
+      ORDER BY role ASC, nama ASC
     `, (err, rows) => {
       if (err) {
+        console.log(err)
         return result(err, null)
       }
       else {
@@ -65,6 +71,7 @@ const dashboardModel = {
       ORDER BY semester DESC
     `, [nim], (err, rows) => {
       if(err){
+        console.log(err)
         return result(err, null)
       }
 
@@ -85,6 +92,7 @@ const dashboardModel = {
       WHERE nim = ?
     `, [nim], (err, rows) => {
       if(err){
+        console.log(err)
         return result(err, null)
       }
 
@@ -105,6 +113,7 @@ const dashboardModel = {
       ORDER BY id_mk ASC
     `, [nim], (err, rows) => {
       if(err){
+        console.log(err)
         return result(err, null)
       }
       else{
@@ -121,6 +130,7 @@ const dashboardModel = {
       WHERE id = ?
     `, [updatedStatus, id_sts], (err, rows) => {
       if(err){
+        console.log(err)
         return result(err, null)
       }
       else{
@@ -136,6 +146,7 @@ const dashboardModel = {
       SET ?
     `, [insertData], (err, rows) => {
       if(err){
+        console.log(err)
         return result(err, null)
       }
       else{

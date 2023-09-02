@@ -26,7 +26,7 @@ const dashboardController = {
         res.render('dashboard')
       }
       else{
-        res.render('dashboard', {amount: amounts, admin: result})
+        res.render('dashboard', {amount: amounts, result: result, admin: req.user})
       }
     })
   },

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!----======== CSS ======== -->
-    <!-- <link rel="stylesheet" href="/public/css/dashboard.css"/>  -->
     <link rel="stylesheet" href="css/dashboard.css"/> 
 
     <!-- Fontawasome -->
@@ -25,7 +24,6 @@
     <nav>
       <div class="logo-name">
         <div class="logo-image">
-          <!-- <img src="/public/images/logo.jpeg" alt="" /> -->
           <img src="images/logo.jpeg" alt="" />
         </div>
         <span class="logo_name">Dashboard</span>
@@ -34,19 +32,19 @@
       <div class="menu-items">
         <ul class="nav-links">
           <li>
-            <a href="#">
+            <a href="#" title="Ya Dashboard">
               <i class="uil uil-estate"></i>
               <span class="link-name">Dahsboard</span>
             </a>
           </li>
           <li>
-            <a href="profile">
+            <a href="profile" title="Profile">
               <i class="uil uil-files-landscapes"></i>
               <span class="link-name">Profile</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" title="Mahasiswa">
               <i class="uil uil-chart"></i>
               <span class="link-name">Mahasiswa</span>
             </a>
@@ -73,13 +71,13 @@
 
         <ul class="logout-mode">
           <li>
-            <a href="dashboard/logout">
+            <a href="dashboard/logout" title="Logout">
               <i class="uil uil-signout"></i>
               <span class="link-name">Logout</span>
             </a>
           </li>
 
-          <li class="mode">
+          <li class="mode" title="Dark Mode">
             <a href="#">
               <i class="uil uil-moon"></i>
               <span class="link-name">Dark Mode</span>
@@ -99,14 +97,13 @@
         <div class="search-box">
           <form action="dashboard/results" method="post">
             <i class="uil uil-search"></i>
-            <input type="text" name="nim" placeholder="Search here..." autofocus/>
+            <input type="text" name="nim" placeholder="Search NIM here..." autofocus/>
           </form>
         </div>
-        <!-- <img src="/public/images/profile.jpg" alt="" /> -->
-        <img src="images/profile.jpg" alt="" />
+        <a href="profile/<%= admin.role %>/<%= admin.id %>">
+          <img src="images/profile/<%= admin.nama %>.jpg" alt="Admin" draggable="false"/>
+        </a>
       </div>
-
-
 
       <div class="dash-content">
 
@@ -125,42 +122,41 @@
             <%- messages.success %>
           </div>
         <% } %>
-
         <div class="overview">
           <div class="title">
             <i class="uil uil-tachometer-fast-alt"></i>
             <span class="text">Data</span>
           </div>
           <div class="boxes">
-            <div class="box box1">
+            <div class="box box1" title="Jumlah Mahasiswa Praktikum">
               <i class="fa-solid fa-graduation-cap"></i>
               <span class="text">Mahasiswa</span>
-              <span class="number">12.464</span>
+              <span class="number"><%= amount[0].jumlah.toLocaleString('id-ID') %></span>
             </div>
-            <div class="box box2">
+            <div class="box box2" title="Jumlah Kelas Praktikum">
               <i class="fa-solid fa-computer"></i>
                 <span class="text">Kelas</span>
-                <span class="number">22</span>
+                <span class="number"><%= amount[4].jumlah %></span>
             </div>
-            <div class="box box3">
+            <div class="box box3" title="Hitung Mundur Pengumpulan Laporan">
               <i class="fa-solid fa-stopwatch"></i>
               <span class="text">Deadline</span>
               <span class="number" id="countdown">?</span>
             </div>
-            <div class="box box4">
+            <div class="box box4" title="Jumlah Dosen Praktikum">
               <i class="fa-solid fa-chalkboard-user"></i>
-              <span class="text">Dosen Praktikum</span>
-              <span class="number">12</span>
+              <span class="text">Dosen</span>
+              <span class="number"><%= amount[3].jumlah %></span>
             </div>
-            <div class="box box5">
+            <div class="box box5" title="Jumlah Laboran">
               <i class="fa-solid fa-user-gear"></i>
               <span class="text">Laboran</span>
-              <span class="number">2</span>
+              <span class="number"><%= amount[2].jumlah %></span>
             </div>
-            <div class="box box6">
+            <div class="box box6" title="Jumlah Asisten Laboratorium">
               <i class="fa-solid fa-users-gear"></i>
               <span class="text">Asisten Laboratorium</span>
-              <span class="number">12</span>
+              <span class="number"><%= amount[1].jumlah %></span>
             </div>
           </div>
         </div>
@@ -183,12 +179,16 @@
                 </tr>
               </thead>
               <tbody>
-                <% admin.forEach(as => {%>
+                <% result.forEach(as => {%>
                   <tr>
                     <td><%= as.nama %></td>
                     <td><%= as.role %></td>
                     <td><button>Lihat</button></td>
-                    <td><button>Lihat</button></td>
+                    <td><a 
+                          href="profile/<% if(as.role == 'Asisten Laboratorium') { %>aslab<% } else { %><%= as.role.toLowerCase() %><% } %>/<%= as.id %>"
+                        >
+                      Lihat!
+                    </a></td>
                     <td>Aktif</td>
                   </tr>
                 <% }) %>
@@ -197,12 +197,8 @@
             </table>
           </div>
         </div>
-
-
-      
     </section>
 
-    <!-- <script src="/public/js/dashboard.js"></script> -->
     <script src="js/dashboard.js"></script>
   </body>
 </html>

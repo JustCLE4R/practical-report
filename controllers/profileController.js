@@ -7,9 +7,10 @@ const profileController = {
 
   profileIndividual: (req, res) => {
     let role = req.params.role,
-        id = req.params.id
+        id = req.params.id,
+        urlCheck = ['aslab', 'laboran', 'dosen'];
 
-    if (!isNaN(role) || isNaN(id)) {
+    if (!isNaN(role) || isNaN(id) || !urlCheck.includes(role)) {
       return (
         req.flash('error', 'Invalid role and/or id'), 
         res.status(404).render('error/404')
