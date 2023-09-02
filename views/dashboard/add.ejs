@@ -1,0 +1,29 @@
+<!-- menambah mahasiswa ke kelas kalian -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Mahasiswa Ke Kelas</title>
+</head>
+<body>
+  <h1>Mahasiswa</h1>
+  <h3>Nama : <%= datas.nama %></h3>
+  <h3>Nim : <%= datas.nim %></h3>
+  <h3>Angkatan : <%= datas.stambuk %></h3>
+
+  <form action="/dashboard/add/<%= datas.nim %>" method="post">
+    <select name="kelas" id="kelas">
+      <option selected hidden >Pilih Kelas</option>
+      <% admin.kelas.forEach(kelas => { %>
+        <option 
+          value="<%= kelas.id %>"
+          <% if (datas.kelas.some(kelasMhs => kelasMhs.id_mk == kelas.id)) { %>disabled<% } %>
+          ><%= kelas.nama + " " + kelas.semester + "/" + kelas.kelas %></option>
+      <% }) %>
+    </select>
+    <button>Tambah</button>
+  </form>
+  <a href="/dashboard">Kembali</a>
+</body>
+</html>

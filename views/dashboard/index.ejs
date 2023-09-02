@@ -99,14 +99,33 @@
         <div class="search-box">
           <form action="dashboard/results" method="post">
             <i class="uil uil-search"></i>
-            <input type="text" name="nim" placeholder="Search here..." />
+            <input type="text" name="nim" placeholder="Search here..." autofocus/>
           </form>
         </div>
         <!-- <img src="/public/images/profile.jpg" alt="" /> -->
         <img src="images/profile.jpg" alt="" />
       </div>
 
+
+
       <div class="dash-content">
+
+        <% if (messages.error) { %>
+          <div class="alert alert-danger alert-dismissible" style="z-index: 10; position: relative;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong>
+            <br/>
+            <%- messages.error %>
+          </div>
+        <% } %> 
+        <% if (messages.success) { %>
+          <div class="alert alert-success alert-dismissible" style="z-index: 10; position: relative;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> <br/>
+            <%- messages.success %>
+          </div>
+        <% } %>
+
         <div class="overview">
           <div class="title">
             <i class="uil uil-tachometer-fast-alt"></i>

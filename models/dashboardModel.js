@@ -77,6 +77,42 @@ const dashboardModel = {
     })
   },
 
+  //mengambil data mahasiswa dengan nim (minimal)
+  getMhsByNim: (nim, result) => {
+    con.query(`
+      SELECT *
+      FROM mahasiswa
+      WHERE nim = ?
+    `, [nim], (err, rows) => {
+      if(err){
+        return result(err, null)
+      }
+
+      if(rows.length <= 0){
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
+
+  getMkMhs: (nim, result) => {
+    con.query(`
+      SELECT id_mk
+      FROM mhs_mk_stts
+      WHERE nim = ?
+      ORDER BY id_mk ASC
+    `, [nim], (err, rows) => {
+      if(err){
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
+
   //mengedit status modul mahasiswa
   updateMhsSts: (id_sts, updatedStatus, result) => {
     con.query(`
@@ -92,6 +128,21 @@ const dashboardModel = {
       }
     })
   },
+
+  //menambah kelas(sts) ke mahasiswa
+  addMhsToSts: (insertData, result) => {
+    con.query(`
+      INSERT INTO mhs_mk_stts
+      SET ?
+    `, [insertData], (err, rows) => {
+      if(err){
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  }
 
 
 

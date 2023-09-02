@@ -17,6 +17,11 @@ router
   .post(passport.checkAuthentication, dashboardController.getDataMhs)
   .patch(passport.checkAuthentication, dashboardController.editMhsSts)
 
+router
+  .route('/add/:nim')
+  .get(passport.checkAuthentication, dashboardController.getMhsToSts)
+  .post(passport.checkAuthentication, dashboardController.addMhsToSts)
+
 
 
 

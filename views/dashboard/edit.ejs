@@ -6,31 +6,71 @@
   <title>Edit Modul Mahasiswa</title>
 </head>
 <body>
-  <% datas.forEach(data => { %>
-    <ul>
-      <li>Nama : <%= data.nama %></li>
-      <li>Angkatan : <%= data.stambuk %></li>
-      <li>Mata Kuliah : <%= data.nama_matkul %></li>
-      <li>Kelas : <%= data.kelas %></li>
-      <li>Semester : <%= data.semester %></li>
-      <li>Dosen : <%= data.nama_dosen %></li>
-      <li>Laboran : <%= data.nama_laboran %></li>
-      <li>Asisten Lab : <%= data.nama_aslab %></li>
-    </ul>
-    <form action="/dashboard/results?_method=PATCH" method="post">
-      <input type="hidden" name="id_status" value="<%= data.id_status %>">
-      <% for( let i = 1; i <= 8; i++ ) { %>
-        <label for="modul_<%= i %>">Modul <%= i %></label>
-        <select name="modul_<%= i %>" id="modul_<%= i %>">
-          <option value="0" <% if (data['modul_' + i] == '0') { %>selected<% } %>>0</option>
-          <option value="1" <% if (data['modul_' + i] == '1') { %>selected<% } %>>1</option>
-          <option value="2" <% if (data['modul_' + i] == '2') { %>selected<% } %>>2</option>
-        </select>
-        <br>
-      <% } %>
-      <button>Perbaharui!</button>
-    </form>
-  <% }) %>
+
+  <!-- Jika Mahasiswa Ditemukan -->
+  <% if (datas[0].nama_matkul) { %>
+    <h3>Nama : <%= datas[0].nama %></h3>
+    <h3>NIM : <%= datas[0].nim %></h3>
+    <h3>Angkatan : <%= datas[0].stambuk %></h3>
+    <% if (admin.role == 'aslab') { %>
+      <h3>Asisten Lab : <%= datas[0].nama_aslab %></h3>
+    <% } else { %>
+      <h3>Laboran : <%= datas[0].nama_laboran %></h3>
+    <% } %>
+    <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
+    <a href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
+    <a href="/dashboard">Kembali</a>
+    <% datas.forEach(data => { %>
+      <hr>
+      <ul>
+        <li>Mata Kuliah : <%= data.nama_matkul %></li>
+        <li>Kelas : <%= data.kelas %></li>
+        <li>Semester : <%= data.semester %></li>
+        <li>Dosen : <%= data.nama_dosen %></li>
+        <% if (admin.role == 'aslab') { %>
+          <li>Laboran : <%= data.nama_laboran %></li>
+        <% } else { %>
+          <li>Asisten Lab : <%= data.nama_aslab %></li>
+        <% } %>
+      </ul>
+      <form action="/dashboard/results?_method=PATCH" method="post">
+        <input type="hidden" name="id_status" value="<%= data.id_status %>">
+        <% for( let i = 1; i <= 8; i++ ) { %>
+          <label for="">Modul <%= i %></label>
+          <select name="modul_<%= i %>" id="modul_<%= i %>">
+            <option 
+              value="0" 
+              <% if (data['modul_' + i] == '0') { %>selected<% } %>
+              <% if (data['modul_' + i] != '0' && admin.role == 'aslab') { %>disabled<% } %>
+            >0</option>
+            <option 
+              value="1" 
+              <% if (data['modul_' + i] == '1') { %>selected<% } %>
+              <% if (data['modul_' + i] == '2' && admin.role == 'aslab') { %>disabled<% } %>
+            >1</option>
+            <option 
+              value="2"
+              <% if (data['modul_' + i] == '2') { %>selected<% } %>
+              <% if (admin.role == 'aslab') { %>disabled<% } %>
+            >2</option>
+          </select>
+          <br>
+        <% } %>
+        <button>Perbaharui!</button>
+      </form>
+    <% }) %>
+
+  <!-- Jika Mahasiswa Tidak Ditemukan -->
+  <% } else { %>
+    <h3>Nama : <%= datas[0].nama %></h3>
+    <h3>NIM : <%= datas[0].nim %></h3>
+    <h3>Angkatan : <%= datas[0].stambuk %></h3>
+    <p>Belum atau tidak di kelas kamu, tambah mahasiswa ini ke kelas kamu?</p>
+    <a href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
+    <br>
+    <br>
+    <a href="/dashboard">Kembali</a>
+  <% } %>
     
   </body>
   </html>

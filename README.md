@@ -15,4 +15,4 @@ Adalah sebuah web app untuk mempermudah pekerjaan seenggok asisten lab
 - [Dimas Yudistira](https://github.com/JustCLE4R/)
 - [Alvin Alvito](https://github.com/AlvinAlvito)
 - [Luthfi Fathurahman](https://github.com/luthfifathurahman)
-- [KTB](https://github.com/skylarkspace)
+- [Muhammad Rizky Pratama](https://github.com/skylarkspace)

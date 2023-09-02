@@ -1,4 +1,4 @@
-//include module yag diperlukan
+//include module yang diperlukan
 const express = require('express');
 const app = express();
 const passport = require('passport');
@@ -42,6 +42,7 @@ const profileRouter = require('./routes/profileRouter');
 app.use('/dashboard', dashboardRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
+
 
 //404 route
 app.use((req, res) => {
