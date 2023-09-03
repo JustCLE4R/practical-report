@@ -14,11 +14,11 @@
     <h3>Angkatan : <%= datas[0].stambuk %></h3>
     <% if (admin.role == 'aslab') { %>
       <h3>Asisten Lab : <%= datas[0].nama_aslab %></h3>
+      <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
+      <a href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
     <% } else { %>
       <h3>Laboran : <%= datas[0].nama_laboran %></h3>
     <% } %>
-    <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
-    <a href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
     <a href="/dashboard">Kembali</a>
     <% datas.forEach(data => { %>
       <hr>

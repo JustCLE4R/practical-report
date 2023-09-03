@@ -5,22 +5,22 @@ const passport = require('passport');
 
 router
   .route('/')
-  .get(passport.checkAuthentication, dashboardController.getDashboard)
+  .get(passport.checkAuthentication, dashboardController.getDashboard) //dashboard
   // .get(dashboardController.getDashboard)
 
 router
   .route('/logout')
-  .get(passport.checkAuthentication, dashboardController.logout)
+  .get(passport.checkAuthentication, dashboardController.logout) //dashboard logout
 
 router
   .route('/results')
-  .post(passport.checkAuthentication, dashboardController.getDataMhs)
-  .patch(passport.checkAuthentication, dashboardController.editMhsSts)
+  .post(passport.checkAuthentication, dashboardController.getDataMhs) //dashboard results
+  .patch(passport.checkAuthentication, dashboardController.editMhsSts) //dashboard edit modul mahasiswa
 
 router
   .route('/add/:nim')
-  .get(passport.checkAuthentication, dashboardController.getMhsToSts)
-  .post(passport.checkAuthentication, dashboardController.addMhsToSts)
+  .get(passport.checkAuthentication, dashboardController.getMhsToSts) //dashboard add
+  .post(passport.checkAuthentication, dashboardController.addMhsToSts) //dashboard tambah mahasiswa ke kelas
 
 
 

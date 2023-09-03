@@ -4,11 +4,11 @@ const profileController = require('../controllers/profileController')
 
 router
   .route('/')
-  .get(profileController.profile)
+  .get(profileController.profile) //daftar admin
 
 router
   .route('/:role/:id')
-  .get(profileController.profileIndividual)
+  .get(profileController.profileIndividual) //profile individual
 
 
   module.exports = router;

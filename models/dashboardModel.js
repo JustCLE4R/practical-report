@@ -84,7 +84,7 @@ const dashboardModel = {
     })
   },
 
-  //mengambil data mahasiswa dengan nim (minimal)
+  //mengambil data mahasiswa dengan nim
   getMhsByNim: (nim, result) => {
     con.query(`
       SELECT *
@@ -105,6 +105,7 @@ const dashboardModel = {
     })
   },
 
+  //mengambil matakuliah apa saja yang sudah di ambil mahasiswa
   getMkMhs: (nim, result) => {
     con.query(`
       SELECT id_mk
