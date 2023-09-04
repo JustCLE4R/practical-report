@@ -589,9 +589,6 @@ color: #17c0eb
   box-shadow: 1px 1px 8px rgb(46, 45, 45);
   
 }
-.card-area{
-  
-}
 .card-area .card-container{
   display: flex;
   align-items: center;
