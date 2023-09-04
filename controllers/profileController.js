@@ -23,7 +23,7 @@ const profileController = {
         res.status(404).render('error/404')
       }
       else{
-        res.send({datas: result})
+        res.render('profile/profileindividual', {datas: result})
       }
     })
 
