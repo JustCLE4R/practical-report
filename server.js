@@ -36,13 +36,14 @@ app.use(passport.authenticate('session')); //ya passport
 const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
 const profileRouter = require('./routes/profileRouter');
+const mahasiswaRouter = require('./routes/mahasiswaRouter');
 
 
 //routing
 app.use('/dashboard', dashboardRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
-
+app.use('/mahasiswa', mahasiswaRouter)
 
 //404 route
 app.use((req, res) => {

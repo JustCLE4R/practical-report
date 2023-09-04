@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Mahasiswa</title>
+</head>
+<body>
+  <h2>Mahasiswa Aktif Praktikum</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Stambuk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% datas.forEach(mhs => { %>
+        <tr>
+          <td><%= mhs.no %></td>
+          <td><%= mhs.nama %></td>
+          <td><%= mhs.nim %></td>
+          <td><%= mhs.stambuk %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <% if (pagination.currentPage == 1) {%>
+    Prev
+  <% } else { %>
+    <a href="?page=<%= pagination.prevPage %>">Prev</a>
+  <% } %>
+  <span>Page: <%= pagination.currentPage %></span>
+  <% if (datas.length >= 20 ){ //5 itu adalah rows per page %> 
+    <a href="?page=<%= pagination.nextPage %>">Next</a> 
+  <% } else { %>
+    Next
+  <% } %>
+</body>
+</html>
