@@ -1,9 +1,8 @@
 const con = require('../config/db');
 
 const mahasiswaModel = {
-  //mengambil semua mahasiswa
-  getAllMhs: (page, result) => {
-    let limit = 20 //setting limit per page
+  //mengambil mahasiswa dengan pagination
+  getAllMhs: (page, limit, result) => {
     con.query(`
       SELECT * FROM (
         SELECT ROW_NUMBER() OVER (ORDER BY nama) no, nama, nim, stambuk
