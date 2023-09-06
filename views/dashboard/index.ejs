@@ -95,13 +95,13 @@
       <div class="top">
         <i class="uil uil-bars sidebar-toggle"></i>
         <div class="search-box">
-          <form action="dashboard/results" method="post">
+          <form action="/dashboard/results" method="post">
             <i class="uil uil-search"></i>
             <input type="text" name="nim" placeholder="Search NIM here..." autofocus/>
           </form>
         </div>
-        <a href="profile/<%= admin.role %>/<%= admin.id %>">
-          <img src="images/profile/<%= admin.nama %>.jpg" alt="Admin" draggable="false"/>
+        <a href="/profile/<%= admin.role %>/<%= admin.id %>">
+          <img src="/images/profile/<%= admin.nama %>.jpg" alt="Admin" draggable="false"/>
         </a>
       </div>
 
@@ -185,7 +185,7 @@
                     <td><%= as.role %></td>
                     <td><button>Lihat</button></td>
                     <td><a 
-                          href="profile/<% if(as.role == 'Asisten Laboratorium') { %>aslab<% } else { %><%= as.role.toLowerCase() %><% } %>/<%= as.id %>"
+                          href="/profile/<% if(as.role == 'Asisten Laboratorium') { %>aslab<% } else { %><%= as.role.toLowerCase() %><% } %>/<%= as.id %>"
                         >
                       Lihat!
                     </a></td>
@@ -199,6 +199,6 @@
         </div>
     </section>
 
-    <script src="js/dashboard.js"></script>
+    <script src="/js/dashboard.js"></script>
   </body>
 </html>

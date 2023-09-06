@@ -33,7 +33,7 @@
     <a href="?page=<%= pagination.prevPage %>">Prev</a>
   <% } %>
   <span>Page: <%= pagination.currentPage %></span>
-  <% if (datas.length >= 20 ){ //5 itu adalah rows per page %> 
+  <% if (datas.length >= 20 ){ //20 itu adalah rows per page %> 
     <a href="?page=<%= pagination.nextPage %>">Next</a> 
   <% } else { %>
     Next
