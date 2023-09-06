@@ -1,5 +1,6 @@
 const con = require('../config/db');
 
+
 const mahasiswaModel = {
   //mengambil mahasiswa dengan pagination
   getAllMhs: (page, limit, result) => {
@@ -19,6 +20,23 @@ const mahasiswaModel = {
       }
     })
   },
+
+  getMhsByNim: (search, result) => {
+    con.query(`
+    SELECT *
+    FROM mahasiswa
+    WHERE nama LIKE ? OR
+    nim LIKE ?
+    `, [`%${search}%`, `%${search}%`], (err, rows) => {
+      if(err){
+        console.log(err);
+        return result(err, null);
+      }
+      else{
+        return result(null, rows);
+      }
+    })
+  }
 
 
 

@@ -4,7 +4,9 @@ const mahasiswaController = require('../controllers/mahasiswaController');
 
 router
   .route('/')
-  .get(mahasiswaController.getMahasiswa)
+  .get(mahasiswaController.getMhs)
+  .post(mahasiswaController.getMhsByNim)
+
 
 
 

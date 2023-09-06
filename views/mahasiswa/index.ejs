@@ -8,7 +8,35 @@
 </head>
 <body>
   <h2 class="d-flex justify-content-center">Mahasiswa Aktif Praktikum</h2>
+  <% if (messages.error) { %>
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Error!</strong>
+      <br/>
+      <%- messages.error %>
+    </div>
+  <% } %>
+  <form action="" method="post">
+    <div class="text-center m-2">
+      <input type="text" name="search" placeholder="Search..."> <button class="btn btn-success">Cari</button>
+    </div>
+  </form>
   <table class="table table-striped">
+    <% if (locals.pagination) {%>
+      <div class="d-flex justify-content-center m-2">
+        <% if (pagination.currentPage != 1) {%>
+          <a onclick="window.open(`?page=<%= pagination.prevPage %>`, '_self')" class="btn btn-primary">Prev</a>
+        <% } else { %>
+          <a class="btn btn-secondary">Prev</a>
+        <% } %>
+        <span style="font-size: large; font-weight: bold;" class="m-1"><%= pagination.currentPage %></span>
+        <% if (datas.length >= pagination.limit ){ %> 
+          <a onclick="window.open(`?page=<%= pagination.nextPage %>`, '_self')" class="btn btn-primary">Next</a> 
+        <% } else { %>
+          <a class="btn btn-secondary">Next</a>
+        <% } %>
+      </div>
+    <% } %>
     <thead class="table-dark">
       <tr>
         <th width="15%" class="text-center">No</th>
@@ -28,18 +56,5 @@
       <% }) %>
     </tbody>
   </table>
-  <div class="d-flex justify-content-center"">
-    <% if (pagination.currentPage != 1) {%>
-      <a onclick="window.open(`?page=<%= pagination.prevPage %>`, '_self')" class="btn btn-primary">Prev</a>
-    <% } else { %>
-      <a class="btn btn-secondary">Prev</a>
-    <% } %>
-    <span style="font-size: large; font-weight: bold;" class="m-1"><%= pagination.currentPage %></span>
-    <% if (datas.length >= pagination.limit ){ %> 
-      <a onclick="window.open(`?page=<%= pagination.nextPage %>`, '_self')" class="btn btn-primary">Next</a> 
-    <% } else { %>
-      <a class="btn btn-secondary">Next</a>
-    <% } %>
-  </div>
 </body>
 </html>
