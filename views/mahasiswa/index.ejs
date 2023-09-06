@@ -4,39 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Mahasiswa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-  <h2>Mahasiswa Aktif Praktikum</h2>
-  <table>
-    <thead>
+  <h2 class="d-flex justify-content-center">Mahasiswa Aktif Praktikum</h2>
+  <table class="table table-striped">
+    <thead class="table-dark">
       <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>NIM</th>
-        <th>Stambuk</th>
+        <th width="15%" class="text-center">No</th>
+        <th width="20%">Nama</th>
+        <th class="text-center">NIM</th>
+        <th class="text-center">Stambuk</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-white">
       <% datas.forEach(mhs => { %>
         <tr>
-          <td><%= mhs.no %></td>
+          <td class="text-center"><%= mhs.no %></td>
           <td><%= mhs.nama %></td>
-          <td><%= mhs.nim %></td>
-          <td><%= mhs.stambuk %></td>
+          <td class="text-center"><%= mhs.nim %></td>
+          <td class="text-center"><%= mhs.stambuk %></td>
         </tr>
       <% }) %>
     </tbody>
   </table>
-  <% if (pagination.currentPage == 1) {%>
-    Prev
-  <% } else { %>
-    <a href="?page=<%= pagination.prevPage %>">Prev</a>
-  <% } %>
-  <span>Page: <%= pagination.currentPage %></span>
-  <% if (datas.length >= 20 ){ //20 itu adalah rows per page %> 
-    <a href="?page=<%= pagination.nextPage %>">Next</a> 
-  <% } else { %>
-    Next
-  <% } %>
+  <div class="d-flex justify-content-center"">
+    <% if (pagination.currentPage != 1) {%>
+      <a onclick="window.open(`?page=<%= pagination.prevPage %>`, '_self')" class="btn btn-primary">Prev</a>
+    <% } else { %>
+      <a class="btn btn-secondary">Prev</a>
+    <% } %>
+    <span style="font-size: large; font-weight: bold;" class="m-1"><%= pagination.currentPage %></span>
+    <% if (datas.length >= pagination.limit ){ %> 
+      <a onclick="window.open(`?page=<%= pagination.nextPage %>`, '_self')" class="btn btn-primary">Next</a> 
+    <% } else { %>
+      <a class="btn btn-secondary">Next</a>
+    <% } %>
+  </div>
 </body>
 </html>
