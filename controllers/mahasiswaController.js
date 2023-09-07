@@ -39,13 +39,18 @@ const mahasiswaController = {
     mahasiswaModel.getMhsByNim(search, (err, result) => {
       if (err) {
         req.flash('error','Ada masalah saat mengambil database (getMhsByNim)'+ err)
-        res.redirect('/mahasiswa')
+        res.redirect('/mahasiswa?page=1')
       }
 
-      if (result == null) {
+      if (result.length <= 0) {
         req.flash('error','Mahasiswa tidak ditemukan')
-        res.redirect('/mahasiswa')
-      }else{
+        res.redirect('/mahasiswa?page=1')
+      }
+      else if (result.length >= 20){
+        req.flash('error','Kriteria yang kamu cari terlalu banyak (>= 20) coba lebih spesifik')
+        res.redirect('/mahasiswa?page=1')
+      }
+      else{
         res.render('mahasiswa', {datas: result})
       }
     })

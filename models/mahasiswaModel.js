@@ -23,7 +23,7 @@ const mahasiswaModel = {
 
   getMhsByNim: (search, result) => {
     con.query(`
-    SELECT *
+    SELECT ROW_NUMBER() OVER (ORDER BY nama) no, mahasiswa.* 
     FROM mahasiswa
     WHERE nama LIKE ? OR
     nim LIKE ?
