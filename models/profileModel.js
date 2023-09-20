@@ -28,9 +28,38 @@ const profileModel ={
         return result(null, rows)
       }
     })
-  }
+  },
+
+  getAllProfile: (result) => {
+    con.query(`
+      SELECT * FROM (
+        SELECT id, 'aslab' role, nama, notel, instagram
+        FROM aslab 
+        UNION
+        SELECT id, 'laboran', nama, notel, instagram
+        FROM laboran
+        UNION
+        SELECT id, 'dosen', nama, notel, instagram
+        FROM dosen
+      ) u
+    `, (err, rows) => {
+      if(err){
+        return result(err, null)
+      }
+
+      if(rows.length <= 0){
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
+
+
+
+
+
 
 }
-
-
 module.exports = profileModel;

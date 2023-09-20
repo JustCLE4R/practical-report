@@ -20,7 +20,7 @@
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
 
 
-       <!-- Google Fonts -->
+    <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
@@ -53,208 +53,50 @@
           <li><a class="nav-link scrollto" href="#features">Services</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Quotes</a></li>
           <li><a class="nav-link scrollto" href="#faq">Faq</a></li>
-          <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
           <li><a class="getstarted scrollto" href="/login">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
+    </div>
+  </header>
     
-    
 
 
 
 
-    <section class="dashboard">
-      <div class="dash-content">
+    <section class="dashboard mt-5 pt-5">
+      <div class="dash-content ">
         <div class="container">
-          <div class="box">
-          <div class="image">
-            <img src="/images/profile/sabirin.jpg">
-            </div>
-            <div class="name_job">Sabirin</div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p> Villager</p>
-            <div class="btns">
-              <button><a href="/profile/aslab/1">View Profile</a></button>
-              <button>Subscribe</button>
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-            <img src="/images/profile/Dimas Yudistira.jpg" alt="">
-            </div>
-            <div class="name_job">Dimas Jembud</div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-            <p> Aslab</p>
-            <div class="btns">
-              <button>View Profile </button>
-              <button>Kick</button>
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="/images/profile/pito.jpg">
+          <% datas.forEach(data => { %>
+            <div class="box">
+              <div class="image">
+                <img src="/images/profile/<%= data.role %>/<%= data.nama %>.jpg">
               </div>
-              <div class="name_job">Paris Alvito</div>
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-/star"></i>
-              </div>
-              <p> Villager</p>
+              <div class="name_job"><%= data.nama %></div>
+              <p>
+                <% if (data.role == 'aslab') { %>
+                  Asisten Laboratorium
+                <% } else if (data.role == 'dosen') { %>
+                  Dosen
+                <% } else { %>
+                  Laboran
+                <% } %>
+              </p>
+              <p><%= data.notel %></p>
               <div class="btns">
-                <button>View Profile</button>
+                <button><a href="/profile/<%= data.role %>/<%= data.id %>">View Profile</a></button>
                 <button>Subscribe</button>
               </div>
             </div>
-            <div class="box">
-              <div class="image">
-              <img src="/images/profile/bintang.jpg" alt="">
-              </div>
-              <div class="name_job">Bintang</div>
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <p> Aslab</p>
-              <div class="btns">
-                <button>View Profile </button>
-                <button>Kick</button>
-              </div>
-            </div>
-            <div class="box">
-              <div class="image">
-                <img src="/images/profile/fahri.jpg">
-                </div>
-                <div class="name_job">Fahri Syuhada</div>
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <p> Laboran</p>
-                <div class="btns">
-                  <button>View Profile</button>
-                  <button>Subscribe</button>
-                </div>
-              </div>
-              <div class="box">
-                <div class="image">
-                <img src="/images/profile/fatur.jpg" alt="">
-                </div>
-                <div class="name_job">Dimas Jembud</div>
-                <div class="rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-                <p> Aslab</p>
-                <div class="btns">
-                  <button>View Profile </button>
-                  <button>Kick</button>
-                </div>
-              </div>
-              <div class="box">
-                <div class="image">
-                  <img src="/images/profile/ktb.jpg">
-                  </div>
-                  <div class="name_job">ktb</div>
-                  <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <p> Aslab</p>
-                  <div class="btns">
-                    <button>View Profile</button>
-                    <button>Subscribe</button>
-                  </div>
-                </div>
-                <div class="box">
-                  <div class="image">
-                  <img src="/images/profile/lala.jpg" alt="">
-                  </div>
-                  <div class="name_job">Ihslahiyah </div>
-                  <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <p> Aslab</p>
-                  <div class="btns">
-                    <button>View Profile </button>
-                    <button>Kick</button>
-                  </div>
-                </div>
-                <div class="box">
-                  <div class="image">
-                    <img src="/images/profile/lutfhi.jpg">
-                    </div>
-                    <div class="name_job">Lutfhi Faturahman</div>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-                    <p> Laboran</p>
-                    <div class="btns">
-                      <button>View Profile</button>
-                      <button>Subscribe</button>
-                    </div>
-                  </div>
-                  <div class="box">
-                    <div class="image">
-                    <img src="/images/profile/sultan.jpg" alt="">
-                    </div>
-                    <div class="name_job">Sultan Azka</div>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-                    <p> Aslab</p>
-                    <div class="btns">
-                      <button>View Profile </button>
-                      <button>Kick</button>
-                    </div>
-                  </div>
-
+          <% }) %>
         </div>
-      
       </div>
+
     </section>
 
     <script src="/js/profile.js"></script>
-     <!-- Vendor JS Files -->
+    <!-- Vendor JS Files -->
   <script src="/vendor/aos/aos.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/vendor/glightbox/js/glightbox.min.js"></script>

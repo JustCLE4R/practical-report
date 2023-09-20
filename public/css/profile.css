@@ -55,9 +55,11 @@ color: #17c0eb
 }
 .box p{
   text-align: justify;
-  margin-top: 8px;
+  margin-top: 0px;
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 6px;
+
 }
 .box .name_job{
   margin: 10px 0 3px 0;

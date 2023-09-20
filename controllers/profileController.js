@@ -2,7 +2,15 @@ const profileModel = require('../models/profileModel')
 
 const profileController = {
   profile: (req, res) => { //menampilkan page profile
-    res.render('profile');
+    profileModel.getAllProfile((err, result) => { //mengambil profile admin dari database
+      if (err || result === null) {
+        req.flash('error', role + '/' + id + ' return ' + err)
+        res.status(404).render('error/404')
+      }
+      else{
+        res.render('profile', {datas: result});
+      }
+    })
   },
 
   profileIndividual: (req, res) => { //menampilkan page profile individual
