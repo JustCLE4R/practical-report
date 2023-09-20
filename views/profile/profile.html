@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="/css/profile.css"/> 
+    <link rel="stylesheet" href="/public/css/profile.css"/> 
 
     
     <!-- Fontawasome -->
@@ -19,53 +19,98 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
 
-
-       <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-
-  <!-- Vendor CSS Files -->
-  
-  <link rel="stylesheet" href="/vendor/aos/aos.css">
-  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="/vendor/boxicons/css/boxicons.css">
-  <link rel="stylesheet" href="/vendor/glightbox/css/glightbox.css">
-  <link rel="stylesheet" href="/vendor/swiper/swiper-bundle.min.css">
-
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
     <title>Admin Dashboard Panel</title>
   </head>
   <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top  header-transparent ">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1><a href="#">Profile </a></h1>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="/images/logo.jpeg" alt="" />
+        </div>
+        <span class="logo_name">Dashboard</span>
       </div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#features">Services</a></li>
-          <li><a class="nav-link scrollto" href="#testimonials">Quotes</a></li>
-          <li><a class="nav-link scrollto" href="#faq">Faq</a></li>
-          <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="/login">Login</a></li>
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="#" title="Ya Dashboard">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dahsboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile" title="Profile">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Mahasiswa">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Mahasiswa</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-thumbs-up"></i>
+              <span class="link-name">Gallery</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Comment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-share"></i>
+              <span class="link-name">Share</span>
+            </a>
+          </li>
         </ul>
-      </nav><!-- .navbar -->
-    
-    
 
+        <ul class="logout-mode">
+          <li>
+            <a href="dashboard/logout" title="Logout">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Logout</span>
+            </a>
+          </li>
 
+          <li class="mode" title="Dark Mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark Mode</span>
+            </a>
 
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <section class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+        <div class="search-box">
+          <form action="dashboard/results" method="post">
+            <i class="uil uil-search"></i>
+            <input type="text" name="nim" placeholder="Search NIM here..." autofocus/>
+          </form>
+        </div>
+        <a href="profile/">
+          <img src="/images/profile/pito.jpg" alt="Admin" draggable="false"/>
+        </a>
+      </div>
+
       <div class="dash-content">
+        <div class="title">
+          <i class="uil uil-clock-three"></i>
+          <span class="text">Profile</span>
+        </div>
         <div class="container">
           <div class="box">
           <div class="image">
@@ -253,15 +298,6 @@
       </div>
     </section>
 
-    <script src="/js/profile.js"></script>
-     <!-- Vendor JS Files -->
-  <script src="/vendor/aos/aos.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-
-
-  <!-- Template Main JS File -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/public/js/profile.js"></script>
   </body>
 </html>
