@@ -1,0 +1,12 @@
+<div class="top">
+  <i class="uil uil-bars sidebar-toggle"></i>
+  <div class="search-box">
+    <form action="/dashboard/results" method="post">
+      <i class="uil uil-search"></i>
+      <input type="text" name="nim" placeholder="Search NIM here..." autofocus/>
+    </form>
+  </div>
+  <a href="/profile/<%= admin.role %>/<%= admin.id %>">
+    <img src="/images/profile/<%= admin.nama %>.jpg" alt="Admin" draggable="false"/>
+  </a>
+</div>
