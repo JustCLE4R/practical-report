@@ -16,7 +16,6 @@
       <!-- Jika Mahasiswa Ditemukan -->
       <% if (datas[0].nama_matkul) { %>
       <div class="row">
-         
         <div class="col-md-12 ">
           <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100 ">
             <h4 class="font-weight-bold mt-0 mb-4 ">Daftar Laporan Praktikum</h4>
@@ -48,23 +47,23 @@
                             <td><p class="text-start"><%= datas[0].stambuk %></p></td>
                           </tr>
                           <tr>
-                            <td><b><p class="text-start">Asissten Lab </p></b></td>
+                            <td><b><p class="text-start"><% if (admin.role == 'aslab') { %>Asisten Lab
+                            <% } else { %>Laboran<% } %></p></b></td>
                             <td><p>:</p></td>
-                            <td><p class="text-start"><%= datas[0].nama_aslab %></p></td>
+                            <td><p class="text-start"><%= admin.nama %></p></td>
                           </tr>
                           
                         </table>
-                       <center>
-                        <div class="border shadow-sm col-md-4 ">
-                          <p class="mb-1 "><% if (admin.role == 'aslab') { %>
-                            <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
-                            <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
-                          <% } else { %>
-                            <p>Laboran : <%= datas[0].nama_laboran %></p>
-                          <% } %>
-                        </p>
-                        </div>
-                      </center>
+                        <% if (admin.role == 'aslab') { %>
+                        <center>
+                          <div class="border shadow-sm col-md-4 ">
+                            <p class="mb-1 ">
+                              <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
+                              <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
+                            </p>
+                          </div>
+                        </center>
+                        <% } %>
                       </div>
                     </div>
                   </div>
@@ -99,82 +98,79 @@
                             <i class="icofont-location-arrow"></i><%= data.nama_dosen %>
                           </h5>
                           <h5 class="text-gray mb-3">
-                            <i class="icofont-clock-time"></i><%= data.nama_laboran %>
+                            <i class="icofont-clock-time"></i><% if(admin.role == 'aslab') {  %><%= data.nama_laboran %><% } else { %><%= data.nama_aslab %><% } %>
                           </h5>
                           <form action="/dashboard/results?_method=PATCH" method="post">
                             <input type="hidden" name="id_status" value="<%= data.id_status %>">
                             
 
-
-                            <div class="accordion col-md-8 " id="accordionExample">
-
-                              
-                              <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Modul 1 - Laboran
-                                  </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-
-                                    <div class="wrapper">
-                                      
-                                      <div class="box">
-                                        <input type="radio" name="select" id="option-1">
-                                        <input type="radio" name="select" id="option-2">
-                                        <input type="radio" name="select" id="option-3">
-                                        <input type="radio" name="select" id="option-4">
-                                        <label for="option-1" class="option-1">
-                                          <div class="dot"></div>
-                                          <div class="text">Belum Sama Sekali</div>
-                                        </label>
-                                        <label for="option-2" class="option-2">
-                                          <div class="dot"></div>
-                                          <div class="text">Revisi</div>
-                                        </label>
-                                        <label for="option-3" class="option-3">
-                                          <div class="dot"></div>
-                                          <div class="text">Aslab</div>
-                                        </label>
-                                        <label for="option-4" class="option-4">
-                                          <div class="dot"></div>
-                                          <div class="text">Laboran</div>
-                                        </label>
+                            <% let accordionParentIdRand = 'b'+(Math.random() + 1).toString(36).substring(7); %>
+                            <div class="accordion col-md-8 " id="<%= accordionParentIdRand %>">
+                              <% for( let i = 1; i <= 8; i++ ) { %>
+                                <% let accordionIdRand = 'a'+(Math.random() + 1).toString(36).substring(7); radioId++ %>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= accordionIdRand %>" aria-expanded="true" aria-controls="<%= accordionIdRand %>">
+                                      Modul <%= i %> - Laboran
+                                    </button>
+                                  </h2>
+                                  <div id="<%= accordionIdRand %>" class="accordion-collapse collapse" data-bs-parent="#<%= accordionParentIdRand %>">
+                                    <div class="accordion-body">
+                                      <div class="wrapper">
+                                        <div class="box">
+                                          <input
+                                          type="radio"
+                                          name="modul_<%= i %>"
+                                          id="option-1"
+                                          value="0"
+                                          <% if(data['modul_'+i] == 0){ %>checked<% } %> >
+                                          <input 
+                                          type="radio"
+                                          name="modul_<%= i %>"
+                                          id="option-2"
+                                          value="1"
+                                          <% if(data['modul_'+i] == 1){ %>checked<% } %> >
+                                          <input 
+                                          type="radio"
+                                          name="modul_<%= i %>"
+                                          id="option-3"
+                                          value="2"
+                                          <% if(data['modul_'+i] == 2){ %>checked<% } %> >
+                                          <input 
+                                          type="radio"
+                                          name="modul_<%= i %>"
+                                          id="option-4"
+                                          value="3"
+                                          <% if(data['modul_'+i] == 3){ %>checked<% } %> >
+                                          <label for="option-1" class="option-1">
+                                            <div class="dot"></div>
+                                            <div class="text">Belum Sama Sekali</div>
+                                          </label>
+                                          <label for="option-2" class="option-2">
+                                            <div class="dot"></div>
+                                            <div class="text">Revisi</div>
+                                          </label>
+                                          <label for="option-3" class="option-3">
+                                            <div class="dot"></div>
+                                            <div class="text">Aslab</div>
+                                          </label>
+                                          <label for="option-4" class="option-4">
+                                            <div class="dot"></div>
+                                            <div class="text">Laboran</div>
+                                          </label>
+                                        </div>
                                       </div>
                                     </div>
-
                                   </div>
-                                </div>
-                              </div>                             
-                          
+                                </div>                             
+                              <% } %>
                             </div>
 
 
 
 
-                            <% for( let i = 1; i <= 8; i++ ){ %>
-                              <label for="">Modul <%= i %></label>
-                              <select name="modul_<%= i %>" id="modul_<%= i %>">
-                                <option 
-                                  value="0" 
-                                  <% if (data['modul_' + i] == '0') { %>selected<% } %>
-                                  <% if (data['modul_' + i] != '0' && admin.role == 'aslab') { %>disabled<% } %>
-                                >0</option>
-                                <option 
-                                  value="1" 
-                                  <% if (data['modul_' + i] == '1') { %>selected<% } %>
-                                  <% if (data['modul_' + i] == '2' && admin.role == 'aslab') { %>disabled<% } %>
-                                >1</option>
-                                <option 
-                                  value="2"
-                                  <% if (data['modul_' + i] == '2') { %>selected<% } %>
-                                  <% if (admin.role == 'aslab') { %>disabled<% } %>
-                                >2</option>
-                              </select>
-                              <br>
-                            <hr/>
-                            <% } %>
+
+
                             <div class="float-right">
                               <button class="btn btn-sm btn-primary"><i class="icofont-refresh"></i>Perbaharui!</button>
                             </div>
@@ -212,6 +208,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <%- include('../layouts/footer') %>
 
   </body>
 </html>
