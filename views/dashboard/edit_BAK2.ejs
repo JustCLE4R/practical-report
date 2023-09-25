@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/css/dashboard.css"/> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+
+    <title>Edit Modul</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="/images/logo.jpeg" alt="" />
+        </div>
+        <span class="logo_name">Dashboard</span>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="#" title="Ya Dashboard">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dahsboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile" title="Profile">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Mahasiswa">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Mahasiswa</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-thumbs-up"></i>
+              <span class="link-name">Gallery</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Comment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-share"></i>
+              <span class="link-name">Share</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="logout-mode">
+          <li>
+            <a href="/dashboard/logout" title="Logout">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Logout</span>
+            </a>
+          </li>
+
+          <li class="mode" title="Dark Mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      <section class="dashboard">
+        <div class="top">
+          <i class="uil uil-bars sidebar-toggle"></i>
+          <div class="search-box">
+            <form action="/dashboard/results" method="post">
+              <i class="uil uil-search"></i>
+              <input type="text" name="nim" placeholder="Search NIM here..." autofocus/>
+            </form>
+          </div>
+          <a href="/profile/<%= admin.role %>/<%= admin.id %>">
+            <img src="/images/profile/<%= admin.nama %>.jpg" alt="Admin" draggable="false"/>
+          </a>
+        </div>
+  
+        <div class="dash-content" style="padding-top: 5%; margin-top: 50px;">
+          
+          <div class="overview">
+            <center>
+            <div class="alert alert-primary text-center" role="alert" style="width: 334px;">
+                <div class="row g-0" style="padding-bottom: 10px; text-align: left; width: 19rem;">
+                  <div class="col-md" >
+                      <label for="floatingInputGrid">Nama </label>
+                      <label for="floatingInputGrid" style="padding-left: 30px;">:</label>
+                      <label for="floatingSelectGrid">dina claudia</label>
+                  </div>
+                  
+                </div>
+                <div class="row g-0" style="padding-bottom: 10px; text-align: left; width: 19rem;">
+                  <div class="col-md">
+                      <label for="floatingInputGrid">Nim </label>
+                      <label for="floatingInputGrid" style="padding-left: 45px;">:</label>
+                      <label for="floatingSelectGrid">0701212127</label>
+                  </div>
+                  
+                </div>
+                <div class="row g-0" style="padding-bottom: 10px; text-align: left; width: 19rem;">
+                  <div class="col-md">
+                      <label for="floatingInputGrid">Angkatan </label>
+                      <label for="floatingInputGrid" style="padding-left: 6px;">:</label>
+                      <label for="floatingSelectGrid">2021</label>
+                  </div>
+                  
+                </div>
+                <div class="row g-0" style="padding-bottom: 10px; text-align: left; width: 19rem;">
+                  <div class="col-md">
+                      <label for="floatingInputGrid">Laboran </label>
+                      <label for="floatingInputGrid" style="padding-left: 15px;">:</label>
+                      <label for="floatingSelectGrid">Fahri</label>
+                  </div>
+                  
+                </div>
+            </div>
+            
+          </center>
+          
+            <div class="container px-4 text-center">
+              <div class="row gx-5">
+                <center>
+                <div class="col-md" style="padding-top: 10px;">
+                  <div class="card text-center" style="width: auto; max-width: 32rem;">
+                    <div class="card-header">
+                      Pemrograman Dasar 2
+                    </div>
+                    <div class="card-body">
+                      <div class="row g-1`" style=" text-align: left;">
+                        <div class="col-md" style="width: 50rem; padding-top: 0.2rem;">
+                          <h5 class="card-title">Ahmad Taufik Al Afkari Siahaan, M.Kom</h5>
+                          <p class="card-text">Sultan Azla El Husein Lubis</p>
+                        </div>   
+                        <div class="col-sm" style="text-align: center; max-width: 6rem; padding: 1rem; margin-left: -0.5rem;">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          Akses
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                      Kelas IK-2 / Semester 7
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="padding-top: 10px;">
+                  <div class="card text-center" style="width: auto; max-width: 32rem;">
+                    <div class="card-header">
+                      Pemrograman Dasar 2
+                    </div>
+                    <div class="card-body">
+                      <div class="row g-1`" style=" text-align: left;">
+                        <div class="col-md" style="width: 50rem; padding-top: 0.2rem;">
+                          <h5 class="card-title">Armansyah, M.Kom</h5>
+                          <p class="card-text">Sultan Azla El Husein Lubis</p>
+                        </div>   
+                        <div class="col-sm" style="text-align: center; max-width: 6rem; padding: 1rem; margin-left: -0.5rem;">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          Akses
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                      Kelas IK-2 / Semester 7
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="padding-top: 10px;">
+                  <div class="card text-center" style="width: auto; max-width: 32rem;">
+                    <div class="card-header">
+                      Pemrograman Dasar 2
+                    </div>
+                    <div class="card-body">
+                      <div class="row g-1`" style=" text-align: left;">
+                        <div class="col-md" style="width: 50rem; padding-top: 0.2rem;">
+                          <h5 class="card-title">Ahmad Taufik Al Afkari Siahaan, M.Kom</h5>
+                          <p class="card-text">Sultan Azla El Husein Lubis</p>
+                        </div>   
+                        <div class="col-sm" style="text-align: center; max-width: 6rem; padding: 1rem; margin-left: -0.5rem;">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          Akses
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                      Kelas IK-2 / Semester 7
+                    </div>
+                  </div>
+                </div>
+                </center>
+              </div>
+              <center>
+                <div class="d-grid gap-2 d-md-block" style="margin-top: 30px; width: 7rem;">
+                  <a href="#" class="btn btn-danger" style="margin-bottom: 20px; width: 100px;" type="button">Kembali</a>
+                </div>
+              </center>
+              <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Pemrograman Dasar</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/dashboard/results?_method=PATCH" method="post">
+                          <input type="hidden" name="id_status" value="4">
+                          <div class="mb-3">
+                            <label class="form-label">Modul 1</label>
+                            <center>
+                            <div class="col">
+                              <div class="col-sm">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio1">Belum</label>
+                                
+                                  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio2">Aslab</label>
+                                
+                                  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio3">Laboran</label>
+                                </div>
+                              </div>
+                            </div>
+                          </center>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Modul 2</label>
+                            <center>
+                            <div class="col">
+                              <div class="col-sm">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                  <input type="radio" class="btn-check" name="radio2" id="btnradio4" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio4">Belum</label>
+                                
+                                  <input type="radio" class="btn-check" name="radio2" id="btnradio5" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio5">Aslab</label>
+                                
+                                  <input type="radio" class="btn-check" name="radio2" id="btnradio6" autocomplete="off">
+                                  <label class="btn btn-outline-primary" for="btnradio6">Laboran</label>
+                                </div>
+                              </div>
+                            </div>
+                          </center>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Perubahan</button>
+                      </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              <!-- End Modal -->
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
