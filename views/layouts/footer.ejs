@@ -1,0 +1,12 @@
+<footer>
+  <div class="container">
+    <p>&copy; <span id="currentYear"></span> Nama Situs Anda. Hak Cipta Dilindungi.</p>
+  </div>
+</footer>
+
+<script>
+  // Ambil elemen dengan ID "currentYear" dan isi dengan tahun saat ini
+  const currentYearElement = document.getElementById("currentYear");
+  const currentYear = new Date().getFullYear();
+  currentYearElement.textContent = currentYear;
+</script>

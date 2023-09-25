@@ -865,3 +865,15 @@ table tr:hover td {
 .card2 a:hover{
   transform: scale(0.94);
 }
+
+/* Memberi gaya latar belakang dan teks pada footer */
+footer {
+  background-color: #ffffff; /* Warna latar belakang footer */
+  color: #000000; /* Warna teks footer */
+  padding: 20px 0; /* Ruang padding atas dan bawah pada footer */
+}
+
+/* Membuat teks di footer menjadi rata tengah */
+footer p {
+  text-align: center;
+}
