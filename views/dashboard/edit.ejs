@@ -104,25 +104,49 @@
                             <input type="hidden" name="id_status" value="<%= data.id_status %>">
                             
 
-                            <% let accordionParentIdRand = 'b'+(Math.random() + 1).toString(36).substring(7); %>
+                            <% let accordionParentIdRand = 'a'+(Math.random() + 1).toString(36).substring(7); %>
                             <div class="accordion col-md-8 " id="<%= accordionParentIdRand %>">
                               <% for( let i = 1; i <= 8; i++ ) { %>
-                                <% let accordionIdRand = 'a'+(Math.random() + 1).toString(36).substring(7);%>
+                                <% let accordionIdRand = 'b'+(Math.random() + 1).toString(36).substring(7);%>
                                 <div class="accordion-item">
-                                  <h2 class="accordion-header">
+                                  <h2 class="accordion">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= accordionIdRand %>" aria-expanded="true" aria-controls="<%= accordionIdRand %>">
-                                      Modul <%= i %> - Laboran
+                                      Modul <%= i %> - 
+                                      <% if (data['modul_' + i] == 0) { %>
+                                        Belum Sama Sekali
+                                      <% } else if (data['modul_' + i] == 1) { %>
+                                        Revisi
+                                      <% } else if (data['modul_' + i] == 2) { %>
+                                        Asisten Lab
+                                      <% } else { %>
+                                        Laboran
+                                      <% } %>
                                     </button>
                                   </h2>
                                   <div id="<%= accordionIdRand %>" class="accordion-collapse collapse" data-bs-parent="#<%= accordionParentIdRand %>">
                                     <div class="accordion-body">
                                       <div class="wrapper d-flex  justify-content-center">
-                                        <select class="form-select" aria-label="Default select example">
-                                          <option selected>Pilih Status</option>
-                                          <option value="1">Belum Sama Sekali</option>
-                                          <option value="2">Revisi</option>
-                                          <option value="3">Aslab</option>
-                                          <option value="4">Laboran</option>
+                                        <select class="form-select" aria-label="Default select example" name="modul_<%= i %>" id="modul_<%= i %>">
+                                          <option
+                                            value="0"
+                                            <% if(data['modul_'+ i ] == '0') { %>selected<% } %>
+                                            <% if(data['modul_' + i] != '0' && admin.role =='aslab') { %>disabled<% } %>
+                                            >Belum Sama Sekali</option>
+                                          <option
+                                            value="1"
+                                            <% if (data['modul_' + i] == '1') { %>selected<% } %>
+                                            <% if ((data['modul_' + i] == '2' || data['modul_' + i] == '3') && admin.role == 'aslab') { %>disabled<% } %>
+                                            >Revisi</option>
+                                          <option
+                                            value="2"
+                                            <% if (data['modul_' + i] == '2') { %>selected<% } %>
+                                            <% if ((data['modul_' + i] == '3') && admin.role == 'aslab') { %>hidden<% } %>
+                                            >Asisten Laboratorium</option>
+                                          <option
+                                          value="3"
+                                          <% if (data['modul_' + i] == '3') { %>selected<% } %>
+                                          <% if (admin.role == 'aslab') { %>hidden<% } %>
+                                          >Laboran</option>
                                         </select>
                                       </div>
                                     </div>
