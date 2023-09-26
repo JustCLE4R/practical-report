@@ -2,5 +2,6 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSaveMode": "modifications"
+  "editor.formatOnSaveMode": "modifications",
+  "liveServer.settings.port": 5501
 }

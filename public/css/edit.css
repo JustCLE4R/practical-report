@@ -122,3 +122,28 @@ a:hover{
 .background{
     background-color: #d4d4ff;
 }
+
+.accordion-button:not(.collapsed) {
+  color: #000000  !important;
+  background-color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.accordion-button:link, .accordion-button:visited, .accordion-button:hover, .accordion-button:active  {
+  background-color: #6a7bdd !important;
+  color:#FFF !important;
+  text-decoration: none !important;
+  border: hidden !important;
+  border-color: #000000 !important;
+  box-shadow: 0px !important;
+}
+
+.accordion-button:focus {
+    background-color: #6a7bdd !important;
+    color:#FFF !important;
+    text-decoration: none !important;
+    border: hidden !important;
+    border-color: #000000 !important;
+    box-shadow: 0px !important;
+}
+
