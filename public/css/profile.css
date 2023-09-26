@@ -86,7 +86,7 @@ width: 100%;
 padding: 17px 0;
 z-index: 998;
 transition: all 0.3s ease;
-font-family: 'Ubuntu', sans-serif;
+font-family: "Open Sans", sans-serif;
 background-color: #ffffff;
 top: 0;
 }
@@ -104,10 +104,10 @@ margin: auto;
 nav .navbar .logo a{
 font-weight: 500;
 font-size: 35px;
-color: #4070f4;
+color: #5777ba;
 }
 nav.sticky .navbar .logo a{
-color: #3c21b1;
+color: #5777ba;
 }
 nav .navbar .menu{
 display: flex;
@@ -120,15 +120,16 @@ margin: 0 8px;
 .navbar .menu a{
 font-size: 18px;
 font-weight: 500;
-color: #3f24d4;
+color: #5777ba;
 padding: 6px 0;
 transition: all 0.4s ease;
 }
 .navbar .menu a:hover{
-color: #4070f4;
+color: #5777ba;
+text-decoration: none;
 }
 nav.sticky .menu a{
-color: #430bac;
+color: #4987fa;
 }
 nav.sticky .menu a:hover{
 color: #10557e;
