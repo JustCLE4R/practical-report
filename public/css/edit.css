@@ -87,9 +87,9 @@
     height: 56px;
     object-fit: cover;
 }
-.order-list img.mr-4 {
-    width: 70px;
-    height: 70px;
+.media img {
+    width: 15vh;
+    height: 15vh;
     object-fit: cover;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
     border-radius: 2px;
@@ -145,5 +145,15 @@ a:hover{
     border: hidden !important;
     border-color: #000000 !important;
     box-shadow: 0px !important;
+}
+
+.status{
+    width: 55%;
+    font-size: 1.3em;
+    padding-left: 3vh;
+    padding-top: 2vh;
+    display: flex;
+    justify-content: start;
+    
 }
 
