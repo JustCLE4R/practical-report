@@ -1,221 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-
-    <title>Mahasiswa</title>
+    <meta charset="utf-8"/>
+    <title>Edit Status</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/edit.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body class="background">
     <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"  integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous" />
     <div class="container">
-      <!-- Jika Mahasiswa Ditemukan -->
       <% if (datas[0].nama_matkul) { %>
-      <div class="row">
-        <div class="col-md-12 ">
-          <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100 ">
-            <h4 class="font-weight-bold mt-0 mb-4 ">Daftar Laporan Praktikum</h4>
-            <div class="col-md-12 mb-5">
-              <div class="osahan-account-page-left shadow-sm bg-white h-100">
-                <div class="border-bottom p-4">
-                  <div class="osahan-user text-center">
-                    <div class="osahan-user-media ">
-                      <!-- <img
-                        class="mb-3 rounded-pill shadow-sm mt-1"
-                        src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                        alt="gurdeep singh osahan"
-                      /> -->
-                      <div class="osahan-user-media-body">
-                        <table class="d-flex justify-content-center ">
-                          <tr>
-                            <td><b><p class="text-start">Nim </p></b></td>
-                            <td><p>:</p></td>
-                            <td><p class="text-start"><%= datas[0].nim %></p></td>
-                          </tr>
-                          <tr>
-                            <td><b><p class="text-start">Nama </p></b></td>
-                            <td><p>:</p></td>
-                            <td><p class="text-start"><%= datas[0].nama %></p></td>
-                          </tr>
-                          <tr>
-                            <td><b><p class="text-start">Angkatan </p></b></td>
-                            <td><p>:</p></td>
-                            <td><p class="text-start"><%= datas[0].stambuk %></p></td>
-                          </tr>
-                          <tr>
-                            <td><b><p class="text-start"><% if (admin.role == 'aslab') { %>Asisten Lab
-                            <% } else { %>Laboran<% } %></p></b></td>
-                            <td><p>:</p></td>
-                            <td><p class="text-start"><%= admin.nama %></p></td>
-                          </tr>
-                          
-                        </table>
-                        <% if (admin.role == 'aslab') { %>
-                        <center>
-                          <div class="border shadow-sm col-md-4 ">
-                            <p class="mb-1 ">
-                              <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
-                              <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
-                            </p>
-                          </div>
-                        </center>
-                        <% } %>
+        <!-- Jika Mahasiswa Ditemukan -->
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100 ">
+              <h4 class="font-weight-bold mt-0 mb-4 ">Daftar Laporan Praktikum</h4>
+              <div class="col-md-12 mb-5">
+                <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                  <div class="border-bottom p-4">
+                    <div class="osahan-user text-center">
+                      <div class="osahan-user-media ">
+                        <div class="osahan-user-media-body">
+                          <table class="d-flex justify-content-center ">
+                            <tr>
+                              <td><b><p class="text-start">Nim </p></b></td>
+                              <td><p>:</p></td>
+                              <td><p class="text-start"><%= datas[0].nim %></p></td>
+                            </tr>
+                            <tr>
+                              <td><b><p class="text-start">Nama </p></b></td>
+                              <td><p>:</p></td>
+                              <td><p class="text-start"><%= datas[0].nama %></p></td>
+                            </tr>
+                            <tr>
+                              <td><b><p class="text-start">Angkatan </p></b></td>
+                              <td><p>:</p></td>
+                              <td><p class="text-start"><%= datas[0].stambuk %></p></td>
+                            </tr>
+                            <tr>
+                              <td><b><p class="text-start"><% if (admin.role == 'aslab') { %>Asisten Lab
+                              <% } else { %>Laboran<% } %></p></b></td>
+                              <td><p>:</p></td>
+                              <td><p class="text-start"><%= admin.nama %></p></td>
+                            </tr>
+                          </table>
+                          <% if (admin.role == 'aslab') { %>
+                          <center>
+                            <div class="border shadow-sm col-md-4 ">
+                              <p class="mb-1 ">
+                                <p>Ingin menambah mahasiswa ini ke kelas kamu?</p>
+                                <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Ya</a>
+                              </p>
+                            </div>
+                          </center>
+                          <% } %>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-
-            <div class="tab-content " id="myTabContent">
-              <div class="tab-pane fade active show" id="orders" role="tabpanel" aria-labelledby="orders-tab"
-              >
-                
-                <% datas.forEach(data => { %>
+              <div class="tab-content " id="myTabContent">
+                <div class="tab-pane fade active show" id="orders" role="tabpanel" aria-labelledby="orders-tab" >
                   <div class="accordion shadow-sm card m-2" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header " id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          
-                         <h3><a href="#">
-                            <span class="float-left  text-info"><%= data.nama_matkul %></span>
-                         </a></h3>
-
-                         <h3><a href="#">
-                          <span class="float-right  ms-2 text-info"><%= data.semester+'/'+data.kelas %></span>
-                        </a></h3>
-
-
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <div class="gold-members p-4">
-                            <div class="media">
+                    <% datas.forEach(data => { %>
+                      <% 
+                        let accodionId1 = 'a'+(Math.random() + 1).toString(36).substring(2, 7);
+                      %>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= accodionId1 %>" aria-expanded="false" aria-controls="collapseOne">
+                            <h3 style="width: 100%;">
+                              <span class="float-start me-auto text-info"><%= data.nama_matkul %></span>
+                              <span class="float-end me-4 text-info"><%= data.semester+'/'+data.kelas %></span>
+                            </h3>
+                          </button>
+                        </h2>
+                        <div id="<%= accodionId1 %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            <div class="gold-members p-4">
+                              <div class="media">
                                 <a href="#">
-                                   <img
+                                  <img
                                     class="mr-4"
                                     src="/images/mata-kuliah/<%= data.nama_matkul %>.png"
                                     alt="Mata Kuliah"
-                                            />
+                                  />
                                 </a>
                                 <div class="media-body">
-                                    <h5 class="text-gray mb-1 ms-3">
-                                     <i class="icofont-location-arrow"></i><%= data.nama_dosen %>
-                                    </h5>
-                                    <h5 class="text-gray mb-3 ms-3">
-                                      <i class="icofont-clock-time"></i><% if(admin.role == 'aslab') {  %><%= data.nama_laboran %><% } else { %><%= data.nama_aslab %><% } %>
-                                    </h5>
-
-                                    <!-- Terbaru -->
-                                    
-                                      <div class="input-group  mb-3">
-                                        <div class="border rounded status  ">
-                                          <p>Modul 1 - Laboran</p>
+                                  <h5 class="text-gray mb-1 ms-3">
+                                  <i class="icofont-location-arrow"></i><%= data.nama_dosen %>
+                                  </h5>
+                                  <h5 class="text-gray mb-3 ms-3">
+                                    <i class="icofont-clock-time"></i><% if(admin.role == 'aslab') { %><%= data.nama_laboran %><% } else { %><%= data.nama_aslab %><% } %>
+                                  </h5>
+                                  <form action="/dashboard/results?_method=PATCH" method="post">
+                                    <input type="hidden" name="id_status" value="<%= data.id_status %>">
+                                    <% for( let i = 1; i <= 8; i++ ) { %>
+                                      <div class="input-group mb-3">
+                                        <div class="border status">
+                                          <p>Modul <%= i %></p>
                                         </div>
-                                        
-                                        <select class="text-start  select fs-5 btn dropdown-toggle btn-outline-secondary">
-                                          <option  selected>Pilih Status</option>
-                                            <option class=" p-3" value="1">Tidak Ada</option>
-                                            <option class=" p-3" value="2">Revisi</option>
-                                            <option class=" p-3" value="3">Aslab</option>
-                                            <option class=" p-3" value="4">Laboran</option>
-
+                                        <select class="text-start select fs-5 btn dropdown-toggle btn-outline-secondary" name="modul_<%= i %>" id="modul_<%= i %>">
+                                            <option
+                                            class="p-3"
+                                            value="0"
+                                            <% if(data['modul_'+ i ] == '0') { %>selected<% } %>
+                                            <% if(data['modul_' + i] != '0' && admin.role =='aslab') { %>disabled<% } %>
+                                            >Belum Sama Sekali</option>
+                                            <option
+                                            class="p-3"
+                                            value="1"
+                                            <% if (data['modul_' + i] == '1') { %>selected<% } %>
+                                            <% if ((data['modul_' + i] == '2' || data['modul_' + i] == '3') && admin.role == 'aslab') { %>disabled<% } %>
+                                            >Revisi</option>
+                                            <option
+                                            class="p-3"
+                                            value="2"
+                                            <% if (data['modul_' + i] == '2') { %>selected<% } %>
+                                            <% if ((data['modul_' + i] == '3') && admin.role == 'aslab') { %>disabled<% } %>
+                                            >Asisten Laboratorium</option>
+                                            <option
+                                            class="p-3"
+                                            value="3"
+                                            <% if (data['modul_' + i] == '3') { %>selected<% } %>
+                                            <% if (admin.role == 'aslab' && data['modul_' + i] != '3') { %>disabled<% } %>
+                                            >Laboran</option>
                                         </select>
                                       </div>
-                                   
-                                    <!-- Terbaru -->
-
-
-                                    <form action="/dashboard/results?_method=PATCH" method="post">
-                                      <input type="hidden" name="id_status" value="<%= data.id_status %>">
-
-                                        <% let accordionParentIdRand = 'a'+(Math.random() + 1).toString(36).substring(7); %>
-                                              <div class="accordion col-md-8 " id="<%= accordionParentIdRand %>">
-                                                <% for( let i = 1; i <= 8; i++ ) { %>
-                                                  <% let accordionIdRand = 'b'+(Math.random() + 1).toString(36).substring(7);%>
-                                                  <div class="accordion-item">
-                                                    <h2 class="accordion">
-                                                      <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#<%= accordionIdRand %>" aria-expanded="true" aria-controls="<%= accordionIdRand %>">
-                                                        Modul <%= i %> - 
-                                                        <% if (data['modul_' + i] == 0) { %>
-                                                          Belum Sama Sekali
-                                                        <% } else if (data['modul_' + i] == 1) { %>
-                                                          Revisi
-                                                        <% } else if (data['modul_' + i] == 2) { %>
-                                                          Asisten Lab
-                                                        <% } else { %>
-                                                          Laboran
-                                                        <% } %>
-                                                      </button>
-                                                    </h2>
-                                                    <div id="<%= accordionIdRand %>" class="accordion-collapse collapse" data-bs-parent="#<%= accordionParentIdRand %>">
-                                                      <div class="accordion-body">
-                                                        <div class="wrapper d-flex  justify-content-center">
-                                                          <select class="form-select" aria-label="Default select example" name="modul_<%= i %>" id="modul_<%= i %>">
-                                                            <option
-                                                              value="0"
-                                                              <% if(data['modul_'+ i ] == '0') { %>selected<% } %>
-                                                              <% if(data['modul_' + i] != '0' && admin.role =='aslab') { %>disabled<% } %>
-                                                              >Belum Sama Sekali</option>
-                                                            <option
-                                                              value="1"
-                                                              <% if (data['modul_' + i] == '1') { %>selected<% } %>
-                                                              <% if ((data['modul_' + i] == '2' || data['modul_' + i] == '3') && admin.role == 'aslab') { %>disabled<% } %>
-                                                              >Revisi</option>
-                                                            <option
-                                                              value="2"
-                                                              <% if (data['modul_' + i] == '2') { %>selected<% } %>
-                                                              <% if ((data['modul_' + i] == '3') && admin.role == 'aslab') { %>hidden<% } %>
-                                                              >Asisten Laboratorium</option>
-                                                            <option
-                                                            value="3"
-                                                            <% if (data['modul_' + i] == '3') { %>selected<% } %>
-                                                            <% if (admin.role == 'aslab') { %>hidden<% } %>
-                                                            >Laboran</option>
-                                                          </select>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>                             
-                                                <% } %>
-                                              </div>
-                                              
-                  
-                  
-                  
-                  
-                  
-                                              <div class="float-right">
-                                                <button class="btn btn-sm btn-primary"><i class="icofont-refresh"></i>Perbaharui!</button>
-                                              </div>
-                                              </form>
+                                    <% } %>
+                                    <div class="align-self-center">
+                                      <button class="btn btn-sm btn-primary"><i class="icofont-refresh"></i>Perbaharui!</button>
+                                    </div>
+                                  </form>
                                 </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    <% }) %>
                   </div>
-
-
-              </div>
-                <% }) %>
-
-
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- jika mahasiswa tidak ditemukan -->
     <% } else { %>
+      <!-- jika mahasiswa tidak ditemukan -->
       <h3>Nama : <%= datas[0].nama %></h3>
       <h3>NIM : <%= datas[0].nim %></h3>
       <h3>Angkatan : <%= datas[0].stambuk %></h3>
@@ -225,15 +160,9 @@
       <br>
       <a href="/dashboard">Kembali</a>
     <% } %>
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <%- include('../layouts/footer') %>
-
   </body>
 </html>

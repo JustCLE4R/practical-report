@@ -9,6 +9,7 @@ Adalah sebuah web app untuk mempermudah pekerjaan seenggok asisten lab
 [![GIT](https://img.shields.io/badge/Git-black?style=for-the-badge&logo=git)](https://github.com/JustCLE4R/practical-report)
 [![HTML5](https://img.shields.io/badge/HTML5-black?style=for-the-badge&logo=html5)](https://github.com/JustCLE4R/practical-report)
 [![CSS3](https://img.shields.io/badge/CSS3-black?style=for-the-badge&logo=css3&logoColor=blue)](https://github.com/JustCLE4R/practical-report)
+[![BOOTSTRAP](https://img.shields.io/badge/bootstrap-black?style=for-the-badge&logo=bootstrap)](https://github.com/JustCLE4R/practical-report)
 [![EXPRESS](https://img.shields.io/badge/express-black?style=for-the-badge&logo=express)](https://github.com/JustCLE4R/practical-report)
 
 ### Main Contributor
