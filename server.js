@@ -38,6 +38,7 @@ const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
 const profileRouter = require('./routes/profileRouter');
 const mahasiswaRouter = require('./routes/mahasiswaRouter');
+const APIRouter = require('./routes/APIRouter');
 
 
 //routing
@@ -46,6 +47,7 @@ app.use('/dashboard', dashboardRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/mahasiswa', mahasiswaRouter)
+app.use('/api', APIRouter);
 
 
 //404 route

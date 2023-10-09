@@ -77,3 +77,6 @@ SELECT * FROM (
 WHERE u.role = 'aslab'
 AND u.id = 1;
 
+===============================9:59 AM 9/10/2023===============================
+-- ekstrak stambuk dari nim
+SELECT CONCAT('20', SUBSTRING(nim, 5, 2)) AS stambuk FROM mahasiswa;
