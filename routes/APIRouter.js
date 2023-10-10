@@ -4,6 +4,8 @@ const APIController = require('../controllers/APIController');
 
 router.get('/mahasiswa', APIController.mahasiswa)
 
+router.get('/mahasiswa/:nim', APIController.mahasiswaStatus)
+
 router.get('/aslab', APIController.asistenLab)
 
 router.get('/laboran', APIController.laboran)

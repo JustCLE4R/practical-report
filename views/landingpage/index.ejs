@@ -71,17 +71,15 @@
                     <div class="col-lg-8 p-0">
                       <h4>Cari NIM</h4>
                       <p class="mt-2">Untuk mengetahui status laporan praktikum</p>
-                      <div class="search-box">
-                        <input type="text" placeholder="Type to search..">
-                        <div class="search-icon">
-                          <i class="fas fa-search"></i>
-                        </div>
-                        <div class="cancel-icon">
-                          <i class="fas fa-times"></i>
-                        </div>
-                      <div class="search-data">
-                  </div>
-                  </div>
+                      <form class="search-box" action="/api/mahasiswa/" method="get">
+                          <input type="text" name="nim" placeholder="Type to search..">
+                          <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                          </div>
+                          <div class="cancel-icon">
+                            <i class="fas fa-times"></i>
+                          </div>
+                        </form>
                     </div>
                   </div>
                 </div>

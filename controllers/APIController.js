@@ -13,6 +13,17 @@ const APIController = {
     })
   },
 
+  mahasiswaStatus: (req, res) => {
+    APIModel.getMhsStatus(req.params.nim, (err, result) => {
+      if(err) {
+        res.status(err).send(err);
+      }
+      else{
+        res.status(200).json(result);
+      }
+    })
+  },
+
   asistenLab: (req, res) => {
     APIModel.getAsistenLab((err, result) => {
       if(err) {

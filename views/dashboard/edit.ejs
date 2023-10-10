@@ -65,6 +65,7 @@
               <div class="tab-content " id="myTabContent">
                 <div class="tab-pane fade active show" id="orders" role="tabpanel" aria-labelledby="orders-tab" >
                   <div class="accordion shadow-sm card m-2" id="accordionExample">
+                    <% let first = true %>
                     <% datas.forEach(data => { %>
                       <% 
                         let accodionId1 = 'a'+(Math.random() + 1).toString(36).substring(2, 7);
@@ -78,7 +79,7 @@
                             </h3>
                           </button>
                         </h2>
-                        <div id="<%= accodionId1 %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="<%= accodionId1 %>" class="accordion-collapse collapse <% if(first){ %>show<% } first = false %>" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                           <div class="accordion-body">
                             <div class="gold-members p-4">
                               <div class="media">
@@ -131,8 +132,8 @@
                                         </select>
                                       </div>
                                     <% } %>
-                                    <div class="align-self-center">
-                                      <button class="btn btn-sm btn-primary"><i class="icofont-refresh"></i>Perbaharui!</button>
+                                    <div class="d-flex justify-content-center">
+                                      <button class="btn btn-sm btn-primary fs-3"><i class="icofont-refresh"></i>Perbaharui!</button>
                                     </div>
                                   </form>
                                 </div>
