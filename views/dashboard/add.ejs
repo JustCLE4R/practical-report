@@ -4,26 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>Tambah Mahasiswa Ke Kelas</title>
 </head>
-<body>
-  <h1>Mahasiswa</h1>
-  <h3>Nama : <%= datas.nama %></h3>
-  <h3>Nim : <%= datas.nim %></h3>
-  <h3>Angkatan : <%= datas.stambuk %></h3>
+<body style="background-color: rgb(217, 226, 235);">
+    
+  <div class="row justify-content-center align-items-center p-5 mt-5">
+    <div class="col-md-6 shadow rounded p-4 bg-light">
 
-  <form action="/dashboard/add/<%= datas.nim %>" method="post">
-    <select name="kelas" id="kelas">
-      <option selected hidden >Pilih Kelas</option>
-      <% admin.kelas.forEach(kelas => { %>
-        <option 
-          value="<%= kelas.id %>"
-          <% if (datas.kelas.some(kelasMhs => kelasMhs.id_mk == kelas.id)) { %>disabled<% } %>
-          ><%= kelas.nama + " " + kelas.semester + "/" + kelas.kelas %></option>
-      <% }) %>
-    </select>
-    <button>Tambah</button>
-  </form>
-  <a href="/dashboard">Kembali</a>
+      <div class="row text-center border-bottom border-primary mb-2 p-2">
+        <h2>Mahasiswa</h2>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col">
+          <h3> Nama </h3>
+        </div> 
+        <div class="col">
+          <h3><%= datas.nama %></h3>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col">
+          <h3> NIM </h3>
+        </div> 
+        <div class="col">
+          <h3><%= datas.nim %></h3>
+        </div>
+      </div>
+    
+      <div class="row justify-content-between mb-3">
+        <div class="col">
+          <h3> Kelas </h3>
+        </div> 
+        <div class="col">
+      <form action="/dashboard/add/<%= datas.nim %>" method="post">
+            <select class="form-select" aria-label="Default select example" name="kelas" id="kelas">
+              <option selected hidden >Pilih Kelas</option>
+              <% admin.kelas.forEach(kelas => { %>
+                <option 
+                  value="<%= kelas.id %>"
+                  <% if (datas.kelas.some(kelasMhs => kelasMhs.id_mk == kelas.id)) { %>disabled<% } %>
+                  ><%= kelas.nama + " " + kelas.semester + "/" + kelas.kelas %></option>
+              <% }) %>
+            </select>
+        </div>
+      </div>
+        <button class="btn btn-primary">Tambah</button>
+        <a class="btn btn-secondary float-end" href="/dashboard">Kembali</a>
+      </form>
+    </div>
+   
+  </div>
+
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
