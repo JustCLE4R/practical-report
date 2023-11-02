@@ -6,7 +6,7 @@ const mahasiswaModel = {
   getAllMhs: (page, limit, result) => {
     con.query(`
       SELECT * FROM (
-        SELECT ROW_NUMBER() OVER (ORDER BY nama) no, nama, nim, stambuk
+        SELECT ROW_NUMBER() OVER (ORDER BY nama) no, nama, nim, CONCAT('20', SUBSTRING(mhs.nim, 5, 2)) stambuk
         FROM mahasiswa mhs
       ) tbl
       WHERE no BETWEEN ((? - 1) * ${limit}) + 1 AND (? * ${limit})

@@ -16,22 +16,22 @@
 
 
 -- Dumping database structure for practical-report_testing
-CREATE DATABASE IF NOT EXISTS `practical-report_testing` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `practical-report_testing` /*!40100 DEFAULT */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `practical-report_testing`;
 
 -- Dumping structure for table practical-report_testing.aslab
 CREATE TABLE IF NOT EXISTS `aslab` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) DEFAULT NULL,
-  `nim` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `notel` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nim` varchar(10) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `notel` varchar(15) DEFAULT NULL,
   `motto` varchar(255) DEFAULT NULL,
   `instagram` varchar(20) DEFAULT NULL,
   `facebook` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Meyimpan data asisten lab';
+) ENGINE=InnoDB AUTO_INCREMENT=26 COMMENT='Meyimpan data asisten lab';
 
 -- Dumping data for table practical-report_testing.aslab: ~9 rows (approximately)
 INSERT INTO `aslab` (`id`, `nama`, `nim`, `username`, `password`, `notel`, `motto`, `instagram`, `facebook`) VALUES
@@ -48,16 +48,16 @@ INSERT INTO `aslab` (`id`, `nama`, `nim`, `username`, `password`, `notel`, `mott
 -- Dumping structure for table practical-report_testing.dosen
 CREATE TABLE IF NOT EXISTS `dosen` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `nip` varchar(18) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'not set',
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'not set',
-  `notel` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `motto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `instagram` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `facebook` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nama` varchar(50) NOT NULL,
+  `nip` varchar(18) NOT NULL,
+  `username` varchar(50) NOT NULL DEFAULT 'not set',
+  `password` varchar(255) NOT NULL DEFAULT 'not set',
+  `notel` varchar(15) DEFAULT NULL,
+  `motto` varchar(255) DEFAULT NULL,
+  `instagram` varchar(20) DEFAULT NULL,
+  `facebook` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Menyimpan dosen yang aktif mengajar mata kuliah praktikum';
+) ENGINE=InnoDB AUTO_INCREMENT=7 COMMENT='Menyimpan dosen yang aktif mengajar mata kuliah praktikum';
 
 -- Dumping data for table practical-report_testing.dosen: ~5 rows (approximately)
 INSERT INTO `dosen` (`id`, `nama`, `nip`, `username`, `password`, `notel`, `motto`, `instagram`, `facebook`) VALUES
@@ -73,14 +73,14 @@ CREATE TABLE IF NOT EXISTS `laboran` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) DEFAULT NULL,
   `nim` varchar(10) DEFAULT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `notel` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `notel` varchar(15) DEFAULT NULL,
   `motto` varchar(255) DEFAULT NULL,
   `instagram` varchar(20) DEFAULT NULL,
   `facebook` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Menyimpan data laboran';
+) ENGINE=InnoDB AUTO_INCREMENT=3 COMMENT='Menyimpan data laboran';
 
 -- Dumping data for table practical-report_testing.laboran: ~2 rows (approximately)
 INSERT INTO `laboran` (`id`, `nama`, `nim`, `username`, `password`, `notel`, `motto`, `instagram`, `facebook`) VALUES
@@ -89,11 +89,11 @@ INSERT INTO `laboran` (`id`, `nama`, `nim`, `username`, `password`, `notel`, `mo
 
 -- Dumping structure for table practical-report_testing.mahasiswa
 CREATE TABLE IF NOT EXISTS `mahasiswa` (
-  `nim` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
+  `nim` varchar(10) NOT NULL DEFAULT '0',
   `nama` varchar(255) DEFAULT NULL,
   `stambuk` smallint unsigned DEFAULT NULL,
   PRIMARY KEY (`nim`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Menyimpan seluruh mahasiswa yang aktif dalam mata kuliah praktikum';
+) ENGINE=InnoDB COMMENT='Menyimpan seluruh mahasiswa yang aktif dalam mata kuliah praktikum';
 
 -- Dumping data for table practical-report_testing.mahasiswa: ~9 rows (approximately)
 INSERT INTO `mahasiswa` (`nim`, `nama`, `stambuk`) VALUES
@@ -112,9 +112,9 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `stambuk`) VALUES
 -- Dumping structure for table practical-report_testing.mata_kuliah
 CREATE TABLE IF NOT EXISTS `mata_kuliah` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `semester` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `kelas` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `semester` varchar(3) NOT NULL,
+  `kelas` varchar(5) NOT NULL,
   `id_dosen` int NOT NULL,
   `id_laboran` int NOT NULL,
   `id_aslab` int NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `mata_kuliah` (
   CONSTRAINT `FK_mata_kuliah_aslab` FOREIGN KEY (`id_aslab`) REFERENCES `aslab` (`id`),
   CONSTRAINT `FK_mata_kuliah_dosen` FOREIGN KEY (`id_dosen`) REFERENCES `dosen` (`id`),
   CONSTRAINT `FK_mata_kuliah_laboran` FOREIGN KEY (`id_laboran`) REFERENCES `laboran` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Menyimpan semua mata kuliah praktikum yang sedang aktif';
+) ENGINE=InnoDB AUTO_INCREMENT=9 COMMENT='Menyimpan semua mata kuliah praktikum yang sedang aktif';
 
 -- Dumping data for table practical-report_testing.mata_kuliah: ~8 rows (approximately)
 INSERT INTO `mata_kuliah` (`id`, `nama`, `semester`, `kelas`, `id_dosen`, `id_laboran`, `id_aslab`) VALUES
@@ -141,7 +141,7 @@ INSERT INTO `mata_kuliah` (`id`, `nama`, `semester`, `kelas`, `id_dosen`, `id_la
 -- Dumping structure for table practical-report_testing.mhs_mk_stts
 CREATE TABLE IF NOT EXISTS `mhs_mk_stts` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `nim` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nim` varchar(10) NOT NULL,
   `id_mk` int NOT NULL,
   `modul_1` tinyint unsigned NOT NULL DEFAULT (0),
   `modul_2` tinyint unsigned NOT NULL DEFAULT (0),
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `mhs_mk_stts` (
   KEY `FK_mhs_mk_stts_mata_kuliah` (`id_mk`),
   CONSTRAINT `FK_mhs_mk_stts_mahasiswa` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`),
   CONSTRAINT `FK_mhs_mk_stts_mata_kuliah` FOREIGN KEY (`id_mk`) REFERENCES `mata_kuliah` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Tabel penghubung antara Mahasiswa, Status, dan Mata Kuliah';
+) ENGINE=InnoDB AUTO_INCREMENT=14 COMMENT='Tabel penghubung antara Mahasiswa, Status, dan Mata Kuliah';
 
 -- Dumping data for table practical-report_testing.mhs_mk_stts: ~11 rows (approximately)
 INSERT INTO `mhs_mk_stts` (`id`, `nim`, `id_mk`, `modul_1`, `modul_2`, `modul_3`, `modul_4`, `modul_5`, `modul_6`, `modul_7`, `modul_8`) VALUES

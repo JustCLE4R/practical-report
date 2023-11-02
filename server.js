@@ -1,10 +1,12 @@
 //include module yang diperlukan
 const express = require('express');
-const app = express();
 const passport = require('passport');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
 const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session)
+const con = require('./config/db')
+const app = express();
 
 
 const { loginCheck } = require('./config/passport-config');
@@ -15,6 +17,12 @@ loginCheck(passport)
 app.set('view engine', 'ejs');
 
 
+// session store
+const sessionStore = new MySQLStore({
+  createDatabaseTable: true,
+}, con);
+
+
 //memakai apa yang harus dipakai
 app.use(express.static('public')); //membuat views dapat mengakses folder public
 app.use(express.urlencoded({ extended: true })); //untuk mengakses form
@@ -23,10 +31,11 @@ app.use(express.json()); //parse JSON response
 app.use(flash()); //notify flash
 app.use(
   session({
-    secret: 'keyboard cat',
+    secret: '$2a$12$e9OjN2vB.MPtCayqmorb7ekhbOZ9.hU4KiQEnOSeV2ITi8P8inFhi',
     resave: false,
     saveUninitialized: false,
-    cookie: {secure: false, maxAge: 12 * 60 * 60 * 1000}, //h m s ms, jadi 12 jam
+    store: sessionStore,
+    cookie: {secure: false, httpOnly: true, maxAge: 3 * 60 * 60 * 1000}, //h m s ms, jadi 3 jam
   })
 );
 app.use(passport.authenticate('session')); //ya passport
@@ -55,7 +64,7 @@ app.use((req, res) => {
   res.status(404).render('error/404');
 })
 
-
-app.listen(3000, () => {
-  console.log('Server listening on port 3000');
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
