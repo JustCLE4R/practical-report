@@ -22,6 +22,11 @@ router
   .get(passport.checkAuthentication, dashboardController.getMhsToSts) //dashboard add
   .post(passport.checkAuthentication, dashboardController.addMhsToSts) //dashboard tambah mahasiswa ke kelas
 
+router
+  .route('/changepassword')
+  .get(passport.checkAuthentication, dashboardController.getChangePassword)
+  .patch(passport.checkAuthentication, dashboardController.changePassword)
+
 
 
 

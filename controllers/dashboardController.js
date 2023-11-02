@@ -1,4 +1,5 @@
 const dashboardModel = require('../models/dashboardModel');
+const bcrypt = require('bcrypt');
 
 
 const dashboardController = {
@@ -137,7 +138,41 @@ const dashboardController = {
     });
   },
 
+  getChangePassword: (req, res) => {
+    res.render('dashboard/changePassword')
+  },
 
+  changePassword: (req, res) => {
+    let password_lama = req.body.passwordLama
+    let password_db
+    let updatedPassword = {
+      password_baru: req.body.passwordBaru
+    }
+
+    dashboardModel.getPasswordByIdRole(req.user.role, req.user.id, async (err, result) => {
+      password_db = result
+      if (err) {
+        req.flash('error', 'Ada masalah saat mengambil password lama anda '+ err);
+      }
+
+      if(result == null) { //cek null
+        req.flash('error', 'Return Null '+ err);
+      }
+
+      // compare password from datababe with password lama
+      try {
+        if(await bcrypt.compare(password_lama, password_db)){
+          
+        }
+      } catch (error) {
+        
+      }
+
+      res.redirect('/dashboard');
+    })
+
+
+  },
 
 
 

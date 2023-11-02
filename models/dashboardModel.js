@@ -154,8 +154,40 @@ const dashboardModel = {
         return result(null, rows)
       }
     })
-  }
+  },
 
+  // mengambil password untuk ganti password
+  getPasswordByIdRole: (role, id, result) => {
+    con.query(`
+      SELECT password
+      FROM ?
+      WHERE id = ? 
+    `, [role, id], (err, rows) => {
+      if(err){
+        console.log(err)
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
+
+  changePasswordByIdRole: (role, id, updatedPassword, result) => {
+    con.query(`
+      UPDATE ?
+      SET ?
+      WHERE id = ?
+    `, [role, updatedPassword, id], (err, rows) => {
+      if(err){
+        console.log(err)
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  }
 
 
 
