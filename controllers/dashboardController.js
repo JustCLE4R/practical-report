@@ -138,41 +138,85 @@ const dashboardController = {
     });
   },
 
+  deleteMhsFromSts: (req, res) => {
+    let sts_id = req.body.id
+
+    dashboardModel.deleteMhsFromSts(sts_id, (err, result) => {
+      if (err) {
+        req.flash('error', 'Ada masalah saat menghapus kelas (deleteMhsFromSts) '+ err);
+      } else {
+        req.flash('success', 'Berhasil menghapus kelas');
+      }
+      res.redirect('/dashboard');
+    })
+  },
+
   getChangePassword: (req, res) => {
     res.render('dashboard/changePassword')
   },
 
-  changePassword: (req, res) => {
-    let password_lama = req.body.passwordLama
-    let password_db
-    let updatedPassword = {
-      password_baru: req.body.passwordBaru
+  changePassword: async (req, res) => {
+    try {
+      const password_lama = req.body.passwordLama;
+      const password_baru = req.body.passwordBaru1;
+      let password_db;
+  
+      // Ambil password dari database
+      const result = await new Promise((resolve, reject) => {
+        dashboardModel.getPasswordByIdRole(req.user.role, req.user.id, (err, result) => {
+          if (err) {
+            req.flash('error', 'Ada masalah saat mengambil password lama anda ' + err);
+            reject(err);
+          }
+  
+          if (result === null) { // Check null
+            req.flash('error', 'Return Null ' + err);
+            reject('Return Null');
+          } else {
+            resolve(result[0].password);
+          }
+        });
+      });
+  
+      password_db = result;
+  
+      // Compare password lama dengan password di database
+      if (bcrypt.compareSync(password_lama, password_db)) {
+        // hashing password baru
+        const hashedPasswordBaru = {
+          password: bcrypt.hashSync(password_baru, 10)
+        };
+
+        // masukan password baru ke database
+        dashboardModel.changePasswordByIdRole(req.user.role, req.user.id, hashedPasswordBaru, (err, result) => {
+          if(err){
+            console.log(err)
+            req.flash('error', 'Masalah saat ingin memasukan password baru ke database')
+          }
+          else{
+            req.flash('success', 'Berhasil mengubah password')
+          }
+          res.redirect('/dashboard')
+        })
+      } else {
+        req.flash('error', 'Password lama salah');
+        res.redirect('/dashboard');
+      }
+  
+    } catch (error) {
+      console.log(error);
+      throw error;
     }
-
-    dashboardModel.getPasswordByIdRole(req.user.role, req.user.id, async (err, result) => {
-      password_db = result
-      if (err) {
-        req.flash('error', 'Ada masalah saat mengambil password lama anda '+ err);
-      }
-
-      if(result == null) { //cek null
-        req.flash('error', 'Return Null '+ err);
-      }
-
-      // compare password from datababe with password lama
-      try {
-        if(await bcrypt.compare(password_lama, password_db)){
-          
-        }
-      } catch (error) {
-        
-      }
-
-      res.redirect('/dashboard');
-    })
-
-
   },
+
+
+
+
+
+
+
+
+
 
 
 

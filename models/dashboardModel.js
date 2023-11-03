@@ -156,13 +156,12 @@ const dashboardModel = {
     })
   },
 
-  // mengambil password untuk ganti password
-  getPasswordByIdRole: (role, id, result) => {
+  // menghapus mahasiswa dari kelas
+  deleteMhsFromSts: (id, result) => {
     con.query(`
-      SELECT password
-      FROM ?
-      WHERE id = ? 
-    `, [role, id], (err, rows) => {
+      DELETE FROM mhs_mk_stts
+      WHERE id = ?
+    `, [id], (err, rows) => {
       if(err){
         console.log(err)
         return result(err, null)
@@ -173,12 +172,13 @@ const dashboardModel = {
     })
   },
 
-  changePasswordByIdRole: (role, id, updatedPassword, result) => {
+  // mengambil password untuk ganti password
+  getPasswordByIdRole: (role, id, result) => {
     con.query(`
-      UPDATE ?
-      SET ?
-      WHERE id = ?
-    `, [role, updatedPassword, id], (err, rows) => {
+      SELECT password
+      FROM ${role}
+      WHERE id = ? 
+    `, [id], (err, rows) => {
       if(err){
         console.log(err)
         return result(err, null)
@@ -187,7 +187,24 @@ const dashboardModel = {
         return result(null, rows)
       }
     })
-  }
+  },
+
+  // mengganti password
+  changePasswordByIdRole: (role, id, updatedPassword, result) => {
+    con.query(`
+      UPDATE ${role}
+      SET ?
+      WHERE id = ?
+    `, [updatedPassword, id], (err, rows) => {
+      if(err){
+        console.log(err)
+        return result(err, null)
+      }
+      else{
+        return result(null, rows)
+      }
+    })
+  },
 
 
 
