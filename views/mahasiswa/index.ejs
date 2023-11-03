@@ -14,26 +14,24 @@
     <h2>Data Mahasiswa</h2>
     <div class="col p-3">
       <div class="row justify-content-between">
-        <div class="col-5">
-          <nav aria-label="Page navigation">
+        <div class="col-sm-5">
 
-            <ul class="pagination" id="pagination">
-              <li class="page-item" id="prevPage">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <!-- Tombol Halaman akan ditambahkan secara dinamis di sini -->
-              <li class="page-item" id="nextPage">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-            
-          </nav>
+          <ul class="pagination" id="pagination">
+            <li class="page-item" id="prevPage">
+              <button class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </button>
+            </li>
+            <!-- Tombol Halaman akan ditambahkan secara dinamis di sini -->
+            <li class="page-item" id="nextPage">
+              <button class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </button>
+            </li>
+          </ul>
+
         </div>
-        <div class="col-4">
+        <div class="col-sm-4">
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="search-input" placeholder="Cari mahasiswa" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="search-button">Cari</button>
@@ -41,6 +39,7 @@
         </div>
       </div>
       <div id="table" class="col-12">
+
         <table class="table table-hover border">
           <thead>
             <tr>
@@ -54,6 +53,7 @@
             <!-- Data akan dimasukkan ke sini -->
           </tbody>
         </table>
+
       </div>
     </div>
   </div>
