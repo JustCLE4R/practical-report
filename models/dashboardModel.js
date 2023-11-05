@@ -59,7 +59,7 @@ const dashboardModel = {
   //mengambil data mahasiswa berdasarkan role admin
   getMhsByNimRole: (nim, role, id, result) => {
     con.query(`
-      SELECT mhs.*, mk.nama nama_matkul, semester, kelas, dosen.nama nama_dosen, laboran.nama nama_laboran, aslab.nama nama_aslab, sts.id id_status, modul_1, modul_2, modul_3, modul_4, modul_5, modul_6, modul_7, modul_8
+      SELECT mhs.*, CONCAT('20', SUBSTRING(mhs.nim, 5, 2)) stambuk, mk.nama nama_matkul, semester, kelas, dosen.nama nama_dosen, laboran.nama nama_laboran, aslab.nama nama_aslab, sts.id id_status, modul_1, modul_2, modul_3, modul_4, modul_5, modul_6, modul_7, modul_8
       FROM mahasiswa mhs 
       INNER JOIN mhs_mk_stts sts ON mhs.nim = sts.nim
       INNER JOIN mata_kuliah mk ON sts.id_mk = mk.id
@@ -87,7 +87,7 @@ const dashboardModel = {
   //mengambil data mahasiswa dengan nim
   getMhsByNim: (nim, result) => {
     con.query(`
-      SELECT *
+      SELECT *, CONCAT('20', SUBSTRING(nim, 5, 2)) stambuk
       FROM mahasiswa
       WHERE nim = ?
     `, [nim], (err, rows) => {

@@ -4,7 +4,7 @@ const APIModel = {
   // mengambil semua mahasiswa
   getMahasiswa: (result) => {
     con.query(`
-      SELECT nim, nama, CONCAT('20', SUBSTRING(nim, 5, 2)) AS stambuk
+      SELECT nim, nama, CONCAT('20', SUBSTRING(nim, 5, 2)) stambuk
       FROM mahasiswa;
     `, (err, rows) => {
       if (err) {

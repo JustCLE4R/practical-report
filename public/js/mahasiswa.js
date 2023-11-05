@@ -58,9 +58,9 @@ $(document).ready(function () {
 
     // Tombol "Previous" selalu muncul (di-disable jika di halaman pertama)
     if (currentPage > 1) {
-      pagination.append('<li class="page-item" id="prevPage"><button class="page-link" href="#">Previous</button></li>');
+      pagination.append('<li class="page-item" id="prevPage"><button class="page-link" href="#">Prev</button></li>');
     } else {
-      pagination.append('<li class="page-item disabled"><button class="page-link" href="#">Previous</button></li>');
+      pagination.append('<li class="page-item disabled"><button class="page-link" href="#">Prev</button></li>');
     }
 
     // Tombol Halaman
@@ -87,7 +87,7 @@ $(document).ready(function () {
   $('#pagination').on('click', '.page-link', function () {
     let pageText = $(this).text();
 
-    if (pageText === 'Previous' && currentPage > 1) {
+    if (pageText === 'Prev' && currentPage > 1) {
       currentPage--;
     } else if (pageText === 'Next' && currentPage < totalPages) {
       currentPage++;
