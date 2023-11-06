@@ -222,3 +222,19 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
+
+
+// notif
+function closeAlert(closeButton) {
+	// Find the parent alert div and remove it
+	var alertDiv = closeButton.parentElement;
+	alertDiv.style.display = "none";
+}
+
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+
+const popover = new bootstrap.Popover('.popover-dismiss', {
+  trigger: 'focus'
+})

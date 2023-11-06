@@ -23,7 +23,7 @@
                       <div class="osahan-user-media ">
                         <div class="osahan-user-media-body text-start">
 
-                          <div class="row justify-content-between">
+                          <div class="row justify-content-between" style="background-color: rgba(218, 236, 250, 0.671);">
                             <div class="col">
                               <h5>NIM</h5>
                             </div>
@@ -41,7 +41,7 @@
                             </div>
                           </div>
 
-                          <div class="row justify-content-between">
+                          <div class="row justify-content-between" style="background-color: rgba(218, 236, 250, 0.671);">
                             <div class="col">
                               <h5>Angkatan</h5>
                             </div>
@@ -63,10 +63,10 @@
                           <% if (admin.role == 'aslab') { %>
 
                             <div class=" row mt-3">
-                               <div class="col-12">
+                               <div class="col-12 d-flex flex-row-reverse">
                                 Ingin menambah mahasiswa ini ke kelas kamu?  
                                </div>
-                               <div class="col mt-1">
+                               <div class="col d-flex flex-row-reverse justify-content-between mt-1">
                                 <a class="btn btn-primary " href="/dashboard/add/<%= datas[0].nim %>">Tambah</a>
                                 <a class="btn btn-secondary float-end " href="/dashboard">Kembali</a>
                                </div>
@@ -149,15 +149,18 @@
                                         </select>
                                       </div>
                                     <% } %>
-                                    <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-between  flex-row-reverse">
                                       
-                                      <button class="btn btn-lg btn-primary">Perbaharui!</button>
-                                    </div>
+                                      <button class="btn btn-primary">Perbaharui!</button>
+                                    
                                   </form>
                                   <form action="/dashboard/deleteFromClass?_method=DELETE" method="POST">
                                     <input type="hidden" name="id" value="<%= data.id_status %>">
                                     <button class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus kelas <%= data.nama_matkul %> <%= data.semester %>/<%= data.kelas %> dari <%= datas[0].nama %>?')">Hapus dari kelas</button>
                                   </form>
+
+                                </div>
+
                                 </div>
                               </div>
                             </div>
@@ -179,7 +182,7 @@
             <div class="row text-center border-bottom border-primary mb-2 p-2">
               <h2>Mahasiswa</h2>
             </div>
-            <div class="row justify-content-between">
+            <div class="row justify-content-between " style="background-color: rgba(218, 236, 250, 0.671);">
               <div class="col">
                 <h4> Nama </h4>
               </div> 
@@ -195,7 +198,7 @@
                 <h4><%= datas[0].nim %></h4>
               </div>
             </div>
-            <div class="row justify-content-between">
+            <div class="row justify-content-between " style="background-color: rgba(218, 236, 250, 0.671);" >
               <div class="col">
                 <h4> Angkatan </h4>
               </div> 
@@ -203,9 +206,13 @@
                 <h4><%= datas[0].stambuk %></h4>
               </div>
             </div>
-            <p class="mt-5">Belum atau tidak di kelas kamu, tambah mahasiswa ini ke kelas kamu?</p>
+            <div class="col d-flex  justify-content-end">
+              <p class="mt-5 ">Belum atau tidak di kelas kamu, tambah mahasiswa ini ke kelas kamu?</p>
+            </div>
+           <div class="col d-flex flex-row-reverse justify-content-between">
             <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Tambah</a>
             <a class="btn btn-secondary float-end" href="/dashboard">Kembali</a>
+           </div>
           <% } %>
 
 

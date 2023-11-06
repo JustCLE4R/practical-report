@@ -1,76 +1,65 @@
 <!DOCTYPE html>
-<html lang="in">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Login</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <title>Document</title>
 </head>
 <body>
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Register</h1>
-			<br>
-			<input type="text" placeholder="Nama" disabled/>
-			<input type="email" placeholder="Email" disabled/>
-			<input type="password" placeholder="Password" disabled/>
-			<span>Atau daftar dengan</span>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+    <section class="login">
+		<div class="login_box">
+			
+			<div class="left">
+				<div class="top_link"><a href="/"><img src="/images/login/left.svg" alt="">Kembali Ke Home</a></div>
+				<div id="alert-container" style="width: 	34%;" class="alert-container position-fixed">
+					<% if (messages.error) { %>
+						<div  class="alert alert-danger alert-dismissible p-0 m-0">
+							<button style="height: fit-content;" type="button" class="close btn lh-1 fs-5 p-0 float-end me-1" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><i class="bi bi-x-circle-fill"></i></button>
+							<strong class="me-5 ms-2 mt-1">Error!</strong>
+							<p class="me-5 ms-2"><%- messages.error %></p>
+						</div>
+					<% } %> 
+				
+				</div>
+
+				<div class="contact">
+					<form action="" method="post">
+						<h3 id="h3">Login To Your Account</h3>
+
+						<input type="text" name="username" placeholder="Username" value="z6ro99" required/>
+						<input type="password" name="password" placeholder="Password" value="debugging12" required/>
+						<button class="submit"   id="button">LOGIN</button>
+					</form>
+					
+				</div>
 			</div>
-			<br>
-			<button disabled>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<% if (messages.error) { %>
-			<div class="alert alert-danger alert-dismissible">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong>Error!</strong>
-				<br/>
-				<%- messages.error %>
-			</div>
-		<% } %> 
-		<% if (messages.success) { %>
-			<div class="alert alert-success alert-dismissible">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong>Success!</strong> <br/>
-				<%- messages.success %>
-			</div>
-		<% } %>
-		<form action="" method="post">
-			<h1>Login</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<input type="text" name="username" placeholder="Username" value="z6ro99" required/>
-			<input type="password" name="password" placeholder="Password" value="debugging123" required/>
-			<a href="#">Lupa Password Anda?</a>
-			<button type="submit" id="button">Login</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Pendaftaran Sudah Tutup</h1>
-				<p>Maaf, Untuk registrasi asisten laboratorium sudah ditutup, silahkan coba lagi semester depan</p>
-				<button class="ghost" id="signIn">Login</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hallo, Selamat Datang di Website Laboratorium Komputer</h1>
-				<p>Silahkan login untuk bisa kerja lembur namun digaji sedikit</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+			<div class="right">
+				<div class="right-text">
+					<h2>Laprak Ilkomp UINSU</h2>
+					<h5>Selamat Datang Diwebsite Laporan Praktikum Ilmu Komputer UINSU</h5>
+				</div>
+				<div class="right-inductor"><img src="/images/login/line.png" alt=""></div>
 			</div>
 		</div>
-	</div>
-</div>
+		<!-- Button trigger modal -->
 
 
-<script src="/js/login.js"></script>
+
+	</section>
+	
+
+
+	<script src="/js/login.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+	
 </body>
 </html>

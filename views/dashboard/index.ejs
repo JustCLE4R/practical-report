@@ -21,7 +21,8 @@
     <title>Admin Dashboard Panel</title>
   </head>
   <body>
-  
+    <!-- Notif -->
+    
     <%- include('../layouts/navbar') %>
 
     <section class="dashboard">
@@ -30,18 +31,19 @@
       <div class="dash-content">
 
         <% if (messages.error) { %>
-          <div class="alert alert-danger alert-dismissible" style="z-index: 10; position: relative;">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <div class="alert alert-danger alert-dismissible mt-2" style=" position: relative;">
+            <button style="height: fit-content;" type="button" class="close btn lh-1 fs-5 p-0  me-1" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><i class="bi bi-x-circle-fill"></i></button>
             <strong>Error!</strong>
             <br/>
-            <%- messages.error %>
+            <span class="ms-4 ps-2"><%- messages.error %></span>
           </div>
         <% } %> 
         <% if (messages.success) { %>
-          <div class="alert alert-success alert-dismissible" style="z-index: 10; position: relative;">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> <br/>
-            <%- messages.success %>
+          <div class="alert alert-success alert-dismissible mt-2" style=" position: relative;">
+            <button style="height: fit-content;" type="button" class="close btn lh-1 fs-5 p-0  me-1" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><i class="bi bi-x-circle-fill"></i></button>
+            <strong>Success!</strong>
+            <br/>
+            <span class="ms-4 ps-2"><%- messages.success %></span>
           </div>
         <% } %>
         <div class="overview">
@@ -49,7 +51,7 @@
             <i class="uil uil-tachometer-fast-alt"></i>
             <span class="text">Data</span>
           </div>
-          <div class="boxes">
+          <div class="boxes justify-content-around">
             <div class="box box1" title="Jumlah Mahasiswa Praktikum">
               <i class="fa-solid fa-graduation-cap"></i>
               <span class="text">Mahasiswa</span>
@@ -95,7 +97,6 @@
                 <tr>
                   <th>Nama</th>
                   <th>Role</th>
-                  <th>Kelas</th>
                   <th>Profile</th>
                   <th>Status</th>
                 </tr>
@@ -105,9 +106,8 @@
                   <tr>
                     <td><%= as.nama %></td>
                     <td><%= as.role %></td>
-                    <td><button>Lihat</button></td>
                     <td><a 
-                          href="/profile/<% if(as.role == 'Asisten Laboratorium') { %>aslab<% } else { %><%= as.role.toLowerCase() %><% } %>/<%= as.id %>"
+                         class="btn btn-primary" href="/profile/<% if(as.role == 'Asisten Laboratorium') { %>aslab<% } else { %><%= as.role.toLowerCase() %><% } %>/<%= as.id %>"
                         >
                       Lihat!
                     </a></td>

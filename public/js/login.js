@@ -1,11 +1,5 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+function closeAlert(closeButton) {
+	// Find the parent alert div and remove it
+	var alertDiv = closeButton.parentElement;
+	alertDiv.style.display = "none";
+}
