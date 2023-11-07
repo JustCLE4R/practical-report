@@ -1,6 +1,6 @@
 $(document).ready(function () {
   let url = 'http://127.0.0.1:3000/api/mahasiswa';
-  let itemsPerPage = 15;
+  let itemsPerPage = 11;
   let totalData;
   let totalPages;
   let currentPage = 1;
@@ -40,10 +40,11 @@ $(document).ready(function () {
       $.each(pageData, function (i, mahasiswa) {
         let number = start + i + 1;
         let row = $('<tr>');
-        row.append('<td>' + number + '</td>');
-        row.append('<td>' + mahasiswa.nama + '</td');
-        row.append('<td>' + mahasiswa.nim + '</td>');
-        row.append('<td>' + mahasiswa.stambuk + '</td');
+        row.append('<td class="text-center">' + number + '</td>');
+        row.append('<td>' + mahasiswa.nama + '</td>');
+        row.append('<td class="text-center">' + mahasiswa.nim + '</td>');
+        row.append('<td class="text-center">' + mahasiswa.stambuk + '</td>');
+        row.append('<td class="text-center"> <a href="'+mahasiswa.status+' " class="btn btn-primary">Lihat</a> </td>');
         dataBody.append(row);
       });
     }

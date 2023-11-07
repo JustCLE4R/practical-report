@@ -69,8 +69,8 @@
                   <div class="col-lg-8 p-0">
                     <h4>Cari NIM</h4>
                     <p class="mt-2">Untuk mengetahui status laporan praktikum</p>
-                    <form class="search-box" id="searchForm" onsubmit="handleSearch(event)">
-                      <input type="text" id="nimInput" placeholder="Type to search..">
+                    <form method="get" action="/mahasiswa" class="search-box" id="searchForm" onsubmit="handleSearch(event)">
+                      <input type="text" name="nim" id="nimInput" placeholder="Type to search..">
                       <div class="search-icon" onclick="submitForm()">
                         <i class="fas fa-search"></i>
                       </div>

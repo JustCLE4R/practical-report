@@ -232,7 +232,7 @@ nav .logo-name {
 nav .logo-image {
   display: flex;
   justify-content: center;
-  min-width: 45px;
+  min-width: 65px;
 }
 nav .logo-image img {
   width: 40px;
@@ -253,6 +253,7 @@ nav.close .logo_name {
 }
 nav .menu-items {
   margin-top: 40px;
+  margin-left: 16px;
   height: calc(100% - 90px);
   display: flex;
   flex-direction: column;
