@@ -44,7 +44,7 @@ $(document).ready(function () {
         row.append('<td>' + mahasiswa.nama + '</td>');
         row.append('<td class="text-center">' + mahasiswa.nim + '</td>');
         row.append('<td class="text-center">' + mahasiswa.stambuk + '</td>');
-        row.append('<td class="text-center"> <a href="'+mahasiswa.status+' " class="btn btn-primary">Lihat</a> </td>');
+        row.append(`<td class="text-center"> <a href="/mahasiswa?nim=${mahasiswa.nim}" class="btn btn-primary">Lihat</a> </td>`);
         dataBody.append(row);
       });
     }
@@ -126,8 +126,7 @@ function search() {
   currentPage = 1;
   updatePage(currentPage);
 }
- // Inisialisasi
-//  fetchData();
+
 
 
 
