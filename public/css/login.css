@@ -10,14 +10,15 @@ width: 100%;
 }
 .login {
   height: 120vh;
+  display: flex;
   width: 100%;
-background-image: url(../images/login/bg.webp);
+background-image: url(../images/login/uin.png);
 background-size: cover;
 
 }
 .login_box {
-  width: 120vh;
-  height: 80vh;
+  width: 80%;
+  height: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,11 +157,46 @@ transform: translate(-50%, 0%);
   padding-right: 7px;
   margin-top: -3px;
 }
-/* @keyframes aleft{
-0% {margin-left: -100%; }
-100% {margin-left: 14%;}
+@keyframes aleft{
+0% {margin-left: -100%; opacity: 0; }
+100% {margin-left: 3.5%; opacity: 1;}
 }
 @keyframes aright{
-0% {margin-right: -100%;}
-100% {margin-right: 0%;}
-} */
+0% {margin-right: -100%; opacity: 0;}
+100% {margin-right: 0%; opacity: 1;}
+}
+
+
+@media (max-width: 700px){
+  .login_box{
+    width: 90%;
+    height: 60%;
+
+  }
+  .alert{
+    font-size: 2vh;
+  }
+  #h3{
+    font-size: 3vh;
+  }
+  .top_link{
+    font-size: 2vh;
+  }
+  .contact input{
+    width: 79%;
+    margin-left: 2vh;
+  }
+  .contact button{
+    width: 8vh;
+    height: 6vh;
+    padding: 1.5vh 11vh 2vh 5vh;
+    text-align: center;
+  }
+  .right-text h2{
+    font-size: 4vh;
+    }
+    .right-text h5{
+    font-size: 2vh;
+
+    }
+}

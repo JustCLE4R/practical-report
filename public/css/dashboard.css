@@ -232,11 +232,13 @@ nav .logo-name {
 nav .logo-image {
   display: flex;
   justify-content: center;
+
   min-width: 65px;
 }
 nav .logo-image img {
   width: 40px;
   object-fit: cover;
+  margin-right: 16px;
   border-radius: 50%;
 }
 
@@ -253,7 +255,7 @@ nav.close .logo_name {
 }
 nav .menu-items {
   margin-top: 40px;
-  margin-left: 16px;
+  margin-left: -30px;
   height: calc(100% - 90px);
   display: flex;
   flex-direction: column;
