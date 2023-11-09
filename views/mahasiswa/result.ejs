@@ -7,46 +7,56 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   </head>
-  <body style="background-color: rgb(199, 219, 238);">
+  <body style="background-color: rgb(200, 199, 238);">
     
-    <div class="container ">
-        <div class="row justify-content-center mt-4 ">
-            <div class="col-md-10 bg-light shadow rounded p-4">
-                <h3 class="text-center pb-3" style="border-bottom: 1px solid rgb(85, 87, 221);">Status Mahasiswa</h3>
-            <div class="row ">
-                <div class="col justify-content-between d-flex">
-                    <span class="h4">Nama</span>
-                    <span class="h4"><%= datas[0].nama %></span>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col justify-content-between d-flex">
-                    <span class="h4">Nim</span>
-                    <span class="h4"><%= datas[0].nim %></span>
-                </div>
-            </div>
-            </div>
-        </div>
+    <div class="container">
 
-        <div class="row justify-content-center mt-4 ">
-          <div  class="col-md-10 bg-light  shadow rounded p-4 ">
-            <div class="col">
-                <div class="dropdown mb-3 float-end">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Keterangan
-                    </button>
-                    <div style="width: 46vh;" class="dropdown-menu p-2">
-                      <div class="row p-2">
-                        <li class="p-2"><button class="btn btn-sm btn-secondary"><i class="bi bi-calendar"></i></button> Belum Mengumpul</li>
-                        <li class="p-2"><button class="btn btn-sm btn-warning"><i class="bi bi-calendar-x"></i></button> Revisi </li>
-                        <li class="p-2"><button class="btn btn-sm btn-primary"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Aslab</li>
-                        <li class="p-2"><button class="btn btn-sm btn-success"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Laboran</li>
-                      </div>
-                    </div>
+        <div class="row m-3 justify-content-center mt-4 ">
+          <div  class="col-md-10 bg-light  shadow rounded p-4  ">
+            <h3 class="text-center pb-3" style="border-bottom: 1px solid rgb(85, 87, 221);">Status Mahasiswa</h3>
+            <div class="row pt-2 d-flex justify-content-between">
+                <div class="col-8 d-flex border justify-content-between  py-3">
+                  <table class="table ">
+                    <thead>
+                      <tr>
+                        <td class="h5">Nama</td>
+                        <td class="h5">: <%= datas[0].nama %></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="h5">Nim</td>
+                        <td class="h5">: <%= datas[0].nim %></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                
+                <div class="col-4  ">
+                    <div class="dropdown mb-3 float-end">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Keterangan
+                      </button>
+                      <div style="width: 46vh;" class="dropdown-menu p-2">
+                        <div class="row p-2">
+                          <li class="p-2"><button class="btn btn-sm btn-secondary"><i class="bi bi-calendar"></i></button> Belum Mengumpul</li>
+                          <li class="p-2"><button class="btn btn-sm btn-warning"><i class="bi bi-calendar-x"></i></button> Revisi </li>
+                          <li class="p-2"><button class="btn btn-sm btn-primary"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Aslab</li>
+                          <li class="p-2"><button class="btn btn-sm btn-success"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Laboran</li>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                
+            </div>
+
+                
+
+            <div class="col">
+                
             </div>
             <% datas.forEach(data => { %>
-              <div class="col shadow p-3 mb-5 mt-5" >
+              <div class="col shadow border p-3 mb-5 mt-5 overflow-auto" >
                   <div class="dropdown mb-3">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           <%= data.nama_matkul %> | <%= data.semester %>/<%= data.kelas %>
@@ -67,7 +77,7 @@
                       </div>
                     </div>
 
-                  <div class="col overflow-auto">
+                  <div class="col ">
                       <table class="table border table-hover ">
                           <thead>
                             <tr class="text-center">
