@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let url = 'http://127.0.0.1:3000/api/mahasiswa';
+  let url = '/api/mahasiswa';
   let itemsPerPage = 11;
   let totalData;
   let totalPages;

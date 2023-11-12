@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 const dashboardController = require('../controllers/dashboardController');
 const passport = require('passport');
+const setNoCache = (req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+};
 
 router
   .route('/')
-  .get(passport.checkAuthentication, dashboardController.getDashboard) //dashboard
-  // .get(dashboardController.getDashboard)
+  .get(setNoCache, passport.checkAuthentication, dashboardController.getDashboard) //dashboard
 
 router
   .route('/logout')
