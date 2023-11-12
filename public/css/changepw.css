@@ -185,7 +185,8 @@ transform: translate(-50%, 0%);
   }
   .contact input{
     width: 79%;
-    margin-left: 2vh;
+    margin-left: 0vh;
+    margin-top: 3px;
   }
   .contact label{
     font-size: 2vh;
@@ -195,7 +196,7 @@ transform: translate(-50%, 0%);
     height: 8vh;
     padding: 1.5vh 12vh 4vh 3vh;
     text-align: center;
-    margin-top: 1vh;
+    margin-top: -1vh;
   }
   .right-text h2{
     font-size: 4vh;

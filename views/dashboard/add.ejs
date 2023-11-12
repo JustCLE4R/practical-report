@@ -10,31 +10,31 @@
 <body style="background-color: rgb(217, 226, 235);">
     
   <div class="row justify-content-center align-items-center p-5 mt-5">
-    <div class="col-md-6 shadow rounded p-4 bg-light">
+    <div class="col-md-4 shadow rounded p-4 bg-light">
 
       <div class="row text-center border-bottom border-primary mb-2 p-2">
-        <h2>Mahasiswa</h2>
+        <h3>Mahasiswa</h3>
       </div>
       <div class="row justify-content-between">
         <div class="col">
-          <h3> Nama </h3>
+          <h6> Nama </h6>
         </div> 
         <div class="col">
-          <h3><%= datas.nama %></h3>
+          <h6><%= datas.nama %></h6>
         </div>
       </div>
       <div class="row justify-content-between">
         <div class="col">
-          <h3> NIM </h3>
+          <h6> NIM </h6>
         </div> 
         <div class="col">
-          <h3><%= datas.nim %></h3>
+          <h6><%= datas.nim %></h6>
         </div>
       </div>
     
       <div class="row justify-content-between mb-3">
         <div class="col">
-          <h3> Kelas </h3>
+          <h6> Kelas </h6>
         </div> 
         <div class="col">
       <form action="/dashboard/add/<%= datas.nim %>" method="post">

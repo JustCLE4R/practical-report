@@ -17,40 +17,53 @@
           <div  class="col-md-10 bg-light  shadow rounded p-4  ">
             <h3 class="text-center pb-3" style="border-bottom: 1px solid rgb(85, 87, 221);">Daftar Laporan Praktikum</h3>
             <div class="row pt-2 d-flex justify-content-between">
-                <div class="col-8 d-flex border justify-content-between  py-3">
-                  <table class="table ">
-                    <thead>
-                      <tr>
-                        <td class="h5">Nama</td>
-                        <td class="h5">: <%= datas[0].nama %></td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="h5">Nim</td>
-                        <td class="h5">: <%= datas[0].nim %></td>
-                      </tr>
-                      <tr>
-                        <td class="h5">Angkatan</td>
-                        <td class="h5">: <%= datas[0].stambuk %></td>
-                      </tr>
-                      <tr>
-                        <td class="h5">
-                          <% if (admin.role == 'aslab') { %>
-                            Asisten Lab
-                          <% } else { %>
-                            Laboran
-                          <% } %>
-                        </td>
-                        <td class="h5">: <%= admin.nama %></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="col-7 d-flex border justify-content-between  py-3">
+
+                  <div class="col">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <span><b>Nama</b> </span> <br>
+                      </div>
+                      <div class="col-sm-8">
+                        <span>: <%= datas[0].nama %></span><br>     
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <span><b>Nim</b></span> 
+                      </div>
+                      <div class="col-sm-8">
+                        <span>:  <%= datas[0].nim %> </span><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <span><b>Angkatan</b></span> 
+                      </div>
+                      <div class="col-sm-8">
+                        <span>:   <%= datas[0].stambuk %> </span><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <span><b>
+                        <% if (admin.role == 'aslab') { %>
+                          Asisten Lab
+                        <% } else { %>
+                          Laboran
+                        <% } %></b></span> 
+                      </div>
+                      <div class="col-sm-8">
+                        <span>:   <%= admin.nama %></span><br>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                 
                 <div class="col-4  ">
                     <div class="dropdown mb-3 float-end">
-                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button  class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Keterangan
                       </button>
                       <div style="width: 46vh;" class="dropdown-menu p-2">
@@ -91,24 +104,33 @@
             <% datas.forEach(data => { %>
 
               <div class="col shadow border p-3 mb-5 mt-5 " >
-                  <div class="dropdown mb-3">
+                  <div class="col-sm-8">
+                    <div class="dropdown mb-3">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <%= data.nama_matkul %> | <%= data.semester+'/'+data.kelas %>
                       </button>
-                      <div style="width: 46vh;" class="dropdown-menu p-2">
+                      <div style="padding: 2vh;" class="dropdown-menu p-2 shadow">
                         <div class="row">
-                          <div class="col-sm-4">
+                          <div class="row">
+                            <div class="col-sm-2">
                               <span><b>Dosen</b> </span> <br>
+                            </div>
+                            <div class="col">
+                              <span>: <%= data.nama_dosen %></span><br>     
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2">
                               <span><b>
                                 <% if(admin.role == 'aslab') { %>
                                   Laboran
                                 <% } else { %>
                                   Asisten Laboratorium
                                 <% } %>
-                              </b> </span> <br>
+                              </b>
+                             </span> 
                             </div>
                             <div class="col">
-                              <span>: <%= data.nama_dosen %></span><br>
                               <span>: 
                                 <% if(admin.role == 'aslab') { %>
                                   <%= data.nama_laboran %>
@@ -117,9 +139,11 @@
                                 <% } %>
                               </span><br>
                             </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
                   <div class="col overflow-auto ">
             <form action="/dashboard/results?_method=PATCH" method="post">
@@ -173,11 +197,11 @@
                           </tbody>
                       </table>
                   </div>
-                  <div class="row justify-content-between flex-row-reverse my-3">
-                    <div class="col-2">
+                  <div class="row justify-content-between flex-row-reverse my-3 ms-1">
+                    <div class="col-sm-2 p-1">
                       <button class="btn btn-primary">Perbaharui</button>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3 p-1">
             </form>
 
             <form action="/dashboard/deleteFromClass?_method=DELETE" method="POST">
@@ -196,8 +220,15 @@
           </div>
         </div>
 
-      <% } else { %>
-          <!-- jika mahasiswa tidak ditemukan -->
+      
+
+
+    </div>
+
+    <% } else { %>
+      <!-- jika mahasiswa tidak ditemukan -->
+      <div class="row  justify-content-center align-items-center  ">
+        <div class="col-md-7 p-3 m-2 bg-light rounded shadow">
           <div class="row text-center border-bottom border-primary mb-2 p-2">
             <h2>Mahasiswa</h2>
           </div>
@@ -232,10 +263,9 @@
           <a class="btn btn-primary" href="/dashboard/add/<%= datas[0].nim %>">Tambah</a>
           <a class="btn btn-secondary float-end" href="/dashboard">Kembali</a>
         </div>
-      <% } %>
-
-
-    </div>
+        </div>
+      </div>
+  <% } %>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
