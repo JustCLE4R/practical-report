@@ -36,6 +36,7 @@ app.use(
     saveUninitialized: false,
     store: sessionStore,
     cookie: {secure: false, httpOnly: true, maxAge: 3 * 60 * 60 * 1000}, //h m s ms, jadi 3 jam
+    expires: new Date(Date.now() + 3 * 60 * 60 * 1000), // expires in 3 hours
   })
 );
 app.use(passport.authenticate('session')); //ya passport
