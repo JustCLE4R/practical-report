@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Status Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      .select-menu .select-btn {
+       display: flex;
+       width: 45vh;
+       height: 55px;
+       background: #fff;
+       padding: 20px;
+       font-size: 18px;
+       font-weight: 400;
+       border-radius: 8px;
+       align-items: center;
+       cursor: pointer;
+       justify-content: space-between;
+       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+     }
+
+     .select-btn i {
+       font-size: 25px;
+       transition: 0.3s;
+     }
+
+     .select-menu.active .options {
+       display: block;
+     }
+
+     .options .option i {
+       font-size: 25px;
+       margin-right: 12px;
+       transform: none;
+     }
+
+     .option .option-text {
+       font-size: 18px;
+       color: #333;
+     }
+
+     .options {
+       position: relative;
+       width: 45vh;
+       padding: 20px;
+       margin-top: 10px;
+       border-radius: 8px;
+       background: #fff;
+       box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+       display: none;
+     }
+
+     .options .option {
+       display: flex;
+       height: 55px;
+       cursor: pointer;
+       padding: 0 16px;
+       border-radius: 8px;
+       align-items: center;
+       background: #fff;
+     }
+
+     .options .option:hover {
+       background: #f2f2f2;
+     }
+
+
+     </style>
+  </head>
+  <body style="background-color: rgb(200, 199, 238);">
+    
+    <div class="container">
+
+        <div class="row m-3 justify-content-center mt-4 ">
+          <div  class="col-md-10 bg-light  shadow rounded p-4  ">
+            <h3 class="text-center pb-3" style="border-bottom: 1px solid rgb(85, 87, 221);">Daftar Laporan Praktikum</h3>
+            <div class="row pt-2 d-flex justify-content-between">
+                <div class="col-8 d-flex border justify-content-between  py-3">
+                  <table class="table ">
+                    <thead>
+                      <tr>
+                        <td class="h5">Nama</td>
+                        <td class="h5">: Dimas Yudistira</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="h5">Nim</td>
+                        <td class="h5">: 0701213127</td>
+                      </tr>
+                      <tr>
+                        <td class="h5">Angkatan</td>
+                        <td class="h5">: 2021</td>
+                      </tr>
+                      <tr>
+                        <td class="h5">Asisten Lab</td>
+                        <td class="h5">: Dimas Yudastira</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div class="col-4  ">
+                    <div class="dropdown mb-3 float-end">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Keterangan
+                      </button>
+                      <div style="width: 46vh;" class="dropdown-menu p-2">
+                        <div class="row p-2">
+                          <li class="p-2"><button class="btn btn-sm btn-secondary"><i class="bi bi-calendar"></i></button> Belum Mengumpul</li>
+                          <li class="p-2"><button class="btn btn-sm btn-warning"><i class="bi bi-calendar-x"></i></button> Revisi </li>
+                          <li class="p-2"><button class="btn btn-sm btn-primary"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Aslab</li>
+                          <li class="p-2"><button class="btn btn-sm btn-success"><i class="bi bi-calendar2-check-fill"></i></button> Tanda tangan Laboran</li>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+              <div class="row justify-content-between">
+                            <div class="col">
+                              
+                            </div>
+                            <div class="col">
+                             
+                            </div>
+              </div>
+
+                            <div class=" row mt-3">
+                               <div class="col-12 d-flex flex-row-reverse">
+                                Ingin menambah mahasiswa ini ke kelas kamu?  
+                               </div>
+                               <div class="col d-flex flex-row-reverse justify-content-between mt-1">
+                                <a class="btn btn-primary " href="/dashboard/add/<%= datas[0].nim %>">Tambah</a>
+                                <a class="btn btn-secondary float-end " href="/dashboard">Kembali</a>
+                               </div>
+                            </div>
+
+            </div>
+
+            <div class="col">
+                
+            </div>
+
+              <div class="col shadow border p-3 mb-5 mt-5 " >
+                  <div class="dropdown mb-3">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Jaringan Syaraf Tiruan | V/IK-2
+                      </button>
+                      <div style="width: 46vh;" class="dropdown-menu p-2">
+                        <div class="row">
+                          <div class="col-sm-4">
+                              <span><b>Dosen</b> </span> <br>
+                              <span><b>Laboran</b> </span> <br>
+                            </div>
+                            <div class="col">
+                              <span>: Armansyah M.Kom</span><br>
+                              <span>: Lutfhi Faturahman</span><br>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="col overflow-auto">
+                      <table style="overflow: auto; width: 160vh;" class="table border table-hover ">
+                        <tbody>
+                            <tr class="text-center ">
+                              <th scope="col">Modul 1</th>
+                              <th scope="col">Modul 2</th>
+                              <th scope="col">Modul 3</th>
+                              <th scope="col">Modul 4</th>
+                              <th scope="col">Modul 5</th>
+                              <th scope="col">Modul 6</th>
+                              <th scope="col">Modul 7</th>
+                              <th scope="col">Modul 8</th>
+                            </tr>
+                          
+                        
+                            <tr class="text-center">
+                             
+                              <td >
+                               
+                               <div class="select-menu" id="dropdown1">
+                                <div class="select-btn">
+                                  <span class="sBtn-text">Belum Mengumpul</span>
+                                  <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="options">
+                                  <li class="option" data-value="github">
+                                    <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                    <span class="option-text">Belum Mengumpul</span>
+                                  </li>
+                                  <li class="option" data-value="instagram">
+                                    <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                    <span class="option-text">Revisi</span>
+                                  </li>
+                                  <li class="option" data-value="linkedin">
+                                    <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                    <span class="option-text">TTD Aslab</span>
+                                  </li>
+                                  <li class="option" data-value="facebook">
+                                    <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                    <span class="option-text">TTD Laboran</span>
+                                  </li>
+                                </ul>
+                                
+                               </div>                             
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown2">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="0">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="1">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="2">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="3">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                                  
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown3">
+                                <div class="select-btn">
+                                  <span class="sBtn-text">Belum Mengumpul</span>
+                                  <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="options">
+                                  <li class="option" data-value="github">
+                                    <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                    <span class="option-text">Belum Mengumpul</span>
+                                  </li>
+                                  <li class="option" data-value="instagram">
+                                    <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                    <span class="option-text">Revisi</span>
+                                  </li>
+                                  <li class="option" data-value="linkedin">
+                                    <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                    <span class="option-text">TTD Aslab</span>
+                                  </li>
+                                  <li class="option" data-value="facebook">
+                                    <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                    <span class="option-text">TTD Laboran</span>
+                                  </li>
+                                </ul>
+                                
+                               </div>                                     
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown4">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="github">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="instagram">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="linkedin">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="facebook">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                                  
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown5">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="github">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="instagram">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="linkedin">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="facebook">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                              
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown6">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="github">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="instagram">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="linkedin">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="facebook">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                                   
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown7">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="github">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="instagram">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="linkedin">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="facebook">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                                       
+                              </td>
+                              <td >
+                                <div class="select-menu" id="dropdown8">
+                                  <div class="select-btn">
+                                    <span class="sBtn-text">Belum Mengumpul</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                  </div>
+                                  <ul class="options">
+                                    <li class="option" data-value="github">
+                                      <i class="bi bi-calendar px-2 rounded bg-secondary text-light" ></i>
+                                      <span class="option-text">Belum Mengumpul</span>
+                                    </li>
+                                    <li class="option" data-value="instagram">
+                                      <i class="bi bi-calendar-x px-2 rounded bg-warning text-light"></i>
+                                      <span class="option-text">Revisi</span>
+                                    </li>
+                                    <li class="option" data-value="linkedin">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-primary text-light"></i>
+                                      <span class="option-text">TTD Aslab</span>
+                                    </li>
+                                    <li class="option" data-value="facebook">
+                                      <i class="bi bi-calendar2-check-fill px-2 rounded bg-success text-light"></i>
+                                      <span class="option-text">TTD Laboran</span>
+                                    </li>
+                                  </ul>
+                                  
+                                 </div>                                         
+                              </td>
+                              
+                            </tr>
+                          </tbody>
+                      </table>
+
+                  </div>
+                  <div class="row justify-content-between my-3">
+                    <div class="col-3">
+                      <button class="btn btn-danger">Hapus dari Kelas</button>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-primary">Perbaharui</button>
+                    </div>
+                  </div>
+
+              </div>
+
+          </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+       $(document).ready(function () {
+        $(".select-menu").each(function () {
+          const optionMenu = $(this),
+            selectBtn = optionMenu.find(".select-btn"),
+            options = optionMenu.find(".options"),
+            sBtn_text = optionMenu.find(".sBtn-text"),
+            hiddenInput = optionMenu.find("input[type=hidden]");
+
+          selectBtn.on("click", function () {
+            optionMenu.toggleClass("active");
+          });
+
+          options.find(".option").on("click", function () {
+            let selectedOption = $(this).find(".option-text").text();
+            let selectedValue = $(this).data("value");
+
+            sBtn_text.text(selectedOption);
+            hiddenInput.val(selectedValue);
+
+            optionMenu.removeClass("active");
+
+            // You can perform additional actions or send data to the server here
+            sendDataToServer(selectedValue);
+          });
+        });
+
+        function sendDataToServer(value) {
+          // Implement your logic to send data to the server
+          console.log('Sending data to server:', value);
+          // ... code to send data to the server ...
+        }
+      });
+
+    </script>
+    
+  </body>
+</html>
