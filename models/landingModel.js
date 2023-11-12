@@ -4,10 +4,10 @@ const landingModel = {
   getAllAdmin: (result) => {
     con.query(`
     SELECT * FROM (
-      SELECT nama, 'Laboran' role, motto
+      SELECT nama, 'laboran' role, motto
       FROM laboran
       UNION
-      SELECT nama, 'Asisten Laboratorium', motto
+      SELECT nama, 'aslab', motto
       FROM aslab
     ) u
     `, (err, rows) => {

@@ -163,9 +163,15 @@
           <% datas.forEach(data => { %>
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="/images/profile/<%= data.nama %>.jpg" class="testimonial-img" alt="">
+                <img src="/images/profile/<%= data.role %>/<%= data.nama %>.jpg" class="testimonial-img" alt="">
                 <h3><%= data.nama %></h3>
-                <h4><%= data.role %></h4>
+                <h4>
+                <% if(data.role == 'aslab') { %>
+                  Asisten Laboratorium
+                <% } else if(data.role == 'laboran') { %>
+                  Laboran
+                <% } %>
+                </h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   <%= data.motto %>
