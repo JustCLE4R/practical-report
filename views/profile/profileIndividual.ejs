@@ -27,7 +27,11 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <img
+                  <% if(data.role == 'dosen') { %>
+                    src="/images/profile/<%= data.role %>/user.png"
+                  <% } else { %>
                     src="/images/profile/<%= data.role %>/<%= data.nama %>.jpg"
+                  <% } %>
                     alt="Admin"
                     class="rounded-circle"
                     width="150"
@@ -97,9 +101,9 @@
                   </div>
 
                   <div class="col-sm-9 text-secondary ">
-                    <a class="me-2" target="_blank" href="https://www.instagram.com/<%= data.instagram %>"><i class="bi bi-instagram"></i> Instagram </a>
-                    <a class="me-2" href="https://www.facebook.com/<%= data.facebook %>"><i class="bi bi-facebook"></i> Facebook </a>
-                    <a class="me-2" href="https://wa.me/<%= data.notel.replace(/[\s-]/g, '') %>"><i class="bi bi-whatsapp"></i> Whatsapp </a>
+                    <a class="me-2" target="_blank" href="https://www.instagram.com/<%= data.instagram %>"  target="_blank"><i class="bi bi-instagram"></i> Instagram </a>
+                    <a class="me-2" href="https://www.facebook.com/<%= data.facebook %>"  target="_blank"><i class="bi bi-facebook"></i> Facebook </a>
+                    <a class="me-2" href="https://wa.me/<%= data.notel.replace(/[\s-]/g, '') %>"  target="_blank"><i class="bi bi-whatsapp"></i> Whatsapp </a>
                   </div>
 
                 </div>
