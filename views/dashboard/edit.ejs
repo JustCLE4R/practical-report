@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
   </head>
-  <body style="background-color: rgb(200, 199, 238);">
+  <body style="background: url('/images/uin.png'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat;">
     
     <div class="container">
       <% if (datas[0].nama_matkul) { %>
@@ -227,33 +227,33 @@
 
     <% } else { %>
       <!-- jika mahasiswa tidak ditemukan -->
-      <div class="row  justify-content-center align-items-center  ">
+      <div class="row m-3  justify-content-center align-items-center  ">
         <div class="col-md-7 p-3 m-2 bg-light rounded shadow">
           <div class="row text-center border-bottom border-primary mb-2 p-2">
             <h2>Mahasiswa</h2>
           </div>
           <div class="row justify-content-between " style="background-color: rgba(218, 236, 250, 0.671);">
             <div class="col">
-              <h4> Nama </h4>
+              <h6> Nama </h6>
             </div> 
             <div class="col">
-              <h4><%= datas[0].nama %></h4>
+              <h6><%= datas[0].nama %></h6>
             </div>
           </div>
           <div class="row justify-content-between">
             <div class="col">
-              <h4> NIM</h4>
+              <h6> NIM</h6>
             </div> 
             <div class="col">
-              <h4><%= datas[0].nim %></h4>
+              <h6><%= datas[0].nim %></h6>
             </div>
           </div>
           <div class="row justify-content-between " style="background-color: rgba(218, 236, 250, 0.671);" >
             <div class="col">
-              <h4> Angkatan </h4>
+              <h6> Angkatan </h6>
             </div> 
             <div class="col">
-              <h4><%= datas[0].stambuk %></h4>
+              <h6><%= datas[0].stambuk %></h6>
             </div>
           </div>
           <div class="col d-flex  justify-content-end">
