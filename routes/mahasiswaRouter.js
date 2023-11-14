@@ -5,11 +5,7 @@ const mahasiswaController = require('../controllers/mahasiswaController');
 router
   .route('/')
   .get(mahasiswaController.getMhs)
-  // .post(mahasiswaController.getMhsByNim)
-
-
-
-
+  
 
 
 

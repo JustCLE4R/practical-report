@@ -41,7 +41,30 @@ const mahasiswaModel = {
         return result(null, rows);
       }
     })
-  }
+  },
+
+
+  getKelasById: (id, result) => {
+    con.query(`
+      SELECT mhs.nama nama, mhs.nim, stts.modul_1, stts.modul_2, stts.modul_3, stts.modul_4, stts.modul_5, stts.modul_6, stts.modul_7, stts.modul_8
+      FROM mhs_mk_stts stts
+      INNER JOIN mahasiswa mhs ON stts.nim = mhs.nim
+      WHERE stts.id_mk = ?
+    `, [id], (err, rows) => {
+      if(err){
+        console.log(err);
+        return result(err, null);
+      }
+
+      if(rows.length <= 0){
+        console.log('Database Kosong (getKelasById)');
+        return result(err, null);
+      }
+      else{
+        return result(null, rows);
+      }
+    })
+  },
 
 
 

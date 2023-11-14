@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Laporan Praktikum</title>
+</head>
+<body>
+  <% datas.forEach(data => { %>
+    <%= data.nama %> <br>
+    <%= data.nim %> <br>
+    <% for( let index = 1; index <= 8; index++ ) { %>
+      <%= "Modul_"+index + ": " + data['modul_' + index] %>
+      <br>
+      <% } %>
+    <br>
+  <% }) %>
+</body>
+</html>

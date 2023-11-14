@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelas</title>
+</head>
+<body>
+  <% datas.forEach(data=> { %>
+    <h1><%= data.nama %>&nbsp;&nbsp;&nbsp;<%= data.semester %>/<%= data.kelas %></h1>
+    <h3></h3>
+    <h3>Dosen : <%= data.nama_dosen %></h3>
+    <h3>Laboran : <%= data.nama_laboran %></h3>
+    <h3>Aslab : <%= data.nama_aslab %></h3>
+    <hr>
+
+  <% }); %>
+</body>
+</html>

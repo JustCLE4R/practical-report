@@ -2,18 +2,18 @@ const mahasiswaModel = require('../models/mahasiswaModel');
 
 const mahasiswaController = {
   getMhs: (req, res) => {
-    let checkParams = req.query.nim
+    let checkQuery = req.query.nim
     
-    if(checkParams){
+    if(checkQuery){
       mahasiswaModel.getMhsByNim(checkParams, (err, result) => {
         if(err){
           req.flash('error', 'Ada masalah saat mengambil database (getMhsByNim) ' + err)
-          res.redirect('/mahasiswa')
+          res.redirect('/')
         }
         
         if(result.length <= 0){
-          req.flash('error', 'Mahasiswa dengan nim <strong>'+ checkParams +'</strong> tidak ditemukan di database.')
-          res.redirect('/mahasiswa')
+          req.flash('error', 'Mahasiswa dengan nim <strong>'+ checkParams +'</strong> belum masuk dikelas dan/atau tidak ada di database.')
+          res.redirect('/')
         }
         else{
           res.render('mahasiswa/result', {datas: result})
@@ -21,9 +21,9 @@ const mahasiswaController = {
       })
     }
     else{
-      res.render("mahasiswa")
+      res.redirect("mahasiswa")
     }
-  }
+  },
 
 
 

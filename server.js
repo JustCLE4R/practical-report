@@ -43,21 +43,23 @@ app.use(passport.authenticate('session')); //ya passport
 
 
 //include router
+const APIRouter = require('./routes/APIRouter');
 const landingRouter = require('./routes/landingRouter');
-const dashboardRouter = require('./routes/dashboardRouter');
 const loginRouter = require('./routes/loginRouter');
+const dashboardRouter = require('./routes/dashboardRouter');
 const profileRouter = require('./routes/profileRouter');
 const mahasiswaRouter = require('./routes/mahasiswaRouter');
-const APIRouter = require('./routes/APIRouter');
+const kelasRouter = require('./routes/kelasRouter');
 
 
 //routing
+app.use('/api', APIRouter);
 app.use('/', landingRouter);
-app.use('/dashboard', dashboardRouter);
 app.use('/login', loginRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/profile', profileRouter);
 app.use('/mahasiswa', mahasiswaRouter)
-app.use('/api', APIRouter);
+app.use('/kelas', kelasRouter)
 
 
 //404 route
