@@ -29,6 +29,24 @@
 </head>
 
 <body>
+  <div class="" id="alert-container">
+    <% if (messages.error) { %>
+      <div class="alert alert-danger alert-dismissible mt-2" style="  position: fixed; z-index: 100; top: 25%; left: 50%; transform: translate(-50%, -50%);">
+        <button style="height: fit-content;" type="button" class="close btn lh-1 fs-5 p-0  me-1" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><i class="bi bi-x-circle-fill"></i></button>
+        <strong>Error!</strong>
+        <br/>
+        <span class="ms-4 ps-2"><%- messages.error %></span>
+      </div>
+    <% } %> 
+    <% if (messages.success) { %>
+      <div class="alert alert-success alert-dismissible mt-2" style=" position: fixed;">
+        <button style="height: fit-content;" type="button" class="close btn lh-1 fs-5 p-0  me-1" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><i class="bi bi-x-circle-fill"></i></button>
+        <strong>Success!</strong>
+        <br/>
+        <span class="ms-4 ps-2"><%- messages.success %></span>
+      </div>
+    <% } %>
+  </div>
 
    <!-- ======= Header ======= -->
   <header id="header" class="fixed-top  header-transparent ">
@@ -63,6 +81,7 @@
       <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
         <div>
           <h1>Laporan Praktikum Ilmu Komputer UINSU</h1>
+         
     
               <div class="container">
                 <div class="row mt-3 mb-4">
