@@ -58,7 +58,7 @@ const APIController = {
   },
 
   kelas: (req, res) => {
-    APIModel.getKelas((err, result) => {
+    APIModel.getAllKelas((err, result) => {
       if(err) {
         res.status(500).send(err);
       }
@@ -66,7 +66,60 @@ const APIController = {
         res.status(200).json({kelas: result});
       }
     });
-  }
+  },
+
+  kelasDetail: async(req, res) => {
+    const id = req.params.id_kelas
+
+    try {
+      const kelasDetail = await new Promise((resolve, reject) => {
+        APIModel.getKelasDetailById(id, (err, result) => {
+          if(err){
+            req.flash('error', 'Ada masalah saat mengambil database (getKelasDetail) ' + err)
+            reject(err)
+          }
+  
+          if(result == null){
+            req.flash('error', 'Kelas tidak ditemukan')
+            reject('Kelas tidak ditemukan')
+          }
+          else{
+            resolve(result)
+          }
+        })
+      })
+  
+      const kelasMhs = await new Promise((resolve, reject) => {
+        APIModel.getKelasById(id, (err, result) => {
+          if(err){
+            req.flash('error', 'Ada masalah saat mengambil database (getKelas) ' + err)
+            reject(err)
+          }
+  
+          if(result == null){
+            req.flash('error', 'Tidak/Belum ada mahasiswa di kelas ini, jika merasa harusnya ini tidak terjadi segera hubungi asisten lab yang bersangkutan')
+            reject('Tidak/Belum ada mahasiswa di kelas ini')
+          }
+          else{
+            resolve(result)
+          }
+        })
+      })
+
+      if(kelasDetail && kelasMhs){
+        datas = {
+          kelasDetail: kelasDetail,
+          kelasMhs: kelasMhs
+        }
+
+        res.status(200).json({kelas:datas})
+      }
+
+    } catch (error) {
+      res.render('error/404')
+    }
+  },
+
 
 
 
