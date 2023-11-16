@@ -58,7 +58,7 @@ const APIController = {
   },
 
   kelas: (req, res) => {
-    APIModel.getKelas((err, result) => {
+    APIModel.getAllKelas((err, result) => {
       if(err) {
         res.status(500).send(err);
       }
