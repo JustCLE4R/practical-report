@@ -28,7 +28,7 @@ const APIModel = {
       INNER JOIN laboran ON mk.id_laboran = laboran.id
       INNER JOIN aslab ON mk.id_aslab = aslab.id
       WHERE mhs.nim = ?
-      ORDER BY mk.semester DESC
+      ORDER BY mk.semester DESC, mk.kelas
     `, [nim], (err, rows) => {
       if (err) {
         console.log(err)
@@ -108,6 +108,31 @@ const APIModel = {
     }
   )},
 
+
+  // Mengambil seluruh data kelas
+  getAllKelas: (result) => {
+    con.query(`
+      SELECT mk.id, mk.nama, mk.semester, mk.kelas, dosen.nama nama_dosen, laboran.nama nama_laboran, aslab.nama nama_aslab
+      FROM mata_kuliah mk
+      INNER JOIN dosen ON mk.id_dosen = dosen.id
+      INNER JOIN laboran ON mk.id_laboran = laboran.id
+      INNER JOIN aslab ON mk.id_aslab = aslab.id
+      ORDER BY mk.semester, mk.nama, mk.kelas
+    `, (err, rows) => {
+      if(err){
+        console.log(err);
+        return result(err, null);
+      }
+
+      if(rows.length <= 0){
+        console.log('Database Kosong (getAllKelas)');
+        return result(err, null);
+      }
+      else{
+        return result(null, rows);
+      }
+    }
+  )},
 
 
 

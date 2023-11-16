@@ -20,6 +20,8 @@ app.set('view engine', 'ejs');
 // session store
 const sessionStore = new MySQLStore({
   createDatabaseTable: true,
+  clearExpired: true,
+  expiration: 3 * 60 * 60 * 1000,
 }, con);
 
 
@@ -31,12 +33,11 @@ app.use(express.json()); //parse JSON response
 app.use(flash()); //notify flash
 app.use(
   session({
-    secret: '$2a$12$e9OjN2vB.MPtCayqmorb7ekhbOZ9.hU4KiQEnOSeV2ITi8P8inFhi',
+    secret: process.env.SECRET || 'very secret key',
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie: {secure: false, httpOnly: true, maxAge: 3 * 60 * 60 * 1000}, //h m s ms, jadi 3 jam
-    expires: new Date(Date.now() + 3 * 60 * 60 * 1000), // expires in 3 hours
+    cookie: {secure: false, httpOnly: true, maxAge: 3 * 60 * 60 * 1000, sameSite: 'Strict'}, //h m s ms, jadi 3 jam
   })
 );
 app.use(passport.authenticate('session')); //ya passport

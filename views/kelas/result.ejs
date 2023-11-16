@@ -6,11 +6,19 @@
   <title>Status Laporan Praktikum</title>
 </head>
 <body>
-  <% datas.forEach(data => { %>
-    <%= data.nama %> <br>
-    <%= data.nim %> <br>
+
+  <h1>Hasil Laporan Praktikum</h1>
+  <% datas = datas[0] %>
+  <%= datas.nama_matkul+" "+datas.semester+"/"+datas.kelas %><br>
+  <%= datas.nama_dosen %><br>
+  <%= datas.nama_laboran %><br>
+  <%= datas.nama_aslab %><br>
+  <br>
+  <% mahasiswa.forEach(mhs => { %>
+    <%= mhs.nama %> <br>
+    <%= mhs.nim %> <br>
     <% for( let index = 1; index <= 8; index++ ) { %>
-      <%= "Modul_"+index + ": " + data['modul_' + index] %>
+      <%= "Modul_"+index + ": " + mhs['modul_' + index] %>
       <br>
       <% } %>
     <br>

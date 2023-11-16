@@ -35,7 +35,7 @@ $(document).ready(function () {
     let pageData = data.slice(start, end);
 
     if (pageData.length === 0) {
-      dataBody.append('<tr><td class="text-center" colspan="4">Mahasiswa tidak ditemukan</td></tr>');
+      dataBody.append('<tr><td class="text-danger text-center fs-5 fw-bold" colspan="5">Mahasiswa tidak ditemukan</td></tr>');
     } else {
       $.each(pageData, function (i, mahasiswa) {
         let number = start + i + 1;
@@ -99,18 +99,10 @@ $(document).ready(function () {
     updatePage(currentPage);
   });
 
- // Event handler untuk pencarian saat tombol "Enter" ditekan
-$('#search-input').on('keydown', function (e) {
-  if (e.keyCode === 13) { // 13 adalah kode tombol "Enter"
-    search();
-  }
-});
 
-// Event handler untuk pencarian saat tombol pencarian di-klik
-$('#search-button').on('click', function () {
+$('#search-input').on('input', function () {
   search();
 });
-
 
 // Fungsi untuk melakukan pencarian
 function search() {

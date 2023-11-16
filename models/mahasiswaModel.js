@@ -31,7 +31,7 @@ const mahasiswaModel = {
         INNER JOIN laboran ON mk.id_laboran = laboran.id
         INNER JOIN aslab ON mk.id_aslab = aslab.id
         WHERE mhs.nim = ?
-        ORDER BY mk.semester DESC
+        ORDER BY mk.semester DESC, kelas
     `, [search], (err, rows) => {
       if(err){
         console.log(err);

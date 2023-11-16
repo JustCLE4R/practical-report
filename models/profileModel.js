@@ -35,7 +35,7 @@ const profileModel ={
       SELECT u.id, u.role, u.nama, u.notel, u.instagram, u.facebook, u.mhs_count, u.mk_count
       FROM (
         SELECT aslab.id, 'aslab' role, aslab.nama, aslab.notel, aslab.instagram, aslab.facebook,
-              (SELECT COUNT(DISTINCT stts.nim)
+              (SELECT COUNT(stts.nim)
                 FROM mhs_mk_stts stts
                 INNER JOIN mata_kuliah mk ON stts.id_mk = mk.id
                 WHERE mk.id_aslab = aslab.id
@@ -47,7 +47,7 @@ const profileModel ={
         FROM aslab
         UNION
         SELECT laboran.id, 'laboran', laboran.nama, laboran.notel, laboran.instagram, laboran.facebook,
-              (SELECT COUNT(DISTINCT stts.nim)
+              (SELECT COUNT(stts.nim)
                 FROM mhs_mk_stts stts
                 INNER JOIN mata_kuliah mk ON stts.id_mk = mk.id
                 WHERE mk.id_laboran = laboran.id
@@ -59,7 +59,7 @@ const profileModel ={
         FROM laboran
         UNION
         SELECT dosen.id, 'dosen', dosen.nama, dosen.notel, dosen.instagram, dosen.facebook,
-              (SELECT COUNT(DISTINCT stts.nim)
+              (SELECT COUNT(stts.nim)
                 FROM mhs_mk_stts stts
                 INNER JOIN mata_kuliah mk ON stts.id_mk = mk.id
                 WHERE mk.id_dosen = dosen.id
@@ -69,7 +69,15 @@ const profileModel ={
                 WHERE mk.id_dosen = dosen.id
               ) AS mk_count
         FROM dosen
-      ) AS u;    
+      ) AS u
+      ORDER BY
+        CASE
+          WHEN u.role = 'aslab' THEN 1
+          WHEN u.role = 'laboran' THEN 2
+          WHEN u.role = 'dosen' THEN 3
+          ELSE 4 -- handle other cases, if any
+        END,
+        u.nama;
     `, (err, rows) => {
       if(err){
         return result(err, null)

@@ -57,6 +57,16 @@ const APIController = {
     });
   },
 
+  kelas: (req, res) => {
+    APIModel.getKelas((err, result) => {
+      if(err) {
+        res.status(500).send(err);
+      }
+      else{
+        res.status(200).json({kelas: result});
+      }
+    });
+  }
 
 
 

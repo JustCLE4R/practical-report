@@ -12,6 +12,8 @@ router.get('/laboran', APIController.laboran)
 
 router.get('/dosen', APIController.dosen)
 
+router.get('/kelas', APIController.kelas)
+
 
 
 

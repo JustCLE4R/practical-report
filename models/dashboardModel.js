@@ -68,7 +68,7 @@ const dashboardModel = {
       INNER JOIN aslab ON mk.id_aslab = aslab.id
       WHERE mhs.nim = ?
       AND ${role}.id = ${id}
-      ORDER BY semester DESC
+      ORDER BY semester DESC, kelas
     `, [nim], (err, rows) => {
       if(err){
         console.log(err)

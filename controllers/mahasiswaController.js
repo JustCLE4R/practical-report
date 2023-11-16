@@ -5,14 +5,14 @@ const mahasiswaController = {
     let checkQuery = req.query.nim
     
     if(checkQuery){
-      mahasiswaModel.getMhsByNim(checkParams, (err, result) => {
+      mahasiswaModel.getMhsByNim(checkQuery, (err, result) => {
         if(err){
           req.flash('error', 'Ada masalah saat mengambil database (getMhsByNim) ' + err)
           res.redirect('/')
         }
         
         if(result.length <= 0){
-          req.flash('error', 'Mahasiswa dengan nim <strong>'+ checkParams +'</strong> belum masuk dikelas dan/atau tidak ada di database.')
+          req.flash('error', 'Mahasiswa dengan nim <strong>'+ checkQuery +'</strong> belum masuk dikelas dan/atau tidak ada di database.')
           res.redirect('/')
         }
         else{
@@ -21,7 +21,7 @@ const mahasiswaController = {
       })
     }
     else{
-      res.redirect("mahasiswa")
+      res.render("mahasiswa")
     }
   },
 
