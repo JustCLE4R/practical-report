@@ -141,7 +141,7 @@
                     <th class="text-center"><%= index+1 %></th>
                     <td><%= kelas.nama %></td>
                     <td><%= kelas.semester+"/"+kelas.kelas %></td>
-                    <td class="text-center"><span ><a class="btn btn-primary" href="/kelas/<%= kelas.id %>">Lihat</a></span></td>
+                    <td class="text-center"><span ><a class="btn btn-primary" href="/kelas/result?id=<%= kelas.id %>">Lihat</a></span></td>
                   </tr>
 
                   <% }) %>

@@ -16,10 +16,12 @@ $(document).ready(function () {
       type: 'GET',
       dataType: 'json',
       success: function (response) {
-        originalData = response.kelas; // Simpan data asli
-        kelasDetail = originalData.kelasDetail;
-        kelasMhs = originalData.kelasMhs;
-        totalData = kelasMhs.length;
+        kelasDetail = response.kelas.kelasDetail[0];
+        showKelasDetail(kelasDetail);
+
+        originalDataMhs = response.kelas.kelasMhs;
+        data = originalDataMhs;
+        totalData = data.length;
         totalPages = Math.ceil(totalData / itemsPerPage);
         updatePage(currentPage);
       },
@@ -33,28 +35,106 @@ $(document).ready(function () {
   function updatePage(page) {
     let dataBody = $('#mhs');
     dataBody.empty();
-
+  
     let start = (page - 1) * itemsPerPage;
     let end = start + itemsPerPage;
     let pageData = data.slice(start, end);
-
+  
     if (pageData.length === 0) {
-      dataBody.append('<span class="text-danger text-center fs-5 fw-bold" colspan="5">Kelas tidak ditemukan!</span>');
+      dataBody.append('<p class="text-danger text-center fs-5 fw-bold" colspan="5">Mahasiswa Tidak/Belum Ada diKelas Ini!</p>');
     } else {
+      let fragment = document.createDocumentFragment();
+  
       $.each(pageData, function (i, kelas) {
-        let number = start + i + 1;
-        let namaGambar = encodeURI(kelas.nama); // Mengonversi spasi menjadi representasi URL
-        let row = $('<div  class="col-md-5 shadow bg-light border p-3 my-2 " >');
+        let col = $('<div class="col-12 shadow bg-light border p-3 my-2">');
+  
+        col.append(`
+          <div class="dropdown mb-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">${kelas.nama}</button>
+            <div style="width: 46vh;" class="dropdown-menu p-2">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span><b>NIM</b> </span> <br>
+                </div>
+                <div class="col">
+                  <span>: ${kelas.nim}</span><br>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        row.append('<div class="row justify-content-between my-1 "><div class="col-md-10 my-1"><button class="btn btn-primary text-start" >'+kelas.nama+' | '+kelas.semester+'/'+kelas.kelas+'</button></div><div class="col-md-2 my-1"><a href="/kelas/'+kelas.id+'" class="btn btn-primary">Lihat</a></div></div><div class="row row justify-content-center m-1 mt-2"><div class="col-md-4 border" style="width: 20vh; height: 20vh; background-image: url(\'/images/mata-kuliah/'+namaGambar+'.jpg\'); background-repeat: no-repeat; background-size: contain; background-position: center center; display: flex; align-items: center; justify-content: center;"></div><div class="col-md-8"><span class="h6">Dosen : '+kelas.nama_dosen+'</span> <br><span class="h6">Laboran : '+kelas.nama_laboran+'</span> <br><span class="h6">Aslab : '+kelas.nama_aslab+'</span></div></div>');
-
-
-        dataBody.append(row);
+          <div class="col">
+            <table class="table border table-hover">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Modul 1</th>
+                  <th scope="col">Modul 2</th>
+                  <th scope="col">Modul 3</th>
+                  <th scope="col">Modul 4</th>
+                  <th scope="col">Modul 5</th>
+                  <th scope="col">Modul 6</th>
+                  <th scope="col">Modul 7</th>
+                  <th scope="col">Modul 8</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="trcontent" class="text-center">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        `);
+  
+        let tr = $('<tr id="trcontent" class="text-center">'); // Moved outside the loop
+  
+        // Loop through the modulData array and generate table rows dynamically
+        for (let i = 1; i <= 8; i++) {
+          let buttonClass;
+          let buttonIcon;
+  
+          switch (parseInt(kelas['modul_' + i], 10)) {
+            case 0:
+              buttonClass = 'btn-secondary';
+              buttonIcon = 'bi-calendar';
+              break;
+            case 1:
+              buttonClass = 'btn-warning';
+              buttonIcon = 'bi-calendar-x';
+              break;
+            case 2:
+              buttonClass = 'btn-primary';
+              buttonIcon = 'bi-calendar2-check';
+              break;
+            case 3:
+              buttonClass = 'btn-success';
+              buttonIcon = 'bi-calendar2-check-fill';
+              break;
+            default:
+              buttonClass = '';
+              buttonIcon = '';
+          }
+  
+          let buttonHtml = `
+            <button class="btn fs-3 ${buttonClass}">
+              <i class="bi ${buttonIcon}"></i>
+            </button>
+          `;
+  
+          let row = $('<td class="text-center">');
+          row.append(buttonHtml);
+          tr.append(row);
+        }
+  
+        col.find('#trcontent').replaceWith(tr); // Replace the existing trcontent with the new tr
+        fragment.appendChild(col[0]);
       });
+  
+      dataBody.append(fragment);
     }
-
+  
     buildPaginationLinks();
   }
+  
 
   // Fungsi untuk membangun tombol-tombol halaman paginasi
   function buildPaginationLinks() {
@@ -111,11 +191,9 @@ $('#search-input').on('input', function () {
 // Fungsi untuk melakukan pencarian
 function search() {
   let keyword = $('#search-input').val().toLowerCase();
-  let filteredData = originalData.filter(function (kelas) {
-    return kelas.nama.toLowerCase().includes(keyword) ||
-      kelas.nama_aslab.toLowerCase().includes(keyword) ||
-      kelas.nama_dosen.toLowerCase().includes(keyword) ||
-      kelas.nama_laboran.toLowerCase().includes(keyword);
+  let filteredData = originalDataMhs.filter(function (mhs) {
+    return mhs.nama.toLowerCase().includes(keyword) ||
+      mhs.nim.toLowerCase().includes(keyword);
   });
   data = filteredData;
   totalData = data.length;
@@ -124,15 +202,20 @@ function search() {
   updatePage(currentPage);
 }
 
-
-
-
 });
-// notif
+
 function closeAlert(closeButton) {
 	// Find the parent alert div and remove it
 	var alertDiv = closeButton.parentElement;
 	alertDiv.style.display = "none";
 }
 
+function showKelasDetail(data){
+  const { nama_matkul, semester, kelas, nama_dosen, nama_laboran, nama_aslab } = data;
 
+  $("#mata-kuliah").text(`: ${nama_matkul} ${semester}/${kelas}`);
+  $("#dosen").text(`: ${nama_dosen}`);
+  $("#laboran").text(`: ${nama_laboran}`);
+  $("#aslab").text(`: ${nama_aslab}`);
+  $("#titlepage").text(`${nama_matkul} ${semester}/${kelas}`);
+}
