@@ -19,11 +19,11 @@
                   <div class="col">
                     <div class="row">
                       <div class="col-sm-4">
-                        <% datas = datas[0] %>
+                        
                         <span><b>Mata Kuliah</b> </span> <br>
                       </div>
                       <div class="col-sm-8">
-                        <span>: <%= datas.nama_matkul+" "+datas.semester+"/"+datas.kelas %></span><br>     
+                        <span id="mata-kuliah">:</span><br>     
                       </div>
                     </div>
                     <div class="row">
@@ -31,7 +31,7 @@
                         <span><b>Dosen</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:  <%= datas.nama_dosen %> </span><br>
+                        <span id="dosen">:  </span><br>
                       </div>
                     </div>
                     <div class="row">
@@ -39,7 +39,7 @@
                         <span><b>Laboran</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>: <%= datas.nama_laboran %> </span><br> 
+                        <span id="laboran">: </span><br> 
                       </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,7 @@
                         <span><b>Aslab</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:  <%= datas.nama_aslab %> </span><br>
+                        <span id="aslab">:   </span><br>
                       </div>
                     </div>
                   </div>
@@ -76,11 +76,11 @@
             <div class="col">
                 
             </div>
-            <% mahasiswa.forEach(mhs => { %>
-              <div class="col shadow border p-3 mb-5 mt-5 overflow-auto" >
+           
+              <div id="mhs" class="col shadow border p-3 mb-5 mt-5 overflow-auto" >
                   <div class="dropdown mb-3">
                       <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <%= mhs.nama %>
+                       
                       </button>
                       <div style="width: 46vh;" class="dropdown-menu p-2">
                         <div class="row">
@@ -88,7 +88,7 @@
                               <span><b>NIM</b> </span> <br>
                             </div>
                             <div class="col">
-                              <span>: <%= mhs.nim %></span><br>
+                              <span>: </span><br>
                             </div>
                         </div>
                       </div>
@@ -110,37 +110,16 @@
                           </thead>
                           <tbody>
                             <tr class="text-center">
-                              <% for( let index = 1; index <= 8; index++ ) { %>
+                           
 
-                              <td><button class="btn fs-3 
-                                <% if( mhs['modul_' + index] == '0' ) { %>
-                                  btn-secondary
-                                <% } else if (mhs['modul_' + index] == '1') { %>
-                                  btn-warning
-                                <% } else if (mhs['modul_' + index] == '2') { %>
-                                  btn-primary
-                                <% } else if (mhs['modul_' + index] == '3') { %>
-                                  btn-success
-                                <% } %>
-                              "><i class="bi
-                                <% if( mhs['modul_' + index] == '0' ) { %>
-                                  bi-calendar
-                                <% } else if (mhs['modul_' + index] == '1') { %>
-                                  bi-calendar-x
-                                <% } else if (mhs['modul_' + index] == '2') { %>
-                                  bi-calendar2-check
-                                <% } else if (mhs['modul_' + index] == '3') { %>
-                                  bi-calendar2-check-fill
-                                <% } %>
-                              "></i></button></td>
-                              <% } %>
+                              <td><button class="btn fs-3"></i></button></td>
                               
                             </tr>
                           </tbody>
                       </table>
                   </div>
               </div>
-            <% }) %>
+
           </div>
         </div>
     </div>
@@ -148,5 +127,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/kelas_result.js"></script>
   </body>
 </html>

@@ -8,7 +8,7 @@ router
 
 
 router
-  .route('/:id_kelas')
+  .route('/result')
   .get(kelasController.getKelas)
 
 
