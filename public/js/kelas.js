@@ -44,10 +44,10 @@ $(document).ready(function () {
 
         row.append(`
         <div class="row justify-content-between my-1 ">
-          <div class="col-md-10 my-1">
+          <div class="col-md-9 my-1">
             <button class="btn btn-primary text-start" >${kelas.nama} | ${kelas.semester}/${kelas.kelas}</button>
           </div>
-          <div class="col-md-2 my-1">
+          <div class="col-md-2 my-1 me-2">
           <a href="/kelas/result?id=${kelas.id}" class="btn btn-primary">Lihat</a>
           </div>
         </div>

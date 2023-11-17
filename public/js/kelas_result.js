@@ -46,15 +46,15 @@ $(document).ready(function () {
       let fragment = document.createDocumentFragment();
   
       $.each(pageData, function (i, kelas) {
-        let col = $('<div class="col-12 shadow bg-light border p-3 my-2">');
+        let col = $('<div class="col-12 shadow bg-light border p-3 my-2 overflow-auto">');
   
         col.append(`
           <div class="row justify-content-between text-emphasis-dark h6 mb-3">
-            <div class="col-sm-10">
-              <span class="p-2 px-3 rounded bg-dark-subtle">${kelas.nama}</span>
+            <div class="col-sm-10 my-1">
+              <span class=" rounded ">${kelas.nama}</span>
             </div>
-            <div class="col-sm-2">
-              <span class="p-2 px-3 rounded bg-dark-subtle">${kelas.nim}</span>
+            <div class="col-sm-2 my-1">
+              <span class=" rounded ">${kelas.nim}</span>
             </div>
           </div>
 
