@@ -17,11 +17,16 @@ loginCheck(passport)
 app.set('view engine', 'ejs');
 
 
+// set proxy trust
+app.set('trust proxy', 1);
+
+
 // session store
 const sessionStore = new MySQLStore({
   createDatabaseTable: true,
   clearExpired: true,
   expiration: 3 * 60 * 60 * 1000,
+  checkExpirationInterval: 1.5 * 60 * 60 * 1000,
 }, con);
 
 
@@ -37,7 +42,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie: {secure: false, httpOnly: true, maxAge: 3 * 60 * 60 * 1000, sameSite: 'Strict'}, //h m s ms, jadi 3 jam
+    cookie: {
+      secure: false, 
+      httpOnly: true, 
+      maxAge: 3 * 60 * 60 * 1000,
+      sameSite: 'Strict'
+    },
   })
 );
 app.use(passport.authenticate('session')); //ya passport
