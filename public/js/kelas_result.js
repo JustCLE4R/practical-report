@@ -26,7 +26,7 @@ $(document).ready(function () {
         updatePage(currentPage);
       },
       error: function () {
-        alert('Terjadi kesalahan saat mengambil data.');
+        alert('Kelas tidak ditemukan/Belum dibuat');
       }
     });
   }
@@ -49,17 +49,12 @@ $(document).ready(function () {
         let col = $('<div class="col-12 shadow bg-light border p-3 my-2">');
   
         col.append(`
-          <div class="dropdown mb-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">${kelas.nama}</button>
-            <div style="width: 46vh;" class="dropdown-menu p-2">
-              <div class="row">
-                <div class="col-sm-4">
-                  <span><b>NIM</b> </span> <br>
-                </div>
-                <div class="col">
-                  <span>: ${kelas.nim}</span><br>
-                </div>
-              </div>
+          <div class="row justify-content-between text-emphasis-dark h6 mb-3">
+            <div class="col-sm-10">
+              <span class="p-2 px-3 rounded bg-dark-subtle">${kelas.nama}</span>
+            </div>
+            <div class="col-sm-2">
+              <span class="p-2 px-3 rounded bg-dark-subtle">${kelas.nim}</span>
             </div>
           </div>
 
@@ -213,9 +208,9 @@ function closeAlert(closeButton) {
 function showKelasDetail(data){
   const { nama_matkul, semester, kelas, nama_dosen, nama_laboran, nama_aslab } = data;
 
-  $("#mata-kuliah").text(`: ${nama_matkul} ${semester}/${kelas}`);
-  $("#dosen").text(`: ${nama_dosen}`);
-  $("#laboran").text(`: ${nama_laboran}`);
-  $("#aslab").text(`: ${nama_aslab}`);
+  $("#mata-kuliah").text(`${nama_matkul} ${semester}/${kelas}`);
+  $("#dosen").text(`${nama_dosen}`);
+  $("#laboran").text(`${nama_laboran}`);
+  $("#aslab").text(`${nama_aslab}`);
   $("#titlepage").text(`${nama_matkul} ${semester}/${kelas}`);
 }

@@ -42,7 +42,24 @@ $(document).ready(function () {
         let namaGambar = encodeURI(kelas.nama); // Mengonversi spasi menjadi representasi URL
         let row = $('<div  class="col-md-5 shadow bg-light border p-3 my-2 " >');
 
-        row.append('<div class="row justify-content-between my-1 "><div class="col-md-10 my-1"><button class="btn btn-primary text-start" >'+kelas.nama+' | '+kelas.semester+'/'+kelas.kelas+'</button></div><div class="col-md-2 my-1"><a href="/kelas/result?id='+kelas.id+'" class="btn btn-primary">Lihat</a></div></div><div class="row row justify-content-center m-1 mt-2"><div class="col-md-4 border" style="width: 20vh; height: 20vh; background-image: url(\'/images/mata-kuliah/'+namaGambar+'.jpg\'); background-repeat: no-repeat; background-size: contain; background-position: center center; display: flex; align-items: center; justify-content: center;"></div><div class="col-md-8"><span class="h6">Dosen : '+kelas.nama_dosen+'</span> <br><span class="h6">Laboran : '+kelas.nama_laboran+'</span> <br><span class="h6">Aslab : '+kelas.nama_aslab+'</span></div></div>');
+        row.append(`
+        <div class="row justify-content-between my-1 ">
+          <div class="col-md-10 my-1">
+            <button class="btn btn-primary text-start" >${kelas.nama} | ${kelas.semester}/${kelas.kelas}</button>
+          </div>
+          <div class="col-md-2 my-1">
+          <a href="/kelas/result?id=${kelas.id}" class="btn btn-primary">Lihat</a>
+          </div>
+        </div>
+        <div class="row row justify-content-center m-1 mt-2">
+          <div class="col-md-4 border" style="width: 20vh; height: 20vh; background-image: url(\'/images/mata-kuliah/${kelas.nama}.jpg\'); background-repeat: no-repeat; background-size: contain; background-position: center center; display: flex; align-items: center; justify-content: center;">
+          </div>
+          <div class="col-md-8">
+            <span class="h6">Dosen : ${kelas.nama_dosen}</span> <br>
+            <span class="h6">Laboran : ${kelas.nama_laboran}</span> <br>
+            <span class="h6">Aslab : ${kelas.nama_aslab}</span>
+          </div>
+        </div>`);
 
 
         dataBody.append(row);

@@ -25,15 +25,15 @@
                         <span><b>Nama</b> </span> <br>
                       </div>
                       <div class="col-sm-8">
-                        <span>: <%= datas[0].nama %></span><br>     
+                        <span><%= datas[0].nama %></span><br>     
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row " style="background-color: rgba(202, 247, 232, 0.39);">
                       <div class="col-sm-4">
                         <span><b>Nim</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:  <%= datas[0].nim %> </span><br>
+                        <span><%= datas[0].nim %> </span><br>
                       </div>
                     </div>
                     <div class="row">
@@ -41,10 +41,10 @@
                         <span><b>Angkatan</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:   <%= datas[0].stambuk %> </span><br>
+                        <span><%= datas[0].stambuk %> </span><br>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row "  style="background-color: rgba(202, 247, 232, 0.39);">
                       <div class="col-sm-4">
                         <span><b>
                         <% if (admin.role == 'aslab') { %>
@@ -54,7 +54,7 @@
                         <% } %></b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:   <%= admin.nama %></span><br>
+                        <span><%= admin.nama %></span><br>
                       </div>
                     </div>
                   </div>

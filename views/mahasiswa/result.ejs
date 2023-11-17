@@ -15,38 +15,38 @@
           <div  class="col-md-10 bg-light  shadow rounded p-4  ">
             <h3 class="text-center pb-3" style="border-bottom: 1px solid rgb(85, 87, 221);">Status Mahasiswa</h3>
             <div class="row pt-2 d-flex justify-content-between">
-                <div class="col-8 d-flex border justify-content-between  py-3">
+                <div class="col-7 d-flex border justify-content-between  py-3">
                   <div class="col">
-                    <div class="row">
+                    <div class="row" style="background-color: rgba(202, 247, 232, 0.39);">
                       <div class="col-sm-4">
                         <span><b>Nama</b> </span> <br>
                       </div>
                       <div class="col-sm-8">
-                        <span>: <%= datas[0].nama %></span><br>     
+                        <span><%= datas[0].nama %></span><br>     
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row"  >
                       <div class="col-sm-4">
                         <span><b>Nim</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:  <%= datas[0].nim %> </span><br>
+                        <span><%= datas[0].nim %> </span><br>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="background-color: rgba(202, 247, 232, 0.39);">
                       <div class="col-sm-4">
                         <span><b>Angkatan</b></span> 
                       </div>
                       <div class="col-sm-8">
-                        <span>:   <%= datas[0].stambuk %> </span><br>
+                        <span><%= datas[0].stambuk %> </span><br>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div class="col-4  ">
+                <div class="col-4 ">
                     <div class="dropdown mb-3 float-end">
-                      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Keterangan
                       </button>
                       <div style="width: 46vh;" class="dropdown-menu p-2">
